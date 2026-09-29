@@ -1,0 +1,725 @@
+{
+ "examCode": "23B-A",
+ "examLabel": "2023 סמסטר ב מועד א",
+ "year": 2023,
+ "examDate": "12.6.2023",
+ "sourceFile": "מבחנים/2023/סמסטר א/2023-06-12-Exam-חישוביות-2023-moedA-גרסא-0 SOLUTION.pdf",
+ "keyFile": "same file (yellow-highlighted options + yellow 'הסבר' paragraphs). Cover says 'סמסטר א' תשפ\"ג, מועד א'' with no date (Dr. Radel Ben-Av) — mis-filed/unedited template; filename date 12.6.2023 → semester ב מועד א.",
+ "contexts": {
+  "rel": {
+   "kind": "text",
+   "title": "הגדרות לשאלות 10–12",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות:\n$$A = \\{\\langle M\\rangle \\mid L(M) \\subseteq VC\\}$$$$B = \\{\\langle M\\rangle \\mid L(M) \\subseteq IS\\}$$$$C = \\{\\langle M\\rangle \\mid L(M) \\notin RE\\}$$"
+  },
+  "map": {
+   "kind": "text",
+   "title": "הגדרות לשאלות 13–16",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות.\n**שפות:**\n$$N_{TM} = \\{\\langle M,w\\rangle \\mid (*)\\}$$(*): $M$ מקבלת את $w$ אחרי יותר מ-$|w|$ צעדים\n$$B_{TM} = \\{\\langle M\\rangle \\mid (**)\\}$$(**): קיימת מילה $w$ כך ש-$M$ מקבלת אותה אחרי יותר מ-$|w|$ צעדים\n$$F_{TM} = \\{\\langle M\\rangle \\mid \\infty > L(M) \\ne \\emptyset\\}$$($L(M)$ סופית ולא ריקה)\n**פונקציות מיפוי:**\n$$f(\\langle M,w\\rangle) = \\langle R_{Mw}\\rangle \\qquad g(\\langle M\\rangle) = \\langle T_M\\rangle$$כאשר המכונות $R_{Mw}$ ו-$T_M$ מוגדרות באופן הבא:\n**$R_{Mw}$ על קלט $y$:**\n1. הרץ את $M$ על $w$ ורשום את מספר הצעדים $T_w$.\n2. אם $M$ דחתה – אז דחה.\n3. אם $|y| < 2 \\cdot T_w$ וגם $T_w > |w|$ קבל. אחרת דחה.\n**$T_M$ על קלט $y$:**\n1. הרץ את $M$ על כל המילים שאורכן לכל היותר $|y|$ למשך $|y|$ צעדים.\n2. אם בשלב 1 המכונה $M$ קיבלה לפחות מילה אחת: קבל. אחרת: דחה."
+  },
+  "poly": {
+   "kind": "text",
+   "title": "הגדרות לשאלות 17–19",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות:\nנסמן ב-$F_f(\\phi)$ את המספר המקסימלי של משתנים שמקבלים ערך $F$ בהצבה מספקת של $\\phi$.\n$$F2SAT = \\{\\langle \\phi\\rangle \\mid (*)\\}$$(*): $\\phi \\in 3CNF$ וגם $F_f(\\phi) \\ge n-2$; $n$ הוא מספר המשתנים השונים שמופיעים ב-$\\phi$\nנגדיר את הפונקציה הבאה:\n$$f(\\langle \\phi\\rangle) = \\phi \\wedge (\\neg z_1 \\vee \\neg z_2 \\vee \\neg z_3) \\wedge (\\neg z_4 \\vee \\neg z_5 \\vee \\neg z_6) \\wedge \\cdots \\wedge (\\neg z_{N-2} \\vee \\neg z_{N-1} \\vee \\neg z_N)$$כאשר $z_i$ הינם המשתנים המקוריים שמופיעים ב-$\\phi$. ערכו של $N$ מתחלק ב-3 והוא הגדול ביותר שעדיין קטן או שווה למספר המשתנים השונים המופיעים ב-$\\phi$."
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "topic": "decidability",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nנתונות שלוש שפות $A, B, C$ המקיימות $A \\subseteq B \\subseteq C$. אם $A, C \\notin RE$ אזי נובע ש-$B \\notin RE$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "עבור השפות הבאות מתקיים $A \\subseteq B \\subseteq C$:\n$$A = \\{\\langle M, M\\rangle \\mid L(M) = \\Sigma^*\\}$$לשפה $A$ התאמה חח\\\"ע ועל עם השפה $ALL_{TM}$ ומתקיים $A \\notin RE$.\n$$B = \\{\\langle M, M\\rangle \\mid L(M) \\ne \\emptyset\\}$$לשפה $B$ התאמה חח\\\"ע ועל עם השפה $\\overline{E_{TM}}$ ומתקיים $B \\in RE$.\n$$C = EQ_{TM}$$ומתקיים $C \\notin RE$.",
+   "note": "Explanation line for B literally says 'לשפה A התאמה … E_TM-bar' (copy typo) — written as B. Φ rendered as \\emptyset."
+  },
+  {
+   "num": 2,
+   "topic": "npc",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nתחת ההנחה $NPC \\ne P$: $A \\in NPC \\Rightarrow \\forall B \\in P \\;\\; B \\le_p A$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "גם בלי ההנחה, אם $A$ לא טריוויאלית (ונתון $A \\in NPC$ ושפה טריוויאלית לא מקיימת זאת), אז יש רדוקציה פולינומיאלית ל-$A$ מכל שפה ב-$P$."
+  },
+  {
+   "num": 3,
+   "topic": "closure",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nאם $B \\in R$ וגם $A \\in RE \\setminus R$ אזי $A - B \\in RE \\setminus R$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "עבור $B = \\Sigma^* \\in R$ וכל $A \\in RE \\setminus R$, נקבל $A - B = \\emptyset \\in R$."
+  },
+  {
+   "num": 4,
+   "topic": "decidability",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nנתון $L(M) \\in R$, לא טריוויאלית, וכן נתון ש-$M$ **לא מכריעה** את $L(M)$, אזי $\\exists w \\in \\Sigma^*$, כך שסדרת הקונפיגורציות של החישוב של $M$ על $w$ היא סופית.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "השפה לא טריוויאלית, בפרט לא ריקה, ולכן $\\exists w \\in \\Sigma^*$ כך ש-$w \\in L(M)$. המכונה $M$ אמנם לא מכריעה את השפה, אבל היא מקבלת אותה, ולכן המילה $w$ תתקבל על ידה, כלומר, סדרת הקונפיגורציות של החישוב היא סדרה סופית המסתיימת בקבלה."
+  },
+  {
+   "num": 5,
+   "topic": "tm",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nנתון ש-$M$ מכונת טיורינג לא דטרמיניסטית רב סירטית שמכריעה את $L$, אז קיימת מכונת טיורינג דטרמיניסטית וחד סירטית שמקבלת את $L$ אך לא מכריעה אותה.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**לא נכון:** השפה $L = \\Sigma^*$ מפריכה את הטענה (כל מכונה המקבלת את השפה בהכרח גם מכריעה אותה, כי אין מילים שלא מתקבלות שיכולות להיכנס ללולאה אינסופית).\n**נכון:** אם נתון שהשפה $L$ לא טריוויאלית, אזי קיימת לפחות מילה אחת שלא מתקבלת על ידי השפה, ואפשר לשנות את המכונה כך שעל מילה זו היא תיכנס ללולאה אינסופית, ולכן תהיה עדיין מקבלת את אותה שפה $L$ אבל לא מכריעה אותה.\nכוונת השאלה המקורית היתה ללא שפות טריוויאליות, לכן פורסמה התשובה \"נכון\", אך מכיוון שטעינו בניסוח השאלה ופרסמנו כבר את התשובה, הוחלט לקבל את שתי התשובות.\n(הרב סרטיות והחד סרטיות לא רלוונטיים פה, מכיוון שיש שקילות בין שני המודלים ביחס להכרעה-קבלה של שפות).",
+   "acceptedIds": [
+    "a",
+    "b"
+   ],
+   "note": "No option highlighted. The key's explanation says the published answer was 'נכון' (א) and after the appeal both answers were accepted."
+  },
+  {
+   "num": 6,
+   "topic": "time_p",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nנתון ש-$L \\notin P$ אזי לכל $M$ – מ\\\"ט רב סירטית שמכריעה את $L$, ולכל מספר שלם $n$, קיימת מילה $w$ כך שאורך סדרת הקונפיגורציות שמקבלת את $w$ גדול מ-$|w|^n$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הוכחה בדרך השלילה: אם המסקנה לא היתה נכונה, אז היתה קיימת מכונת טיורינג בסיסית אחת לפחות (שאפשר להפוך אותה לרב סירטית שקולה לה) שמכריעה את $L$, שעבורה היה קיים $n$ כך שלכל מילה $w$ אורך סדרת הקונפיגורציות שמקבלת את $w$ היא קטנה או שווה $|w|^n$ (זו השלילה הלוגית של מה שכתוב אחרי \"אזי\"). אבל זו ההגדרה של שייכות ל-$P$, בסתירה לנתון שהשפה לא שייכת ל-$P$."
+  },
+  {
+   "num": 7,
+   "topic": "classification",
+   "question": "סווג את השפה הבאה לאחת מהמחלקות המפורטות:\n$$L = \\{\\langle M, w\\rangle \\mid (*)\\}$$(*): $M$ לא עוצרת על $w$ לאחר פחות מ-$e^{|w|}$ צעדים",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת להכרעה אך ניתנת לקבלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת לקבלה אך $\\overline{L}$ ניתנת לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "גם $L$ וגם $\\overline{L}$ לא ניתנות לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ניתן לבנות מכונת טיורינג המקבלת כקלט $M, w$ ופועלת כך:\nתריץ את $M$ על $w$ למשך $e^{|w|}$ צעדים (לכל היותר).\nאם בזמן ההרצה $M$ עצרה (קבלה או דחייה של $w$), אז תדחה את הזוג.\nאחרת, תקבל את הזוג.",
+   "note": "Printed as L = {<M,w> | M לא עוצרת על w לאחר פחות מ e^{|w|} צעדים}; condition moved to a (*) line."
+  },
+  {
+   "num": 8,
+   "topic": "classification",
+   "question": "סווג את השפה הבאה לאחת מהמחלקות המפורטות:\n$$L = \\{\\langle M, w\\rangle \\mid w \\notin L(M)\\}$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת לקבלה אך $\\overline{L}$ ניתנת לקבלה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת להכרעה אך ניתנת לקבלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "גם $L$ וגם $\\overline{L}$ לא ניתנות לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "השפה המשלימה: $\\overline{L} = \\{\\langle M, w\\rangle \\mid w \\in L(M)\\}$ ניתנת לקבלה, כי ניתן לבנות מכונת טיורינג המקבלת כקלט זוג $M, w$ ופועלת כך:\nמריצה את $M$ על $w$.\nאם $M$ עוצרת במצב מקבל, תקבל את הזוג.\nאחרת תדחה את הזוג.\nמכונה זו מקבלת את השפה המשלימה, אבל לא מכריעה אותה: היא עלולה להיכנס ללולאה אינסופית, במקרה ש-$M$ עושה זאת.\nלכן $\\overline{L}$ ניתנת לקבלה.\nולכן $L$ לא ניתנת לקבלה (כי אם היא וגם המשלימה ניתנות לקבלה, אז היא ניתנת להכרעה, ומזה היינו מסיקים שלכל מכונת טיורינג יש מכונה שקולה שמכריעה את השפה שלה, כלומר, כל שפה היא כריעה, וזה לא נכון)."
+  },
+  {
+   "num": 9,
+   "topic": "classification",
+   "question": "סווג את השפה הבאה לאחת מהמחלקות המפורטות:\n$$L = \\{\\langle M_1, M_2, M_3\\rangle \\mid L(M_1) \\ne L(M_2) \\cup L(M_3)\\}$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "גם $L$ וגם $\\overline{L}$ לא ניתנות לקבלה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת להכרעה אך ניתנת לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת לקבלה אך $\\overline{L}$ ניתנת לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אפשר לעשות רדוקציה מבעיית השקילות לבעייה זו: בהינתן קלט לבעיית השקילות, נתרגם לקלט של השפה $L$ הנ\"ל על ידי הוספת המכונה שדוחה כל מילה, בתור המכונה השלישית.\nבאותו אופן ניתן לעשות רדוקציה מהמשלימה של בעיית השקילות, למשלימה של $L$, ולכן חייב להיות ששתיהן לא ניתנות לקבלה (אחרת בעיית השקילות היתה ניתנת לקבלה, ואנחנו יודעים שהיא לא).",
+   "note": "Option ד is printed without the leading L ('לא ניתנת לקבלה אך L̄ ניתנת לקבלה'); written with $L$ like Q7/Q8."
+  },
+  {
+   "num": 10,
+   "topic": "classification",
+   "question": "קבע מהו היחס בין $A$ ל-$B$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "A \\cap B \\ne \\emptyset"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "A \\cap B = \\emptyset"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "A \\supset B"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לפי הגדרת $A$, $\\langle M\\rangle \\in A$ אםם לכל $\\langle G,k\\rangle \\in L(M)$ מתקיים $\\langle G,k\\rangle \\in VC$, כלומר יש כיסוי קדקודים ב-$G$ בגודל $k$.\nלפי הגדרת $B$, $\\langle M\\rangle \\in B$ אםם לכל $\\langle G,k\\rangle \\in L(M)$ מתקיים $\\langle G,k\\rangle \\in IS$, כלומר יש קבוצת קדקודים בלתי תלויה ב-$G$ בגודל $k$.\nאזי המכונה $M$ שמקבלת את כל הזוגות $\\langle G,k\\rangle$ שעבורם יש כיסוי קדקודים בגודל $k$ וגם קבוצת קדקודים בלתי תלויה בגודל $k$ (גרפים דו צדדיים עם $k$ קדקודים בשני הצדדים וזיווג מושלם) שייכת גם ל-$A$ וגם ל-$B$, לכן החיתוך לא ריק.",
+   "contextId": "rel",
+   "note": "Options printed with the glyph ϕ; rendered as \\emptyset."
+  },
+  {
+   "num": 11,
+   "topic": "classification",
+   "question": "קבע מהו היחס בין $B$ ל-$C$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "C \\subset B"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "B \\subset C"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "C = B"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$C$ זו קבוצה ריקה (בהגדרה, שפה של כל מכונת טיורינג ניתנת לקבלה על ידי עצמה), לכן באופן ריק היא מוכלת בכל קבוצה אחרת, אך לא להפך. היא גם לא שווה ל-$B$ כי $B$ לא ריקה.",
+   "contextId": "rel"
+  },
+  {
+   "num": 12,
+   "topic": "classification",
+   "question": "קבע מהו היחס בין $C$ ל-$A$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "A \\cap C = \\emptyset"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "A \\cap C \\ne \\emptyset"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "C \\supset A"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אותו הסבר מהשאלה הקודמת, מכיוון ש-$C$ ריקה, החיתוך שלה עם כל קבוצה הוא ריק.",
+   "contextId": "rel",
+   "note": "Options printed with the glyph ϕ; rendered as \\emptyset."
+  },
+  {
+   "num": 13,
+   "topic": "mapping_reductions",
+   "question": "האם $f$ היא רדוקציה $N_{TM} \\le_m B_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$f$ ניתנת לחישוב (ניתן לחשב את הקידוד של המכונה $R_{Mw}$ בזמן סופי).\nנראה שמתקיים $\\langle M,w\\rangle \\in N_{TM} \\Leftrightarrow \\langle R_{Mw}\\rangle \\in B_{TM}$:\n**(כיוון 1):** אם $\\langle M,w\\rangle \\in N_{TM}$ אז $M$ מקבלת את $w$ אחרי יותר מ-$|w|$ צעדים. נראה מה זה אומר על $R_{Mw}$: על קלט $y$ ל-$R_{Mw}$,\n1. $M$ תרוץ על $w$ ותעצור בקבלה אחרי מספר צעדים המקיים $T_w > |w|$.\n2. מכיוון ש-$M$ לא דחתה, אז $R_{Mw}$ לא תדחה בשלב זה, ותעבור ל-3.\n3. מכיוון שמתקיים $T_w > |w|$, אזי אם מתקיים גם $|y| < 2T_w$, $y$ תתקבל, ואם לא, $y$ תידחה.\nמכאן אנו רואים שהמילים $y$ שיתקבלו על ידי $R_{Mw}$ הן רק אלה המקיימות $|y| < 2T_w$.\nבפרט, עבור $y = w$, כשנריץ את המכונה $R_{Mw}$ על $w$, נראה שמתקיימים שני דברים:\n1. המילה $w$ תתקבל, כי המכונה תגיע לשלב 3, ומתקיים $|w| < T_w < 2T_w$.\n2. מספר הצעדים שהמכונה רצה הוא לפחות $|w|$ (בשלב 1 של המכונה, זה מספר הצעדים הנדרש), ואז יש עוד צעדים בהמשך.\nלכן מתקיים התנאי של שייכות ל-$B_{TM}$, כלומר $\\langle R_{Mw}\\rangle \\in B_{TM}$.\n**(כיוון 2):** אם $\\langle R_{Mw}\\rangle \\in B_{TM}$ אז קיימת מילה $y$ כלשהי (נסמנה $y$, כדי להבדילה מ-$w$, שיש לה כבר תפקיד בדיון זה) ש-$R_{Mw}$ מקבלת אחרי יותר מ-$|y|$ צעדים. נסמן נתון זה ב-(*).\nאבל ראינו כבר לעיל, שהמילים המתקבלות על ידי $R_{Mw}$ הן רק אלה שמקיימות $|y| < 2T_w$.\nנבדוק האם $M$ מקבלת את $w$ אחרי יותר מ-$|w|$ צעדים:\nאם לא, אז או ש-$M$ לא מקבלת את $w$, ואז המכונה $R_{Mw}$ אף פעם לא עוצרת ולכן לא מקבלת אף מילה, בניגוד למה שאמרנו שקיימת מילה שמתקבלת (לפי (*)). אז זה לא יתכן.\nאו ש-$M$ מקבלת את $w$ אבל אחרי $T_w \\le |w|$ צעדים, ואז תעבור לשלב 3 בו תידחה את המילה כי לא מתקיים התנאי $T_w > |w|$. ואז שוב המכונה $R_{Mw}$ לא מקבלת אף מילה, בניגוד לנתון שקיימת מילה שמתקבלת (לפי (*)).\nלכן נסיק שאכן $M$ מקבלת את $w$ אחרי יותר מ-$|w|$ צעדים, ולכן $\\langle M,w\\rangle \\in N_{TM}$.",
+   "contextId": "map"
+  },
+  {
+   "num": 14,
+   "topic": "mapping_reductions",
+   "question": "האם $f$ היא רדוקציה $N_{TM} \\le_m F_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "med",
+   "explanation": "$f$ ניתנת לחישוב (ניתן לחשב את הקידוד של המכונה $R_{Mw}$ בזמן סופי).\nנראה שמתקיים $\\langle M,w\\rangle \\in N_{TM} \\Leftrightarrow \\langle R_{Mw}\\rangle \\in F_{TM}$:\n**(כיוון 1):** אם $\\langle M,w\\rangle \\in N_{TM}$ אז $M$ מקבלת את $w$ אחרי יותר מ-$|w|$ צעדים. נראה מה זה אומר על $R_{Mw}$: בכל מקרה השפה של $R_{Mw}$ סופית כי הוא לא מקבל מילים שהאורך שלהם גדול מ-$2 \\cdot T_w$ ויש מספר סופי של מילים כאלה. כמו כן היא תקבל לפחות את $w$. ולכן היא סופית ולא ריקה.\n**(כיוון 2):** אם $\\langle M,w\\rangle \\notin N_{TM}$ אזי או ש-$M$ לא עוצרת על $w$ ואז $R_{Mw}$ לא עוצרת על אף קלט והשפה שלה ריקה, או שהיא עוצרת אבל לא מקבלת את $w$ – אז תנאי 2 מתקיים ושוב השפה של $R_{Mw}$ ריקה, או שהיא מקבלת את $w$ אבל אחרי פחות מ-$|w|$ צעדים ואז החלק השני בתנאי 3 לא מתקיים ושוב השפה של $R_{Mw}$ ריקה. ולכן $f(\\langle M,w\\rangle) \\notin F_{TM}$.",
+   "contextId": "map",
+   "note": "No option highlighted. The explanation proves f(<M,w>) ∈ F_TM ⇔ <M,w> ∈ N_TM, i.e. כן (א). Its opening line copy-pasted from Q13 says '⇔ <R_Mw> ∈ B_TM' — written as F_TM."
+  },
+  {
+   "num": 15,
+   "topic": "mapping_reductions",
+   "question": "האם $g$ היא רדוקציה $F_{TM} \\le_m B_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "",
+   "contextId": "map"
+  },
+  {
+   "num": 16,
+   "topic": "mapping_reductions",
+   "question": "האם $g$ היא רדוקציה $F_{TM} \\le_m \\overline{B_{TM}}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כן"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "",
+   "contextId": "map"
+  },
+  {
+   "num": 17,
+   "topic": "poly_reductions",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\n$$\\phi \\in F2SAT \\Rightarrow f(\\phi) \\in 3SAT$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$f(\\langle\\phi\\rangle) = \\phi \\wedge \\phi_2$.\n$f(\\langle\\phi\\rangle)$ הוא בצורה נכונה (כלומר בצורת 3CNF). $\\phi$ ניתן לסיפוק כי הוא שייך ל-$F2SAT$. $\\phi_2$ ניתן לסיפוק כי בכל פסוקית יש שלושה משתנים שונים של הנוסחא המקורית. יש הצבה מספקת שבה יש 2 או פחות משתנים בעלי ערך $T$. ולכן בכל שלשה יש לפחות משתנה אחד שיש לו ערך $F$. ולכן שלילה שלו תהיה בעלת ערך $T$. כלומר גם ל-$\\phi_2$ יש ערך אמת בהצבה המספקת.",
+   "contextId": "poly"
+  },
+  {
+   "num": 18,
+   "topic": "poly_reductions",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\n$$f(\\phi) \\in 3SAT \\Rightarrow \\phi \\in F2SAT$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "יכול להיות ש-$\\phi \\notin F2SAT$ ובכל זאת $f(\\phi) \\in 3SAT$. למשל יש הצבה מספקת ל-$\\phi$ שבה רק למשתנים המקוריים $z_1, z_4, z_7, z_{10}, \\ldots$ יש ערך $F$, ולשאר המשתנים יש ערך $T$. במקרה זה $\\phi \\notin F2SAT$ אבל $\\phi$ וגם $\\phi_2$ ספיקות בו זמנית.",
+   "contextId": "poly",
+   "note": "א 'לא נכון' fully highlighted; a stray yellow mark covers only the 'ב.' label. The explanation supports א. The explanation is cut off after 'ולכן' followed by a leftover 'Type equation here.' placeholder — ended at 'בו זמנית.'"
+  },
+  {
+   "num": 19,
+   "topic": "poly_reductions",
+   "question": "האם המסקנה היא: $F2SAT \\le_p 3SAT$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ההוכחה שנתונה כאן שגויה. אבל המסקנה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "ההוכחה שנתונה כאן נכונה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "ההוכחה שגויה וגם המסקנה שגויה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ההוכחה שגויה כי לא מתקיים תנאי הרדוקציה. אבל ניתן להראות ש-$F2SAT \\in P$ כי צריך לבדוק רק מספר פולינומי של אפשרויות (לכל היותר לשני משתנים יש ערך $T$). ולכן בודאי מתקיים $F2SAT \\le_p 3SAT$ כמו עבור כל שפה ב-$P$.",
+   "contextId": "poly"
+  },
+  {
+   "num": 20,
+   "topic": "npc",
+   "question": "נניח שקיימת שפה $A$ כך שמתקיים $VC \\le_p A$ וגם $\\overline{A} \\le_p IS$. איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$NP$ סגורה למשלים"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "A \\in RE \\setminus R"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$NP$ לא סגורה למשלים"
+    },
+    {
+     "id": "d",
+     "type": "math",
+     "value": "P = NP"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מהנתון $\\overline{A} \\le_p IS$ מתקיים גם $A \\le_p \\overline{IS}$. ולכן על פי טרנזיטיביות נקבל $VC \\le_p A \\le_p \\overline{IS}$, כלומר $VC \\le_p \\overline{IS}$ ומכיוון ש-$IS \\in NP$ אזי $\\overline{IS} \\in coNP$ ולכן גם $VC \\in coNP$.\nומספיקה שפה אחת ($VC$) שהיא ב-$NPC$ וגם ב-$coNP$ כדי להסיק ש-$NP$ סגורה למשלים."
+  },
+  {
+   "num": 21,
+   "topic": "tm",
+   "question": "תהא $M$ מ\\\"ט לא דטרמיניסטית שמכריעה שפה ותהא $M^*$ המכונה שמתקבלת מ-$M$ ע\\\"י כך שמחליפים בין המצבים $q_{acc}$ ו-$q_{rej}$. איזו מהטענות הבאות **אפשרית**?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כל התשובות נכונות"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "קיימות מילים שעבורן עץ הקונפיגורציות של $M^*$ מכיל מסלולים אינסופיים"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "עבור כל מילה עץ הקונפיגורציות של $M^*$ הינו סופי"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "גם $M^*$ מכריעה שפה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**ב אפשרית:** במכונה לא דטרמיניסטית שמכריעה, כל מילה מתקבלת או נדחית. אם מילה מתקבלת, יש לפחות מצב מקבל אחד בעץ שלה, אבל יכולים להיות מסלולים אחרים אינסופיים, ומסלולים אחרים דוחים. לכן בעץ של אותה מילה עבור $M^*$, גם יהיו מסלולים אינסופיים.\n**ג אפשרית:** במכונה לא דטרמיניסטית יכולים להיות מסלולים אינסופיים בעץ, אבל לא חייבים להיות. אם המצב הוא שאין מסלולים אינסופיים לאף מילה עבור $M$, אז גם ב-$M^*$ כל העצים יהיו סופיים.\n**ד אפשרית:** למשל אם המכונה היא כמו באפשרות ג, ואין מסלולים אינסופיים, אז גם ב-$M^*$ תמיד כל מילה או תידחה או תתקבל.",
+   "lockOrder": true
+  },
+  {
+   "num": 22,
+   "topic": "mapping_reductions",
+   "question": "נתונות שתי שפות $B, A$. האם יתכן שאותה פונקציה $f$ תהיה רדוקציה מ-$A$ ל-$B$ וגם רדוקציה מ-$B$ ל-$A$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "רק אם הרדוקציה היא רדוקצית מיפוי אך לא עבור רדוקציה פולינומית"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא יתכן"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "רק אם שתי השפות סופיות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ראינו דוגמא כזו, $IS$, $CLIQUE$."
+  },
+  {
+   "num": 23,
+   "topic": "time_p",
+   "question": "תהא $M$ מ\\\"ט **רב סירטית** דטרמיניסטית שמכריעה את השפה $L$ בזמן $O(n^2)$ כאשר $n$ הוא אורך מילת הקלט. מהי מחלקת הסיבוכיות של $L(M)$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$P$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בהכרח לא ב-$NP$."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $P \\ne NP$ אזי התשובה היא $NPC$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אם $P \\ne NP$ אזי התשובה היא $coNP \\cup NPC$"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "על פי ההגדרה, שפה שייכת למחלקה $P$ אם יש לה מכונה מכריעה, לכל מילה המתקבלת על ידי המכונה, אורך סדרת הקונפיגורציות קטן או שווה לפולינום מדרגה חסומה. כאן החסם הוא 2, לכן ההגדרה מתקיימת. הרב סירטיות לא מעלה ולא מורידה, כי הוכחנו ששקילות בין המודלים במובן שאם יש פולינום חוסם עבור מכונה חד סירטית, יש גם עבור רב סירטית, ולהפך."
+  },
+  {
+   "num": 24,
+   "topic": "tm",
+   "question": "איזו מהתכונות הבאות הינה תכונה שנכונה עבור מ\"ט לא דטרמיניסטית ולא נכונה עבור מ\"ט בסיסית?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "פונקצית המעברים יכולה למפות מצב אחד למספר מצבים."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "המכונה יכולה להיות במספר מצבים בו זמנית"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סרט העבודה יכול להיות במספר מצבים בו זמנית"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "היא יכולה להכריע שפות ב-$P$ בזמן פולינומי."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "זהו חלק מהגדרת מכונה לא דטרמיניסטית: האי דטרמיניזם בא לידי ביטוי במעברים, במקום שיהיה מצב אחד ויחיד שאליו עוברים מכל מצב נתון (כמו במכונה דטרמיניסטית), יש קבוצה של מצבים מתוכם המכונה יכולה לבחור לאן לעבור."
+  },
+  {
+   "num": 25,
+   "topic": "mapping_reductions",
+   "question": "תהי $f(\\langle M\\rangle, w)$ פונקציה המוגדרת באופן הבא:\n$$f(\\langle M\\rangle, w) = \\begin{cases} -1 & \\text{if } M \\text{ does not stop on } w \\\\ k & \\text{if } M \\text{ stops on } w \\text{ after } k \\text{ steps} \\end{cases}$$איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הפונקציה $f$ לא ניתנת לחישוב."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הפונקציה $f$ ניתנת לחישוב בזמן פולינומיאלי."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "הפונקציה $f$ ניתנת לחישוב, אבל לא בהכרח בזמן פולינומיאלי."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "הפונקציה $f$ ניתנת לחישוב רק אם מתקיים $L(M) \\in R$."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "על מנת ש-$f$ תהיה ניתנת לחישוב, בפרט היא צריכה להיות מסוגלת לחשב האם $M$ עוצרת על $w$, אבל זוהי בעיית העצירה, שאנו יודעים שלא קיימת עבורה מכונת טיורינג שתכריע אותה."
+  }
+ ]
+}

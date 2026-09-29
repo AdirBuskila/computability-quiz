@@ -1,0 +1,487 @@
+{
+ "examCode": "22A-A",
+ "examLabel": "2022 סמסטר א מועד א",
+ "year": 2022,
+ "examDate": "7.2.2022",
+ "sourceFile": "מבחנים/2022/סמסטר א/2022-02-07-Exam-חישוביות-2022-moedA-גרסא-0 SOLUTION.pdf",
+ "keyFile": "same file (yellow highlights + blue explanations)",
+ "contexts": {},
+ "questions": [
+  {
+   "num": 1,
+   "topic": "undecidability",
+   "question": "השפה\n$$L = \\{\\langle M\\rangle \\mid (*)\\}$$(*): המכונה $M$ מקבלת קלט כלשהו באורך אי-זוגי\nניתנת להכרעה.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ניתן להראות ע\"י רדוקציה מבעיית $A_{TM}$ (הרעיון: יהי $\\langle M,w\\rangle$ הקלט לבעיה $A_{TM}$. מכונת הרדוקציה תריץ את $M$ על $w$ ותענה כמוה על כל קלט $y$)."
+  },
+  {
+   "num": 2,
+   "topic": "classification",
+   "question": "נגדיר את השפה $L$ הבאה:\n$$L = \\{\\langle M\\rangle \\mid (*)\\}$$(*): המכונה $M$ לא מקבלת אף פלינדרום\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת לקבלה וגם $\\overline{L}$ לא ניתנת לקבלה."
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "השפה $\\overline{L}$ ניתנת לקבלה כי אפשר לבנות מכונה $M'$ שמבצעת הרצה מבוקרת (לרוחב ולעומק) של $M$ על כל הפלינדרומים בסדר לקסיקוגרפי, כך שהמכונה $M'$ תקבל את $\\langle M\\rangle$ אם הייתה הרצה מבוקרת של $M$ שקיבלה פלינדרום כלשהו.\nמצד שני, השפה $L$ לא ניתנת לקבלה. ניתן להראות זאת על ידי רדוקציה מ-$\\overline{A_{TM}}$.\nלמעשה, מספיק להראות את קיומה של הרדוקציה $A_{TM} \\le_m \\overline{L}$.\n(הרעיון: יהי $\\langle M,w\\rangle$ הקלט לבעיה $A_{TM}$. מכונת הרדוקציה תריץ את $M$ על $w$ ותענה כמוה על כל קלט $y$)."
+  },
+  {
+   "num": 3,
+   "topic": "closure",
+   "question": "יהיו $A, B$ שפות כך שמתקיים: $A \\in RE \\setminus R$ וגם $B \\in R$.\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "A \\cup B \\in RE \\setminus R"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "A \\setminus B \\in RE \\setminus R"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$A$ איננה תת-קבוצה של $B$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הדוגמא הנגדית $A = A_{TM}$, $B = \\Sigma^*$ מפריכה את הסעיפים א-ג."
+  },
+  {
+   "num": 4,
+   "topic": "closure",
+   "question": "נניח שמתקיים $L_1 \\in R$ וגם $L_2 \\in RE$.\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "L_1 \\setminus L_2 \\in R"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "L_1 \\setminus L_2 \\in RE"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "L_1 \\setminus L_2 \\in coRE"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מתקיים $\\overline{L_1 \\setminus L_2} = \\overline{L_1} \\cup L_2$.\nהמחלקה $R$ סגורה למשלים וגם המחלקה $RE$ סגורה לאיחוד. לכן, $\\overline{L_1} \\cup L_2 \\in RE$.\nבפרט, מתקיים $L_1 \\setminus L_2 \\in coRE$."
+  },
+  {
+   "num": 5,
+   "topic": "tm",
+   "question": "תהי $M$ מ\"ט **אי-דטרמיניסטית**. איזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $w \\in L(M)$ אז **עץ** החישוב של $M$ על $w$ הוא סופי."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $w \\notin L(M)$ אז **עץ** החישוב של $M$ על $w$ הוא סופי."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם ל-$M$ קיים **עץ** חישוב אינסופי על קלט כלשהו, אז $M$ מקבלת, אך לא מכריעה, את השפה $L(M)$."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה."
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לפי הגדרה של מ\"ט אי-דטרמיניסטית, מכונה יכולה לקבל את $w$ על ידי עץ חישוב שקיים בו מסלול אינסופי. לכן סעיפים א', ג' אינם נכונים.\nאם $w \\notin L(M)$ אז יתכן שעץ החישוב יהיה אינסופי. בפרט, אם $w \\notin L(M)$ אז המכונה לא-תקבל את $w$, אבל לא נדרש שהמכונה תדחה את $w$. לכן גם ב' אינו נכון."
+  },
+  {
+   "num": 6,
+   "topic": "tm",
+   "question": "תהי $M$ מ\"ט **אי-דטרמיניסטית** שמקבלת את השפה $L$. נבנה מ\"ט **אי-דטרמיניסטית** $M_1$ לפי התיאור הבא.\n**האלגוריתם של $M_1$:**\nלמכונה $M_1$ יש שני סרטים. הסרט הראשון ישמור תמיד את הקלט המקורי ללא שינוי. בנוסף, תחילת הקלט בסרט הראשון תהיה מסומנת בתו מיוחד, כדי לאפשר חזרה להתחלה.\n1. $M_1$ מעתיקה את הקלט לסרט 2.\n2. $M_1$ מריצה את $M$ על הקלט, תוך שימוש בסרט 2; אם $M$ קיבלה: אז $M_1$ עוצרת ומקבלת.\n3. $M_1$ מוחקת את התוכן של סרט 2 וחוזרת לשלב 1.\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $M$ מכריעה שפה $L$ אז, בהכרח, $M_1$ מכריעה את $L$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $M$ מקבלת שפה $L$ אז, בהכרח, $M_1$ מקבלת את $L$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $L$ היא שפה סופית (ולכן ניתנת להכרעה) אז, בהכרח, $M_1$ מכריעה את $L$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף טענה אחרת אינה נכונה"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "פתרון: המכונה $M_1$ תקבל כל קלט שהמכונה $M$ מקבלת. בנוסף, $M_1$ אף פעם לא תעצור במצב דוחה על קלט כלשהו. בפרט, עבור כל קלט ש-$M$ אינה מקבלת, $M_1$ לא-תקבל וגם לא תעצור במצב דוחה (כיוון שמסלולי הריצה שלה יהיו אינסופיים). מכאן נובעות התשובות ל-א' ו-ב'. לגבי ג', מהאמור לעיל, אם $M_1$ מכריעה את $L$ אז בהכרח $L = \\Sigma^*$ וזוהי שפה אינסופית, בניגוד לנתון בסעיף ג'."
+  },
+  {
+   "num": 7,
+   "topic": "tm",
+   "question": "תהי $M_A$ ותהי $N_A$ מכונות טיורינג אי-דטרמיניסטיות, המקבלות את השפות $A$ ואת $\\overline{A}$, בהתאמה.\nיהי $w$ קלט כלשהו. בשאלה זו נתייחס ל**שילוב** (האפשרי/לא אפשרי) הבא:\nעץ החישוב של $M_A$ על הקלט $w$ וגם עץ החישוב של $N_A$ על הקלט $w$ שניהם מכילים קונפיגורציה מקבלת.\nאיזו מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השילוב אפשרי וניתן להסיק שמתקיים $w \\in A$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השילוב אפשרי וניתן להסיק שמתקיים $w \\notin A$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השילוב אפשרי, אך לא ניתן להסיק דבר לגבי השייכות או אי-שייכות של $w$ לשפה $A$."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השילוב אינו אפשרי."
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "משמעות ה**שילוב** המתואר כאן הוא שהמילה $w$ שייכת גם לשפה $A$ וגם לשפה $\\overline{A}$. כיוון שאלו שפות משלימות, שילוב זה אינו-אפשרי.",
+   "note": "Options printed as 1-4 (not letters); ids a-d follow printed order. Key = option 4."
+  },
+  {
+   "num": 8,
+   "topic": "undecidability",
+   "question": "תהי $M$ מ\"ט **דטרמיניסטית**. נגדיר את **הפונקציה** $T(\\langle M,w\\rangle) = s$ באופן הבא:\n• אם $M$ עוצרת על הקלט $w$ תוך בדיוק $k$ צעדים, אזי $s = k$\n• אם $M$ לא עוצרת על הקלט $w$, אזי $s = -1$.\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא קיימת מ\"ט בסיסית שמחשבת את הפונקציה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "קיימת מ\"ט אי-דטרמיניסטית שמחשבת את הפונקציה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "קיימת מ\"ט בסיסית שמחשבת את הפונקציה בזמן אקספוננציאלי"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אחרת אינה נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "נניח בשלילה שקיימת מ\"ט בסיסית $M'$ שמחשבת את הפונקציה $T$ אז ניתן בעזרת המכונה $M'$ להכריע את $H_{TM}$, באופן הבא: יהי $\\langle M,w\\rangle$ הקלט לבעיה $H_{TM}$. נריץ את המכונה $M'$ על הקלט $\\langle M_D,w\\rangle$, כאשר $M_D$ היא מכונה דטרמיניסטית שקולה ל-$M$. אם הפלט של $M'$ על הקלט $\\langle M_D,w\\rangle$ יהיה $s \\ge 0$ נעצור במצב מקבל, ואם הפלט יהיה $s = -1$ נעצור במצב דוחה. כך נוכל להכריע את $H_{TM}$, סתירה.\nהוכחנו שלא קיימת מכונה בסיסית שמחשבת את הפונקציה, ולכן לא קיימת מכונה אי-דטרמיניסטית שמחשבת את הפונקציה, וברור שלא ניתן לחשב את הפונקציה ע\"י מכונה כלשהי בזמן אקספוננציאלי.",
+   "note": "Options printed as 1-4 (not letters); ids a-d follow printed order. Key = option 1."
+  },
+  {
+   "num": 9,
+   "topic": "mapping_reductions",
+   "question": "תהי $L$ שפה כלשהי. איזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אף תשובה אחרת אינה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $L \\notin R$ אז מתקיים $A_{TM} \\le_m L$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $L \\notin R$ אז מתקיים $L \\le_m A_{TM}$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אם $L \\in R$ אז מתקיים $L \\le_m A_{TM}$"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "דוגמא נגדית לסעיפים ב, ג: $L = \\overline{A_{TM}}$.\nבנוסף, הראינו בהרצאה שקיימת רדוקצית מיפוי מכל שפה שניתנת להכרעה לשפה כלשהי שאינה טריוויאלית."
+  },
+  {
+   "num": 10,
+   "topic": "mapping_reductions",
+   "question": "תהי $L$ שפה כך שמתקיים $\\overline{L} \\le_m L$ וגם $L \\notin R$.\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "L \\in RE"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "L \\in coRE"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$L \\notin RE$ וגם $L \\notin coRE$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "נוכיח את נכונות סעיף ג' ומכך תנבע אי-נכונות שאר הסעיפים.\nנניח בשלילה $L \\in RE$. מתקיים ע\"פ הנתון $\\overline{L} \\le_m L$ אז ע\"פ משפט רדוקצית המיפוי מתקיים $\\overline{L} \\in RE$. אבל אם השפה $L$ ומשלימתה הן שתיהן שפות ב-$RE$, אז $L \\in R$. סתירה.\nכעת, נניח בשלילה $L \\in coRE$ אז ע\"פ הגדרה $\\overline{L} \\in RE$. מתקיים ע\"פ הנתון $\\overline{L} \\le_m L$ ולכן $L \\le_m \\overline{L}$. ע\"פ משפט רדוקצית המיפוי נקבל $L \\in RE$. אבל אם השפה $L$ ומשלימתה הן שתיהן שפות ב-$RE$ אז $L \\in R$. סתירה.",
+   "note": "Stem zoomed: overline on the left-hand L (L̄ ≤m L); explanation consistent with it."
+  },
+  {
+   "num": 11,
+   "topic": "mapping_reductions",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M\\rangle \\mid (*)\\}$$(*): $M$ מקבלת לפחות מספר ראשוני אחד ולפחות מספר אחד שמתחלק ב-3 ללא שארית\nשפה זו ניתנת לקבלה (ניתן לבדוק זאת בעזרת חיפוש לרוחב ולעומק).\nמהי השגיאה ב-\"הוכחה\" הבאה הטוענת את ההפך מהעובדה הזאת:\n**\"הוכחה\":** באמצעות הרדוקציה $\\overline{H}_{TM} \\le_m L$. ידוע שהשפה $\\overline{H}_{TM}$ **לא** ניתנת לקבלה, לכן לפי משפט הרדוקציה גם $L$ **לא** ניתנת לקבלה.\nנגדיר פונקציה: $f(\\langle M,w\\rangle) = \\langle R\\rangle$\nכאשר מכונת טיורינג $R$ מוגדרת כדלקמן:\n`R(x) {`\n`  if (x == 17 ∨ x == 18)`\n`    then ACCEPT`\n`    else { M(w); ACCEPT }`\n`}`\nמתקיים: $\\langle M,w\\rangle \\in \\overline{H}_{TM} \\Leftrightarrow \\langle R\\rangle \\in L$.\nלכן הפונקציה $f$ היא רדוקציה, ולכן $L$ לא ניתנת לקבלה.\nהיכן השגיאה?\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "**לא** מתקיים: $\\langle M,w\\rangle \\in \\overline{H}_{TM} \\Rightarrow \\langle R\\rangle \\in L$."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "**לא** מתקיים: $\\langle M,w\\rangle \\notin \\overline{H}_{TM} \\Rightarrow \\langle R\\rangle \\notin L$."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הפונקציה ניתנת לחישוב, כי בהינתן הקידוד $\\langle M,w\\rangle$ ניתן לקודד את $\\langle R\\rangle$ (אין צורך להריץ את המכונה $R$, רק לייצר את הקידוד שלה).\nלכל קידוד $\\langle M,w\\rangle$ המכונה המתאימה $R$ תמיד תעצור במצב מקבל על הקלט 17 (מספר ראשוני) ועל הקלט 18 (כפולה שלמה של 3). לכן תמיד $\\langle R\\rangle \\in L$, גם כאשר קידוד $\\langle M,w\\rangle$ לא שייך ל-$\\overline{H}_{TM}$.\nולכן סעיף ב הוא נכון וסעיף א' הוא לא נכון.",
+   "note": "Options printed (RTL) as '⟨R⟩∈L ⟸ ⟨M,w⟩∈H̄_TM' — i.e. the implication from ⟨M,w⟩ to ⟨R⟩; written with ⇒ in logical order. The 'proof' pseudo-code box is typed as code lines."
+  },
+  {
+   "num": 12,
+   "topic": "npc",
+   "question": "עבור השפה הבאה:\n$$SAT\\text{-}PATH = \\{\\langle \\varphi, G, s, t\\rangle \\mid (*)\\}$$(*): $\\varphi$ היא נוסחה בוליאנית בצורת CNF שיש לה השמה מספקת, וגם $G$ הוא גרף לא מכוון בו קיים מסלול מ-$s$ ל-$t$\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה SAT-PATH היא לא $NP$-שלמה כי היא לא שייכת ל-$NP$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה SAT-PATH היא $NP$-שלמה כי קיימת הרדוקציה: $PATH \\le_p SAT\\text{-}PATH$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה SAT-PATH היא $NP$-שלמה כי קיימת הרדוקציה: $SAT\\text{-}PATH \\le_p H_{TM}$, וידוע ש-$H_{TM}$ היא $NP$-קשה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה SAT-PATH היא $NP$-שלמה כי קיימת הרדוקציה: $SAT \\le_p SAT\\text{-}PATH$"
+    },
+    {
+     "id": "e",
+     "type": "text",
+     "value": "לא ידוע האם SAT-PATH היא שפה $NP$-שלמה כי לא ידוע האם $P = NP$"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "השפה SAT-PATH שייכת ל-$NP$ כי ניתן להגדיר מכונה אי-דטרמיניסטית פולינומית שבהינתן קלט $\\langle \\varphi, G, s, t\\rangle$ תנחש השמה ואוסף קודקודים ותבדוק בזמן פולינומי האם ההשמה מספקת את $\\varphi$ והאם אוסף הקודקודים הוא מסלול בגרף $G$ מ-$s$ ל-$t$. אם התשובה היא חיובית לשתי השאלות אז המכונה תקבל, אחרת תדחה. לכן סעיף א' לא נכון.\nהשפה PATH אינה ידועה כשפה $NP$-שלמה ולכן קיומה של הרדוקציה בסעיף ב' אינו מוכיח שהשפה SAT-PATH היא $NP$-שלמה, ולכן סעיף ב' אינו ידוע כנכון.\nהרדוקציה המוצעת בסעיף ג' אינה בכיוון הנכון. כדי להראות $NP$-שלמות של שפה צריך להראות שהיא קשה יותר, לא קלה יותר.\nבהינתן קלט $\\langle \\varphi\\rangle$ לשפה $SAT$ ניצור את הקלט $\\langle \\varphi, G, s, t\\rangle$ לשפה SAT-PATH כאשר הגרף $G$ מכיל שני קודקודים בלבד $s, t$ וצלע אחת שמחברת ביניהם. זו רדוקציה פולינומית כי כל מה שעשינו זה להוסיף לקידוד $\\langle \\varphi\\rangle$ קידוד של גרף לא מכוון שמכיל צלע אחת.\nקל לראות שמתקיים: $\\langle \\varphi\\rangle \\in SAT \\Leftrightarrow \\langle \\varphi, G, s, t\\rangle \\in SAT\\text{-}PATH$ ולכן סעיף ד' הוא נכון.\nהראינו שהשפה SAT-PATH היא שפה $NP$-שלמה ולכן זה לא תלוי בתשובה לשאלה האם $P = NP$. ולכן סעיף ה' אינו נכון."
+  },
+  {
+   "num": 13,
+   "topic": "poly_reductions",
+   "question": "נתון שמתקיים $A \\le_p B$ וגם $B \\le_p C$, כאשר כל אחת מהשפות $A, B, C$ היא לא טריוויאלית.\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\overline{A} \\le_p \\overline{C}$ מתקיים רק בתנאי שמתקיים $P = NP$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בהכרח $\\overline{C} \\le_p \\overline{A}$, ללא תלות בתשובה לשאלה האם $P = NP$."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $C \\in P$ אז מתקיים $\\overline{C} \\le_p \\overline{A}$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אחרת אינה נכונה"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מטרנזיטיביות הרדוקציה הפולינומית מתקיים $A \\le_p C$ ולכן $\\overline{A} \\le_p \\overline{C}$, בלי תלות בתשובה לשאלה $P = NP$. לכן סעיף א' לא נכון.\nדוגמא נגדית לסעיף ב': $A = B = PATH$, $C = SAT$ אבל לא ידוע האם מתקיימת הרדוקציה בסעיף ב'.\nמטרנזיטיביות הרדוקציה הפולינומית, אם $C \\in P$ אז ע\"פ משפט הרדוקציה הפולינומית $A \\in P$. קיימת רדוקציה פולינומית בין כל שתי שפות לא טריוויאליות במחלקה $P$, כי מחלקה זו סגורה להשלמה ולכן סעיף ג' נכון."
+  },
+  {
+   "num": 14,
+   "topic": "poly_reductions",
+   "question": "מנסים להגדיר רדוקציה פולינומית מהשפה CLIQUE לשפה IS.\nלצורך זה מגדירים פונקציה $f(\\langle G,k\\rangle) = \\langle G',k'\\rangle$ כדלקמן:\n- אם בגרף $G$ קיימת קליקה בגודל $k$, אז $k' = k$, והגרף $G'$ יתקבל מהגרף $G$ על ידי מחיקת כל הקשתות בין הצמתים ששייכים לאותה הקליקה.\n- אם בגרף $G$ **לא** קיימת קליקה בגודל $k$, אז $G' = G$, $k' = k$.\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הפונקציה $f$ לא ניתנת לחישוב."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הפונקציה $f$ ניתנת לחישוב בזמן פולינומי, ללא תלות בתשובה לשאלה האם $P=NP$."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "מתקיים: $\\langle G,k\\rangle \\in CLIQUE \\Rightarrow \\langle G',k'\\rangle \\in IS$."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "מתקיים: $\\langle G,k\\rangle \\notin CLIQUE \\Rightarrow \\langle G',k'\\rangle \\notin IS$."
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הפונקציה ניתנת לחישוב בזמן אקספוננציאלי (ע\"י בדיקת כל קבוצות הקודקודים בגודל $k$), לא ידוע האם ניתן לחשב אותה בזמן פולינומי. אילו ידענו לחשב את הפונקציה בזמן פולינומי אז היינו יכולים להכריע באמצעותה בזמן פולינומי את השפה CLIQUE (ע\"י בדיקה פולינומית האם $G' = G$), ולכן יש כאן תלות בשאלה האם $P=NP$.\nסעיף ג' מתקיים כי אם יש קליקה בגודל $k$ בגרף $G$ אז יש (ע\"פ הגדרת $f$) קבוצה בלתי תלויה בגודל $k' = k$ בגרף $G'$.\nמצד שני, על פי הגדרת $f$ אם ב-$G$ לא קיימת קליקה בגודל $k$, אז $k' = k$, $G' = G$. ולכן אם הגרף $G$ מכיל בדיוק $k$ קודקודים בלי אף צלע אז הראינו דוגמא נגדית לכך שאין קליקה בגודל $k$ בגרף $G$ אבל קיימת קבוצה בלתי תלויה בגודל $k$ בגרף $G'$.",
+   "note": "Options ג/ד printed (RTL) as '⟨G',k'⟩∈IS ⟸ ⟨G,k⟩∈CLIQUE'; written with ⇒ in logical order."
+  },
+  {
+   "num": 15,
+   "topic": "npc",
+   "question": "נגדיר את שתי המחלקות הבאות:\n$$A = \\{L \\mid (*)\\}$$(*): $3SAT \\le_p L$ **וגם** $L \\in NP$\n$$B = \\{L \\mid PRIME \\le_m L\\}$$איזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "A \\supset B"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "A \\subset B"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$A = B$ רק בתנאי שמתקיים $P = NP$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אחרת אינה נכונה"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**המחלקה $A$ מכילה רק שפות $NP$-שלמות**\n(לפי המשפט: אם $L \\in NP$ ומתקיימת רדוקציה $Q \\le_p L$ כאשר $Q$ היא שפה $NP$-שלמה, אז גם $L$ היא $NP$-שלמה)\n**לעומת זאת, $B$ מכילה את כל השפות הלא טריוויאליות**\n(לפי המשפט: אם $Q$ ניתנת להכרעה, אז קיימת ממנה רדוקצית מיפוי לכל שפה לא טריוויאלית אחרת)",
+   "note": "Printed A = { L | 3SAT ≤p L וגם L ∈ NP }; condition moved to a (*) line to keep Hebrew out of math."
+  }
+ ]
+}

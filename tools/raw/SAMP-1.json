@@ -1,0 +1,211 @@
+{
+ "examCode": "SAMP-1",
+ "examLabel": "מבחן לדוגמה 1",
+ "year": 2022,
+ "sourceFile": "מבחנים/מבחנים לדוגמה/ בחינה לדוגמה.pdf",
+ "keyFile": "no own key; keys/explanations from מבחנים/מבחנים לדוגמה/פתרון מבחן לדוגמא.pdf (SAMP-3) by identical content",
+ "contexts": {
+  "map": {
+   "kind": "text",
+   "title": "רדוקציית מיפוי (שאלות 13–16)",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות:\n**שפות:**\n$$H_{TM} = \\{\\langle M, w\\rangle \\mid (*)\\}$$(*): $M$ עוצרת על $w$\n$$NotEmpty_{TM} = \\{\\langle M\\rangle \\mid L(M) \\ne \\emptyset\\}$$$$INF_{TM} = \\{\\langle M\\rangle \\mid (**)\\}$$(**): $L(M)$ אינסופית\n**פונקציות מיפוי:**\n$$f(\\langle M, w\\rangle) = \\langle R_{Mw}\\rangle \\qquad g(\\langle M\\rangle) = \\langle T_M\\rangle$$כאשר המכונות $R_{Mw}$ ו-$T_M$ מוגדרות באופן הבא:\n$R_{Mw}$ על קלט $y$:\n1. הרץ את $M$ על $w$ למשך $|y|$ צעדים\n2. אם בשלב 1 המכונה $M$ עצרה על $w$: **קבל**; אחרת: **דחה**\n$T_M$ על קלט $y$:\n1. הרץ את $M$ על כל המילים שאורכן לכל היותר $|y|$ למשך $|y|$ צעדים\n2. אם בשלב 1 המכונה $M$ קיבלה לפחות מילה אחת: **קבל**; אחרת: **דחה**\n**יש לענות על השאלות הבאות**"
+  }
+ },
+ "questions": [
+  {
+   "num": 13,
+   "topic": "mapping_reductions",
+   "question": "האם $f$ היא רדוקציה $H_{TM} \\le_m NotEmpty_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$f$ ניתנת לחישוב. כמו כן:\nאם $\\langle M, w\\rangle \\in H_{TM}$ אז קיים מספר צעדים סופי כלשהו $r$ שלאחריו $M$ עוצרת על $w$. ולכן קיימת מילה $y$ כך ש-$|y| = r$ ואז $R_{Mw}$ יקבל את $y$, ולכן $\\langle R_{Mw}\\rangle \\in NotEmpty_{TM}$.\nאם $\\langle R_{Mw}\\rangle \\in NotEmpty_{TM}$, אזי קיימת מילה $y$ ש-$R_{Mw}$ מקבלת. משמעות הדבר היא ש-$M$ עוצרת על $w$ אחרי $|y|$ צעדים או פחות, ובפרט $M$ עוצרת על $w$, ולכן $\\langle M, w\\rangle \\in H_{TM}$.",
+   "contextId": "map",
+   "note": "key from SAMP-3 Q6 (identical stem and options in `פתרון מבחן לדוגמא.pdf`)."
+  },
+  {
+   "num": 14,
+   "topic": "mapping_reductions",
+   "question": "האם $f$ היא רדוקציה $H_{TM} \\le_m INF_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$f$ ניתנת לחישוב. כמו כן\nאם $\\langle M, w\\rangle \\in H_{TM}$, אז קיים מספר צעדים סופי כלשהו $r$ שלאחריו $M$ עוצרת על $w$. ולכן קיימת מילה $y$ כך ש-$|y| = r$ ואז $R_{Mw}$ תקבל את $y$. בנוסף $R_{Mw}$ תקבל את **כל המילים** שאורכן גדול מ-$y$. יש אין סוף מילים כאלו, ולכן $\\langle R_{Mw}\\rangle \\in INF_{TM}$.\nאם $\\langle M, w\\rangle \\notin H_{TM}$, אז $M$ לא עוצרת על $w$ בשום מספר של צעדים. כלומר לכל $y$, המכונה $M$ לא עוצרת על $w$ בתוך $|y|$ צעדים ולכן $R_{Mw}$ לא מקבלת אף מילה ומתקיים $L(R_{Mw}) = \\emptyset$ ואז $\\langle R_{Mw}\\rangle \\notin INF_{TM}$.",
+   "contextId": "map",
+   "note": "key from SAMP-3 Q7 (identical stem and options in `פתרון מבחן לדוגמא.pdf`)."
+  },
+  {
+   "num": 15,
+   "topic": "mapping_reductions",
+   "question": "האם $g$ היא רדוקציה $NotEmpty_{TM} \\le_m INF_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$g$ ניתנת לחישוב. כמו כן\nאם $\\langle M\\rangle \\in NotEmpty_{TM}$ אזי קיימת לפחות מילה אחת $w$ ש-$M$ מקבלת. נגדיר את האורך שלה $|w| = r$. $g(\\langle M\\rangle) = \\langle T_M\\rangle$ ולפי הגדרה $T_M$ תקבל כל מילה $y$ שמקיימת $|y| \\ge r$. קיימות אין סוף מילים כאלה. ולכן $L(T_M)$ אינסופית, כלומר $\\langle T_M\\rangle \\in INF_{TM}$.\nאם $\\langle M\\rangle \\notin NotEmpty_{TM}$ אז $L(M) = \\emptyset$, כלומר $M$ לא מקבלת אף מילה ולכן גם $T_M$ לא מקבלת אף מילה, כלומר $L(T_M) = \\emptyset$ ומתקיים $\\langle T_M\\rangle \\notin INF_{TM}$.",
+   "contextId": "map",
+   "note": "key from SAMP-3 Q8 (identical stem and options in `פתרון מבחן לדוגמא.pdf`)."
+  },
+  {
+   "num": 16,
+   "topic": "mapping_reductions",
+   "question": "האם $g$ היא רדוקציה $INF_{TM} \\le_m NotEmpty_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$g$ ניתנת לחישוב. אבל יכולה להיות $\\langle M\\rangle \\notin INF_{TM}$ אבל $\\langle T_M\\rangle \\in NotEmpty_{TM}$.\nלדוגמא:\n$M$ מכונה שמקבלת רק את מילה אחת. ברור ש-$\\langle M\\rangle \\notin INF_{TM}$ אבל $T_M$ מקבלת את כל המילים שהן \"ארוכות מספיק\": (לפחות באורך של המילה ש-$M$ מקבלת וגם לפחות באורך של מספר הצעדים שלוקח ל-$M$ לקבל את המילה ההיא). ולכן $\\langle T_M\\rangle \\in NotEmpty_{TM}$. סה\"כ, זו לא רדוקציה.",
+   "contextId": "map",
+   "note": "key from SAMP-3 Q9 (identical stem and options in `פתרון מבחן לדוגמא.pdf`)."
+  },
+  {
+   "num": 23,
+   "topic": "np",
+   "question": "תהיה $A, B \\in NP$. איזו מהטענות הבאות לגבי $A - B$ נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $B \\in P$ אז $A - B \\in NP$ ואם $B \\notin P$ אז ייתכן $A - B \\in NP$ וייתכן $A - B \\notin NP$."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $B \\in P$ אז $A - B \\in NP$ ואם $B \\notin P$ אז בהכרח $A - B \\notin NP$."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $B \\in P$ אז ייתכן $A - B \\in NP$ וייתכן $A - B \\notin NP$."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $B \\in P$ אז $\\overline{B} \\in P$ ולכן $\\overline{B} \\in NP$. $A - B = A \\cap \\overline{B}$. NP סגורה לחיתוך ולכן $A - B \\in NP$.\nכלומר ג לא נכון.\nבנוסף, אם $B \\notin P$ אז לא ניתן לקבוע האם $A - B \\in NP$ או לא:\nבפרט, ייתכן שמתקיים $A = B$ ואז $A - B = \\emptyset \\in P$.\nלכן א נכון וב לא נכון.",
+   "note": "key from SAMP-3 Q1 (identical stem and options in `פתרון מבחן לדוגמא.pdf`)."
+  },
+  {
+   "num": 24,
+   "topic": "decidability",
+   "question": "תהי $M_1, M_2, M_3, \\cdots$ קבוצה אינסופית של מכונות טיורינג שעוצרות תמיד.\n**טענה:** קיימת מ\"ט $MI$ שעוצרת תמיד ומקיימת: $(\\exists i : w \\in L(M_i)) \\Leftrightarrow w \\in L(MI)$.\nמה מהבאים נכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה לא נכונה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה נכונה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "הטענה נכונה רק אם לכל $i$ מתקיים $L(M_i) \\in R$."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הטענה לא נכונה.\nנסמן $H_{TM} = \\{x_1, x_2, x_3, \\cdots\\}$\n$M_i$ היא מכונה שמקבלת רק את המילה $x_i$ ועל כל שאר המילים היא עוצרת ודוחה.\nכל המכונות $M_1, M_2, M_3, \\cdots$ עוצרות תמיד.\nאילו הייתה קיימת מכונה $MI$ כמתואר, אז $MI$ היתה מכריעה את $H_{TM}$. אבל זה לא ייתכן.",
+   "note": "key from SAMP-3 Q13 (identical stem and options in `פתרון מבחן לדוגמא.pdf`)."
+  },
+  {
+   "num": 25,
+   "topic": "time_p",
+   "question": "תהי $f$ פונקציה המוגדרת באופן הבא: הקלט הוא שלשה $\\langle M, x, 1^k\\rangle$ כאשר: $M$ היא מ\"ט בסיסית, $x \\in \\Sigma^*$ היא מילה ו-$1^k$ הוא קידוד אונארי של מספר טבעי $k \\ge 1$.\nוכן: אם $M$ מקבלת את $x$ בתוך לכל היותר $k$ צעדים, אז $f(\\langle M, x, 1^k\\rangle) = 1$\nאחרת, $f(\\langle M, x, 1^k\\rangle) = 0$.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הפונקציה $f$ ניתנת לחישוב בזמן פולינומיאלי."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הפונקציה $f$ ניתנת לחישוב, אבל לא בהכרח בזמן פולינומיאלי."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "הפונקציה $f$ לא ניתנת לחישוב."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "הפונקציה $f$ ניתנת לחישוב רק אם מתקיים $L(M) \\in R$."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ניתן לבנות מ\"ט שמחשבת את $f$ באמצעות מ\"ט אוניברסלית שמריצה את $M$ מספר צעדים $k$.\nכל צעד בסימולציה לוקח לכל היותר כמות פולינומיאלית של צעדים כפונקציה של $|x|$. ובסך הכל מספר הצעדים הינו לינארי באורך הקלט ולכן סך כל מספר הצעדים הנדרשים לחישוב $f$ הוא פולינומיאלי באורך הקלט.",
+   "note": "key from SAMP-3 Q12 (identical stem and options in `פתרון מבחן לדוגמא.pdf`)."
+  }
+ ]
+}

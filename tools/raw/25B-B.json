@@ -1,0 +1,523 @@
+{
+ "examCode": "25B-B",
+ "examLabel": "2025 סמסטר ב מועד ב",
+ "year": 2025,
+ "examDate": "9.7.2025",
+ "sourceFile": "מבחנים/2025/סמ ב מועד ב 9.pdf",
+ "keyFile": "מבחנים/2025/סמ ב מועד ב פתרון 9.pdf (yellow highlights + blue proof boxes; option order identical to exam)",
+ "contexts": {
+  "blk": {
+   "kind": "text",
+   "title": "בלוק של שאלות 15–18",
+   "text": "בהינתן גרף $G$ לא-מכוון ומספר טבעי $k$, נגדיר את הפונקציה הבאה: $f(\\langle G, k\\rangle) = \\langle G, k+1\\rangle$.\nבנוסף, נגדיר את השפה הבאה:\n$$L = \\{\\langle G, k\\rangle \\mid (*)\\}$$(*): הגרף הלא מכוון $G$ מכיל תת קבוצה $S$ של קודקודים בגודל $k$ שהיא קליקה או $G$ מכיל תת קבוצה $T$ של קודקודים בגודל $k$ שהיא בלתי תלויה\nכלומר, $\\langle G, k\\rangle \\in L$ אם הגרף הלא-מכוון $G$ מכיל קליקה בגודל $k$ או מכיל קבוצה בלתי-תלויה של קודקודים בגודל $k$.\n**הערה חשובה:** שימו לב הגדרת השפה בשאלה זו שונה מהגדרת השפה $L$ שהופיעה בחלק זה של המבחן במועד א'.\n**ענו נכון או לא נכון, לכל אחת מהטענות הבאות:**"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "topic": "mapping_reductions",
+   "question": "תהיינה $A, B$ שפות לא-טריוויאליות כך שמתקיים: $A \\le_m B$.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $B \\in RE \\cup coRE$ אז $A \\in RE \\cup coRE$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $A \\in RE \\cap coRE$ אז $B \\in RE \\cap coRE$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $B \\in coRE$ אז $A \\in RE$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**תזכורת:** $R = RE \\cap coRE$\n**הוכחת א:** נתון $A \\le_m B$ ולכן ע\"פ משפט הרדוקציה אם $B$ ניתנת לקבלה אז גם $A$ ניתנת לקבלה. מתקיים: $\\overline{A} \\le_m \\overline{B}$ ולכן ע\"פ משפט הרדוקציה אם $\\overline{B}$ ניתנת לקבלה אז גם $\\overline{A}$ ניתנת לקבלה.\n**הפרכת ב:** $A = 1\\Sigma^* \\in R = RE \\cap coRE$ אבל $B = H_{TM} \\notin R$\n**הפרכת ג:** עבור $A = B = \\overline{H_{TM}}$ מתקיים $\\overline{H_{TM}} \\le_m \\overline{H_{TM}}$ (הרדוקציה היא פונקציית הזהות). בנוסף: $B = \\overline{H_{TM}} \\in coRE$ אבל $A = \\overline{H_{TM}} \\notin RE$"
+  },
+  {
+   "num": 2,
+   "topic": "closure",
+   "question": "תהיינה $A, B$ שפות לא-טריוויאליות כך שמתקיים: $A \\in R$ וגם $A \\cup B \\in R$.\n**נתבונן בטענה הבאה:** השפה $B$ ניתנת להכרעה.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה לא נכונה"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכה:** $B = ALL_{TM} \\notin R$, $A = \\{\\langle M\\rangle \\mid M \\text{ is a Turing Machine}\\}$\nמתקיים: $A \\cup B = A \\in R$"
+  },
+  {
+   "num": 3,
+   "topic": "time_p",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle \\phi\\rangle \\mid (*)\\}$$(*): $\\phi$ היא נוסחה בצורת $CNF$ כך שקיימת השמה מספקת ובה בדיוק שני משתנים מקבלים את הערך $TRUE$\nלדוגמא, לנוסחה $\\phi = (x_1 \\vee x_2 \\vee x_3) \\wedge (x_3 \\vee \\overline{x_2}) \\wedge (x_4 \\vee x_5)$ יש השמה מספקת שיש בה בדיוק 2 משתנים עם ערך $TRUE$: $x_1 = T,\\ x_2 = F,\\ x_3 = F,\\ x_4 = T,\\ x_5 = F$, ולכן $\\langle \\phi\\rangle \\in L$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "מתקיים $L \\in P$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "מתקיים $L \\in P$, רק בתנאי שמתקיים $P = NP$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "מתקיים $L \\in NP$, רק בתנאי שמתקיים $P = NP$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** קיימות $\\binom{n}{2} = O(n^2)$ השמות אפשריות שיש בהן בדיוק שני משתנים שערכם $TRUE$. ניתן בזמן פולינומי דטרמיניסטי לעבור על כל ההשמות האלו ולבדוק האם יש ביניהן השמה מספקת לנוסחה נתונה שיש לה $n$ משתנים.",
+   "note": "Printed stem: 'L = {<φ> | φ היא נוסחה בצורת CNF כך שקיימת השמה מספקת ...}' — condition moved to a (*) line."
+  },
+  {
+   "num": 4,
+   "topic": "tm",
+   "question": "יהיו $M_1, M_2$ מ\"ט לא-דטרמיניסטיות כך שמתקיים $L(M_1) = L(M_2)$.\n**נתבונן בשתי הטענות הבאות:**\nI. לכל קלט $w$, אם יש מסלול חישוב של $M_1$ על $w$ שמסתיים ב-ACCEPT אזי יש מסלול חישוב של $M_2$ על $w$ שמסתיים ב-ACCEPT או ב-REJECT.\nII. לכל קלט $w$, אם יש מסלול חישוב של $M_1$ על $w$ שמסתיים ב-ACCEPT או ב-REJECT אזי יש מסלול חישוב של $M_2$ על $w$ שמסתיים ב-ACCEPT.\n**איזה מהסעיפים הבאים נכון:**",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה."
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הוכחת I:** אם מ\"ט לא-דטרמיניסטית $M_1$ מקבלת את $w$ אז יש מסלול חישוב של $M_1$ על $w$ שמסתיים ב-ACCEPT, ולכן $w \\in L(M_1)$. אם $L(M_1) = L(M_2)$ אז גם $M_2$ מקבלת את $w$. בפרט, יש מסלול חישוב של $M_2$ על $w$ שמסתיים ב-ACCEPT. בפרט, יש מסלול חישוב של $M_2$ על $w$ שמסתיים ב-ACCEPT או ב-REJECT.\n**הפרכת II:** תהי $M_1 = M_{REJ}$ מכונה שעוצרת על כל קלט מיד ב-REJECT. תהי $M_2 = M_{LOOP}$ מכונה שלא-עוצרת על אף קלט. השפה של שתי המכונות היא ריקה ולכן מתקיים בפרט $L(M_1) = L(M_2)$"
+  },
+  {
+   "num": 5,
+   "topic": "undecidability",
+   "question": "איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $\\overline{A_{TM}}$ מוכלת ממש בשפה $\\overline{H_{TM}}$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $\\overline{H_{TM}}$ מוכלת ממש בשפה $\\overline{A_{TM}}$"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "H_{TM} = \\overline{A_{TM}}"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הוכחת ב:** על פי הגדרת השפות מתקיים $A_{TM} \\subseteq H_{TM}$ וזוהי הכלה ממש. לכן, השפה $\\overline{H_{TM}}$ מוכלת ממש בשפה $\\overline{A_{TM}}$"
+  },
+  {
+   "num": 6,
+   "topic": "npc",
+   "question": "**נתבונן בשתי הטענות הבאות:**\nI. אם $P \\ne NP$ אזי מתקיים $SAT \\notin NPC$.\nII. אם $P \\ne NP$ אזי מתקיים $PATH \\notin NPC$.\n**איזה מהסעיפים הבאים נכון:**",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה."
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכת I:** ע\"פ **משפט קוק-לוין** מתקיים $SAT \\in NPC$ בלי תלות בשאלה האם $NP = P$.\n**הוכחת II:** נניח בשלילה $PATH \\in NPC$ אבל אז מתקיים $NPC \\cap P \\ne \\emptyset$ אבל אז מתקיים $P = NP$, בסתירה לנתון."
+  },
+  {
+   "num": 7,
+   "topic": "poly_reductions",
+   "question": "תהיינה $A, B$ שפות לא-טריוויאליות. **נתבונן בשתי הטענות הבאות:**\nI. אם $A \\le_p B$ אזי מתקיים $A \\le_m B$.\nII. אם $A \\le_p B$ וגם $B \\le_p A$ אזי מתקיים $A = B$.\n**איזה מהסעיפים הבאים נכון:**",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה."
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הוכחת I:** כל רדוקציה פולינומיאלית היא רדוקציית מיפוי.\n**הפרכת II:** קיימת רדוקציה פולינומיאלית בין כל שתי שפות לא-טריוויאליות ששייכות למחלקה $P$, ולכן ניתן לקחת כדוגמא נגדית את $A = PATH$, $B = 1\\Sigma^*$",
+   "note": "Claim I prints the subscript as capital P ('A ≤_P B'); written as \\le_p."
+  },
+  {
+   "num": 8,
+   "topic": "mapping_reductions",
+   "question": "**נתבונן בטענה הבאה:** מתקיים $ALL_{TM} \\le_m EQ_{TM}$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה לא נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "נגדיר את הפונקציה הבאה: $f(\\langle M\\rangle) = \\langle M, M_{ALWAYS\\_ACC}\\rangle$, כאשר $M_{ALWAYS\\_ACC}$ היא מכונה שעוצרת מיד ב-ACCEPT על כל קלט."
+  },
+  {
+   "num": 9,
+   "topic": "npc",
+   "question": "**נתבונן בטענה הבאה:** תהי $L$ שפה כך שמתקיים: $L \\le_p SAT$ וגם $CLIQUE \\le_p L$.\nאזי השפה $L$ היא NP-שלימה.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה לא נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $L \\le_p SAT$ אז ע\"פ משפט הרדוקציה הפולינומית $L \\in NP$.\nאם $CLIQUE \\le_p L$ וגם $L \\in NP$ וגם $CLIQUE \\in NPC$ אז ע\"פ משפט שהוכחנו בהרצאה: $L \\in NPC$",
+   "note": "Printed with capital-P subscripts ('≤_P'); written as \\le_p."
+  },
+  {
+   "num": 10,
+   "topic": "tm",
+   "question": "תהי $M$ מכונת הטיורינג הבסיסית הבאה:\nאיזו מהטענות הבאות היא נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "מתקיים $L(M) \\in R$ וגם $M$ מכונה מכריעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "מתקיים $L(M) \\notin R$ וגם $M$ מכונה מכריעה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "מתקיים $L(M) \\in R$ וגם $M$ מכונה לא-מכריעה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "במצב ההתחלה המכונה $M$ כותבת רווח בתא הראשון בסרט, הולכת שמאלה (כלומר, עומדת במקום), עוברת למצב $q_1$, ואז עוצרת במצב מקבל על כל קלט.\nלכן, המכונה $M$ מכריעה את השפה סיגמא כוכב, וברור שהשפה סיגמא כוכב ניתנת להכרעה.",
+   "image": "images/exams/25B-B-Q10.png"
+  },
+  {
+   "num": 11,
+   "topic": "decidability",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle A\\rangle \\mid (*)\\}$$(*): $|L(A)| \\ge 2$ וגם $A$ הוא אס\"ד\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם הקידוד הוא לא קידוד תקין של אס\"ד, אז נדחה.\nבהינתן קידוד תקין של אס\"ד, ניתן להכריע האם השפה של האס\"ד היא ריקה.\nאם השפה של האס\"ד היא ריקה, אז נדחה.\nאחרת, השפה של האס\"ד היא לא-ריקה. נריץ חיפוש לרוחב ונמצא מילה $w$ כלשהי שמתקבלת ע\"י האס\"ד.\nנבנה אס\"ד מכפלה לשפת החיתוך $A \\cap (\\Sigma^* \\setminus w)$\nונבדוק האם השפה של האס\"ד החדש שבנינו היא ריקה, אם השפה ריקה, אז נדחה. אחרת, נקבל.",
+   "note": "Printed stem: 'L = {<A> | |L(A)| ≥ 2 וגם A הוא אס\"ד}' — condition moved to a (*) line."
+  },
+  {
+   "num": 12,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M\\rangle \\mid M \\text{ accepts some } w \\text{ where } |w| \\ge 5\\}$$כלומר, $\\langle M\\rangle \\in L$ אם קיימת מילה $w$ המכילה לפחות 5 תווים כך שהמכונה $M$ עוצרת על $w$ במצב מקבל.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "השפה $L$ ניתנת לקבלה כי אפשר לנחש מילה $w$ המכילה לפחות 5 תווים ואז להריץ את $M$ על $w$ ולענות כמותה.\nנראה רדוקציה $A_{TM} \\le_m L$ כאשר $f(\\langle M, w\\rangle) = \\langle K_{M,w}\\rangle$, ונגדיר: המכונה $K_{M,w}$ = \"על קלט $y$, הרץ את $M$ על $w$. אם הריצה $M(w)$ הסתיימה ב-ACCEPT, עצור ב-ACCEPT. אחרת, היכנס ל-LOOP.\"\nברור שאם $M$ מקבלת את $w$ אז $K_{M,w}$ מקבלת כל קלט. בנוסף, ברור שאם $M$ לא-מקבלת את $w$ אז $K_{M,w}$ לא-מקבלת אף קלט."
+  },
+  {
+   "num": 13,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M\\rangle \\mid L(M) = \\Sigma^* \\text{ and } M \\text{ accepts every } w \\text{ with more than } |w| \\text{ steps}\\}$$כלומר, $\\langle M\\rangle \\in L$ אם $L(M) = \\Sigma^*$ וגם לכל $w$ המכונה $M$ עוצרת על $w$ במצב מקבל לאחר ביצוע של לפחות $|w|$ צעדי חישוב.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מספיק להראות רדוקציה $ALL_{TM} \\le_m L$ כאשר $f(\\langle M\\rangle) = \\langle M_{long}\\rangle$, ונגדיר: המכונה $M_{long}$ = \"על קלט $y$, לך לסוף הקלט וחזור להתחלה. הרץ את $M$ על $y$ וענה כמותה.\"\nברור שאם $M$ מקבלת את $w$ אז $M_{long}$ מקבלת את $w$ לאחר ביצוע של לפחות $|w|+1$ צעדי חישוב. בנוסף, ברור שאם $M$ לא-מקבלת את $w$ אז גם $M_{long}$ לא-מקבלת את $w$"
+  },
+  {
+   "num": 14,
+   "topic": "tm",
+   "question": "**נתבונן בטענה הבאה:** לכל $k > 1$ קיימת שפה $L_k$, כך שקיימת מכונת טיורינג עם $k$ סרטים שמכריעה את $L_k$, אבל לא-קיימת מכונה עם $k-1$ סרטים שמכריעה את $L_k$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה לא נכונה"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "קיימת שקילות חישובית בין כל הווריאנטים הסבירים של מכונות הטיורינג.\nבפרט, לכל $k > 1$ קיימת מכונת טיורינג עם $k$ סרטים שמכריעה שפה $L$ אם ורק אם קיימת מכונה עם $k-1$ סרטים שמכריעה את $L$."
+  },
+  {
+   "num": 15,
+   "topic": "poly_reductions",
+   "question": "אם $f(\\langle G, k\\rangle) \\in CLIQUE$ אזי $\\langle G, k\\rangle \\in L$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $\\langle G, k+1\\rangle \\in CLIQUE$ אז הגרף מכיל קליקה של $k$ קודקודים",
+   "contextId": "blk"
+  },
+  {
+   "num": 16,
+   "topic": "poly_reductions",
+   "question": "אם $f(\\langle G, k\\rangle) \\in L$ אזי $\\langle G, k\\rangle \\in IS$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכה ע\"י דוגמה נגדית:** יהי $k > 1$ ויהי $G$ גרף מלא עם $k+1$ קודקודים (כלומר, גרף שמכיל את כל הצלעות האפשריות).\nאז מתקיים: $\\langle G, k+1\\rangle \\in L$ אבל אין בו קבוצה ב\"ת בגודל $k$. לכן $\\langle G, k\\rangle \\notin IS$.",
+   "contextId": "blk"
+  },
+  {
+   "num": 17,
+   "topic": "poly_reductions",
+   "question": "אם $f(\\langle G, k\\rangle) \\notin L$ אזי $\\langle G, k\\rangle \\notin CLIQUE$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכה ע\"י דוגמה נגדית:** יהי $k > 1$ ויהי $G$ גרף שמכיל קליקה של $k$ קודקודים וקודקוד נוסף שאינו מחובר בצלע לאף קודקוד אחר (כלומר, הגרף מכיל סה\"כ $k+1$ קודקודים).\nאז $\\langle G, k+1\\rangle \\notin L$ אבל $\\langle G, k\\rangle \\in CLIQUE$",
+   "contextId": "blk",
+   "note": "Options printed 'א. לא נכון / ב. נכון' in both exam and solution; highlighted א = 'לא נכון'."
+  },
+  {
+   "num": 18,
+   "topic": "poly_reductions",
+   "question": "אם $f(\\langle G, k\\rangle) \\notin CLIQUE$ אזי $\\langle G, k\\rangle \\notin L$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכה ע\"י דוגמה נגדית:** יהי $k > 1$ ויהי $G$ גרף ריק שמכיל $k+1$ קדקודים (כלומר, גרף ללא צלעות).\nאז $\\langle G, k+1\\rangle \\notin CLIQUE$ אבל $\\langle G, k\\rangle \\in L$",
+   "contextId": "blk"
+  }
+ ]
+}

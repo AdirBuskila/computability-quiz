@@ -1,0 +1,820 @@
+{
+ "examCode": "SAMP-2",
+ "examLabel": "מבחן לדוגמה 2 (תש\"פ)",
+ "year": 2020,
+ "sourceFile": "מבחנים/מבחנים לדוגמה/בחינה לדוגמה עם הסברים.pdf",
+ "keyFile": "same file (yellow highlights + red explanations); cross-checked and enriched from 'מצגות חזרה למבחן/ פתרון מבחן לדוגמא תשפ אלישבע סמסטר ב 2025.pdf' slides 1-82",
+ "contexts": {
+  "g": {
+   "kind": "text",
+   "title": "הגדרות לשאלות 10–12",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות:\n$$G_1 = \\{\\langle M\\rangle \\mid L(M) \\in R\\}$$$$G_2 = \\{\\langle M\\rangle \\mid (*)\\}$$(*): $L(M)$ אינסופית\n$$G_3 = \\{\\langle M\\rangle \\mid (**)\\}$$(**): $\\overline{L(M)}$ סופית"
+  },
+  "d": {
+   "kind": "text",
+   "title": "הגדרות לשאלות 13–20",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות:\n$$E_{TM} = \\{\\langle M\\rangle \\mid L(M) = \\emptyset\\}$$נגדיר את השפות הבאות:\n$$L_1 = \\{\\langle M_1, M_2\\rangle \\mid L(M_1) \\cap L(M_2) = \\emptyset\\}$$$$L_2 = \\{\\langle M_1, M_2\\rangle \\mid (*)\\}$$(*): $L(M_1) \\cap L(M_2)$ אינסופית\nנגדיר את פונקציות המיפוי הבאות:\n$$f(\\langle M\\rangle) = \\langle R_M, M\\rangle \\qquad g(\\langle M\\rangle) = \\langle R_M, T_M\\rangle$$כאשר בהינתן מ\"ט $M$, המכונות $T_M$ ו-$R_M$ הן המכונות הבאות:\n**$T_M$ על קלט $y$:**\n1. הרץ את $M$ על כל המילים שהאורך שלהן הוא לכל היותר $|y|$ למשך $|y|$ צעדים.\n2. אם $M$ קיבלה לפחות אחת מהמילים: קבל. אחרת: דחה.\n**$R_M$ על קלט $y$:**\n1. אם $y = 00$ או $y = 11$: קבל.\n2. הרץ את $M$ על $y$ וענה כמו $M$.\nלכל אחת מהטענות הבאות עליך לקבוע האם היא נכונה או לא."
+  },
+  "e": {
+   "kind": "text",
+   "title": "הגדרות לשאלות 21–24",
+   "text": "ראה את הגדרת כיסוי קדקודים והשפה $VC$ בדף העזר. השאלות בחלק זה מתייחסות להגדרות הבאות:\n$$VCM = \\{\\langle G, k\\rangle \\mid (*)\\}$$(*): יש ב-$G$ לכל היותר קדקוד אחד עם דרגה אי-זוגית, וכן יש ב-$G$ כיסוי קדקודים בגודל $k$\nידוע כי $VC$ היא $NP$-שלמה. רוצים להוכיח כי גם $VCM$ היא $NP$-שלמה ע\"י כך שמראים כי $VC \\le_p VCM$.\nנגדיר את פונקציית המיפוי הבאה:\n$$f(\\langle G, k\\rangle) = \\langle G', k\\rangle$$כאשר $G'$ הוא גרף שמתקבל מ-$G$ באופן הבא: מוסיפים קדקוד $v_{new}$ ומחברים אותו בצלע לכל הקדקודים ב-$G$ שיש להם דרגה אי-זוגית.\nלפניך מספר טענות. לכל טענה בנפרד עליך לקבוע האם היא נכונה או לא."
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "topic": "mapping_reductions",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nאם $A$ היא שפה כך ש-$A \\le_m \\overline{A}$, אזי בהכרח מתקיים $A \\notin RE - R$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "נניח בשלילה ש-$A \\in RE - R$, כלומר מתקיים $A \\in RE$ וגם $A \\notin R$.\nכעת, מכיוון ש-$A \\le_m \\overline{A}$ אז $\\overline{A} \\le_m A$.\n$\\overline{A} \\le_m A$ וגם $A \\in RE$ ולכן $\\overline{A} \\in RE$.\nסה\\\"כ: $A, \\overline{A} \\in RE$ ולפי משפט, מתקיים $A \\in R$. אבל $A \\notin R$. סתירה.\n**הרחבה (מצגת החזרה):** באופן דומה ניתן להוכיח על כל שתי שפות $A \\in RE - R$, $B \\in coRE - R$ שהן לא ניתנות לרדוקציה אחת לשנייה. נניח שכן: אם $B \\le_m A$, אז $B \\in RE$, ואז $B \\in RE \\cap coRE$, ולכן $B \\in R$, בסתירה. ובאופן דומה: אם $A \\le_m B$, אז $\\overline{A} \\le_m \\overline{B}$, אז $\\overline{A} \\in RE$, אז $A \\in RE \\cap coRE$ ולכן $A \\in R$, בסתירה.\nבאיזו אופציה **יכולה** להיות רדוקציה משפה למשלימה שלה? ב-$R$: כן! מחוץ ל-$RE$ ול-$coRE$: כן! בתוך $RE$ ומחוץ ל-$R$: לא!"
+  },
+  {
+   "num": 2,
+   "topic": "closure",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nבהינתן שפה $A$ נגדיר את השפה הבאה: $D(A) = \\{x \\mid 0x \\in A\\}$.\nטענה: אם $A \\in R$ אז $D(A) \\in R$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $A \\in R$ אז יש מ\\\"ט $M_A$ שמכריעה את $A$.\nנבנה מ\\\"ט שתכריע את $D(A)$: על קלט $x$: שרשר $0$ משמאל ל-$x$, הרץ את $M_A$ על $0x$ וענה כמותה.",
+   "note": "PDF explanation writes the input as y ('על קלט y ... על 0y'); the deck writes x, matching the definition — used x."
+  },
+  {
+   "num": 3,
+   "topic": "closure",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nאם השפות $A$ וגם $B$ ניתנות לקבלה, אזי בהכרח השפה $A \\,\\Delta\\, B$ ניתנת לקבלה, כאשר $A \\,\\Delta\\, B$ מסמן הפרש סימטרי, כלומר: $A \\,\\Delta\\, B = (A - B) \\cup (B - A)$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "דוגמה נגדית: $A = H_{TM}$, $B = \\Sigma^*$. מתקיים $A, B \\in RE$ אבל $A \\Delta B = (H_{TM} - \\Sigma^*) \\cup (\\Sigma^* - H_{TM}) = \\emptyset \\cup \\overline{H_{TM}} = \\overline{H_{TM}} \\notin RE$.\n**הרחבות (מצגת החזרה):** הגדרה שקולה להפרש סימטרי: $A \\Delta B = (A \\cup B) - (A \\cap B)$. המחלקה $RE - R$ סגורה לחיתוך ואיחוד, לא סגורה למשלים ולהפרש.\nכדי להוכיח שאין סגירות של קבוצה תחת פעולה, יש להראות שקיימת אפשרות שתוצאת הפעולה לא נשארת בתוך הקבוצה — וזה מה שעשינו. אבל!!! זה לא אומר ש**תמיד** תוצאת הפעולה מתקבלת **מחוץ** לקבוצה: למשל, עבור $A = H_{TM}$, $B = \\overline{E_{TM}}$: $A \\Delta B = (H_{TM} - \\overline{E_{TM}}) \\cup (\\overline{E_{TM}} - H_{TM}) = H_{TM} \\cup \\overline{E_{TM}} \\in RE$.\nתזכורת: $RE$ לא סגורה למשלים! אם $RE$ כן הייתה סגורה למשלים, אז היא גם הייתה סגורה להפרש סימטרי. ההפך גם נכון! מדוע? (רמז: המשלים מתקבל על ידי פעולת הפרש סימטרי עם...?)",
+   "note": "Deck slide 16's example equation is transcribed as printed (it simplifies the symmetric difference loosely). Deck slide 14 prints 'המחלקה RE − R סגורה לחיתוך ואיחוד' — kept as printed."
+  },
+  {
+   "num": 4,
+   "topic": "closure",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nאם $A, B$ הן שפות כך ששלוש השפות $A$, $A \\cup B$ ו-$A \\cap B$ ניתנות להכרעה, אזי גם השפה $B$ ניתנת להכרעה.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$B = \\big((A \\cup B) - A\\big) \\cup (A \\cap B)$. המחלקה $R$ סגורה להפרש ולאיחוד."
+  },
+  {
+   "num": 5,
+   "topic": "npc",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nאם קיימת שפה $L \\in NP$ כך ש-$L \\le_p \\overline{L}$ אזי מתקיים $P = NP$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "קיומה של כזו שפה אינו מעיד על כך ש-$P = NP$ או $P \\ne NP$.\nלמשל: $L = 0^*$: ברור ש-$0^* \\in NP$ וכן $L \\le_p \\overline{L}$, ובכל זאת, עדיין לא ידוע האם מתקיים $P = NP$ או $P \\ne NP$."
+  },
+  {
+   "num": 6,
+   "topic": "poly_reductions",
+   "question": "קבע האם הטענה הבאה נכונה או לא:\nתהא $A$ שפה כך שמתקיים $CLIQUE \\le_p A$, אזי מתקיים $IS \\le_p A$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ראינו $IS \\le_p CLIQUE$. לכן, מטרנזיטיביות של היחס $\\le_p$ מתקיים גם $IS \\le_p A$.\n(ניתן לומר כי $IS \\le_p CLIQUE$ גם משום ש-$IS \\in NP$, $CLIQUE \\in NPC$.)"
+  },
+  {
+   "num": 7,
+   "topic": "classification",
+   "question": "שייך את השפה לאחת מהמחלקות המפורטות:\n$$L = \\{\\langle M\\rangle \\mid L(M) \\in RE\\}$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$L$ ניתנת לקבלה אבל לא ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$L$ לא ניתנת לקבלה אבל המשלימה שלה ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$L$ לא ניתנת לקבלה וגם המשלימה שלה לא ניתנת לקבלה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$RE$ היא מחלקת השפות שיש מ\\\"ט שמקבלת אותן. לכן, בהגדרה, מתקיים:\n$$L = \\{\\langle M\\rangle \\mid (*)\\}$$(*): $M$ היא מכונת טיורינג\nוניתן להכריע האם מחרוזת היא קידוד של מ\"ט."
+  },
+  {
+   "num": 8,
+   "topic": "classification",
+   "question": "שייך את השפה לאחת מהמחלקות המפורטות:\n$$B = \\{\\langle M_1, M_2\\rangle \\mid L(M_1) \\ne L(M_2)\\}$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$L$ ניתנת לקבלה אבל לא ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$L$ לא ניתנת לקבלה אבל המשלימה שלה ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$L$ לא ניתנת לקבלה וגם המשלימה שלה לא ניתנת לקבלה."
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$L = \\overline{EQ_{TM}}$.",
+   "note": "The language is named B but the printed options speak of 'L' (as in all of part ב) — kept. Printed option ג reads 'המשלימה שניתנת לקבלה' (missing 'שלה'); normalized to Q7's wording."
+  },
+  {
+   "num": 9,
+   "topic": "classification",
+   "question": "שייך את השפה לאחת מהמחלקות המפורטות:\n$$C = \\{\\langle M\\rangle \\mid (*)\\}$$(*): יש אינסוף מילים ש-$M$ מקבלת בתוך $5$ צעדים או פחות",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$L$ ניתנת לקבלה אבל לא ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$L$ לא ניתנת לקבלה אבל המשלימה שלה ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$L$ לא ניתנת לקבלה וגם המשלימה שלה לא ניתנת לקבלה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $M$ מקבלת מילה $w$ בתוך $5$ צעדים או פחות, אז היא מתייחסת לכל היותר ל-$5$ האותיות הראשונות של $w$.\nלכן: $M$ מקבלת אינסוף מילים בתוך $5$ צעדים או פחות אם ורק אם היא מקבלת מילה $w$ שהאורך שלה הוא $5$, בתוך $5$ צעדים או פחות (אינסוף המילים הן כל המילים שהרישא שלהן היא אותה $w$).\nלכן, המכונה הבאה מכריעה את $L$: על קלט $\\langle M\\rangle$: הרץ את $M$ על כל המילים שאורכן $5$ למשך $5$ צעדים לכל מילה. אם יש מילה שהתקבלה: קבל. אחרת: דחה.",
+   "note": "The language is named C but the printed options speak of 'L' — kept. Option ג normalized as in Q8. Explanation follows the deck (slide 31: words of length exactly 5); the PDF says 'שהאורך שלה לכל היותר 5' / 'על כל המילים שאורכן לכל היותר 5' and lacks the parenthetical."
+  },
+  {
+   "num": 10,
+   "topic": "decidability",
+   "question": "קבע מהו היחס בין $G_1$ ו-$G_2$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "G_1 = G_2"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "G_1 \\subset G_2"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "G_1 \\supset G_2"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחד מהנ\"ל"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$G_1$ – מכונות שהשפות שלהן ניתנות להכרעה.\n$G_2$ – מכונות שהשפות שלהן אינסופיות.\nיש שפות אינסופיות שלא ניתנות להכרעה ולכן $G_2 \\not\\subseteq G_1$.\nיש שפות שניתנות להכרעה אבל הן סופיות ולכן $G_1 \\not\\subseteq G_2$.",
+   "contextId": "g"
+  },
+  {
+   "num": 11,
+   "topic": "decidability",
+   "question": "קבע מהו היחס בין $G_3$ ו-$G_1$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "G_1 = G_3"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "G_1 \\subset G_3"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "G_1 \\supset G_3"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחד מהנ\"ל"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$G_3$ – מכונות שהשפה המשלימה לשפה שהן מקבלות היא סופית.\nכל שפה סופית היא ניתנת להכרעה (שייכת ל-$R$). המחלקה $R$ סגורה למשלים.\nלכן, השפה של כל מכונה ששייכת ל-$G_3$ היא שפה שניתנת להכרעה, ולכן $G_3 \\subseteq G_1$.\nכמו כן, זו הכלה ממש: למשל, המכונה שדוחה כל קלט שלה שייכת ל-$G_1$ אבל לא ל-$G_3$. לכן $G_3 \\subsetneq G_1$.",
+   "contextId": "g"
+  },
+  {
+   "num": 12,
+   "topic": "decidability",
+   "question": "קבע מהו היחס בין $G_2$ ו-$G_3$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "G_2 = G_3"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "G_2 \\subset G_3"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "G_2 \\supset G_3"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחד מהנ\"ל"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם שפה היא סופית, אז המשלימה שלה היא בהכרח אינסופית. לכן, כל מכונה ששייכת ל-$G_3$ שייכת גם ל-$G_2$, כלומר $G_3 \\subseteq G_2$.\nכמו כן, זו הכלה ממש: למשל, המכונה שמקבלת את כל המילים שהאורך שלהן זוגי ודוחה את המילים שהאורך שלהן אי-זוגי, שייכת ל-$G_2$ אבל לא ל-$G_3$. לכן $G_3 \\subsetneq G_2$.",
+   "contextId": "g"
+  },
+  {
+   "num": 13,
+   "topic": "mapping_reductions",
+   "question": "אם $\\langle M\\rangle \\in E_{TM}$ אז $\\langle R_M, M\\rangle \\in L_1$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $\\langle M\\rangle \\in E_{TM}$ אז $L(M) = \\emptyset$ ולכן $L(R_M) \\cap L(M) = \\emptyset$ ולכן $\\langle R_M, M\\rangle \\in L_1$.\nשימו לב: המהות והמשמעות של $R_M$ כלל לא רלוונטיות לתשובה...",
+   "contextId": "d"
+  },
+  {
+   "num": 14,
+   "topic": "mapping_reductions",
+   "question": "אם $\\langle M\\rangle \\in E_{TM}$ אז $\\langle R_M, M\\rangle \\in L_2$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מהשאלה הקודמת קיבלנו שהחיתוך הוא ריק, לכן ודאי שאינו אינסופי, לכן $\\langle R_M, M\\rangle \\notin L_2$.\nשימו לב: גם כאן, המהות והמשמעות של $R_M$ כלל לא רלוונטיות לתשובה...",
+   "contextId": "d"
+  },
+  {
+   "num": 15,
+   "topic": "mapping_reductions",
+   "question": "אם $\\langle M\\rangle \\in E_{TM}$ אז $\\langle R_M, T_M\\rangle \\in L_1$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $\\langle M\\rangle \\in E_{TM}$ אז $L(M) = \\emptyset$, כלומר $M$ לא מקבלת אף מילה, ולכן $L(T_M) = \\emptyset$, ולכן $L(R_M) \\cap L(T_M) = \\emptyset$ ולכן $\\langle R_M, T_M\\rangle \\in L_1$.",
+   "contextId": "d"
+  },
+  {
+   "num": 16,
+   "topic": "mapping_reductions",
+   "question": "אם $\\langle M\\rangle \\in E_{TM}$ אז $\\langle R_M, T_M\\rangle \\in L_2$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מהשאלה הקודמת קיבלנו שהחיתוך הוא ריק, לכן ודאי שאינו אינסופי, לכן $\\langle R_M, T_M\\rangle \\notin L_2$.",
+   "contextId": "d"
+  },
+  {
+   "num": 17,
+   "topic": "mapping_reductions",
+   "question": "אם $\\langle M\\rangle \\notin E_{TM}$ אז $\\langle R_M, M\\rangle \\notin L_1$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $\\langle M\\rangle \\notin E_{TM}$ אז $L(M) \\ne \\emptyset$.\nנשים לב כי תמיד $L(R_M) = \\{00, 11\\} \\cup L(M)$ ולכן $L(R_M) \\cap L(M) = L(M)$.\nבמקרה שלנו $\\langle M\\rangle \\notin E_{TM}$ ולכן $L(M) \\ne \\emptyset$, לכן $L(R_M) \\cap L(M) \\ne \\emptyset$, כלומר $\\langle R_M, M\\rangle \\notin L_1$.",
+   "contextId": "d"
+  },
+  {
+   "num": 18,
+   "topic": "mapping_reductions",
+   "question": "אם $\\langle M\\rangle \\notin E_{TM}$ אז $\\langle R_M, M\\rangle \\notin L_2$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "כמו קודם, $L(R_M) = \\{00, 11\\} \\cup L(M)$ ולכן $L(R_M) \\cap L(M) = L(M)$.\nאנחנו יודעים שהשפה של $M$ לא ריקה, אבל איננו יודעים אם היא אינסופית או סופית, ולכן לא נוכל להסיק $\\langle R_M, M\\rangle \\notin L_2$.\n**דוגמה:** אם $M$ היא המכונה הבאה: $M(x)\\{accept\\}$, אז $L(R_M) \\cap L(M) = L(M) = \\Sigma^*$ ואז **לא** מתקיים $\\langle R_M, M\\rangle \\notin L_2$.",
+   "contextId": "d"
+  },
+  {
+   "num": 19,
+   "topic": "mapping_reductions",
+   "question": "אם $\\langle M\\rangle \\notin E_{TM}$ אז $\\langle R_M, T_M\\rangle \\notin L_1$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לפי הנתון $L(M) \\ne \\emptyset$, כלומר קיימת לפחות מילה אחת, $w$, ש-$M$ מקבלת. ואז, $T_M$ מקבלת אינסוף מילים: למשל, את כל המילים $y$ כך ש-$|y|$ גדול גם מ-$|w|$ וגם ממספר הצעדים שלוקח ל-$M$ לקבל את $w$.\nנסביר: תהי $w$ מילה המתקבלת על ידי $M$ (מהנתון, יש לפחות אחת כזו). נסמן $|w| = k_1$, ונסמן $k_2$ את מספר הצעדים של המכונה $M$ עד שהיא מקבלת את $w$. אזי, אם נתבונן בקבוצה $S = \\{y \\mid |y| > \\max(k_1, k_2)\\}$, אזי $S \\subseteq L(T_M)$ וכן $|S| = \\infty$ ולכן $|L(T_M)| = \\infty$.\nכעת, נשים לב, כי תמיד $L(R_M) \\cap L(T_M) = (\\{00, 11\\} \\cup L(M)) \\cap L(T_M)$. אז אנחנו יודעים שהשפה של $T_M$ אינסופית, והשפה של $M$ לא ריקה... ועדיין, זה לא מחייב שום דבר לגבי החיתוך $L(R_M) \\cap L(T_M)$. כלומר, אי אפשר להסיק שהחיתוך לא ריק.\n**דוגמה:** אם $M$ היא מ\\\"ט שמקבלת את $\\varepsilon$ בתוך 3 צעדים ולא מקבלת אף מילה אחרת, אזי $L(R_M) = \\{00, 11, \\varepsilon\\}$ אבל $00 \\notin L(T_M)$, $11 \\notin L(T_M)$, $\\varepsilon \\notin L(T_M)$ ולכן $L(R_M) \\cap L(T_M) = \\emptyset$. כלומר, $\\langle R_M, T_M\\rangle \\in L_1$, ואי אפשר להסיק את המסקנה שבשאלה.",
+   "contextId": "d"
+  },
+  {
+   "num": 20,
+   "topic": "mapping_reductions",
+   "question": "אם $\\langle M\\rangle \\notin E_{TM}$ אז $\\langle R_M, T_M\\rangle \\notin L_2$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "כמו בשאלה הקודמת, גם אי אפשר להסיק שהחיתוך הוא אינסופי.\n**דוגמה:** אם $M$ היא המ\\\"ט הבאה: $M(x)\\{accept\\}$, אז מתקיים $L(R_M) = \\{00, 11\\} \\cup L(M) = L(M) = \\Sigma^*$, וכן כפי שהסברנו בשאלה הקודמת, $L(T_M)$ אינסופית, ולכן גם החיתוך $L(R_M) \\cap L(T_M)$ אינסופי, ומתקיים $\\langle R_M, T_M\\rangle \\in L_2$, ולכן לא ניתן להסיק את המסקנה שבשאלה.\n**סיכום חלק ד — האם מתקיימות הרדוקציות הבאות:** $f$ רדוקציה מ-$E_{TM}$ ל-$L_1$? (שאלות 13, 17); $f$ רדוקציה מ-$E_{TM}$ ל-$L_2$? (14, 18); $g$ רדוקציה מ-$E_{TM}$ ל-$L_1$? (15, 19); $g$ רדוקציה מ-$E_{TM}$ ל-$L_2$? (16, 20).",
+   "contextId": "d",
+   "note": "PDF gives one joint explanation for Q13-20 (p.6); per-question explanations transcribed from the deck (slides 41-61), which agree with the PDF's analysis. Deck's part-ד summary slide (62) only pairs the questions per function; rendered as a short line."
+  },
+  {
+   "num": 21,
+   "topic": "poly_reductions",
+   "question": "הכיוון של הרדוקציה שגוי: אם רוצים להראות ש-$VCM$ היא $NP$-שלמה אז יש להראות שמתקיים $VCM \\le_p VC$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "כדי להוכיח שייכות ל-$NPC$, יש לקחת שפה ששייכותה ל-$NPC$ ידועה, ולעשות רדוקציה **ממנה**. ואז, לפי הטרנזיטיביות, נקבל שגם שפת ה\"יעד\" היא $NPC$.",
+   "contextId": "e",
+   "note": "Printed with '(2 נקודות)'; point weights omitted. PDF has no explanation; explanation from deck slide 64."
+  },
+  {
+   "num": 22,
+   "topic": "poly_reductions",
+   "question": "ההוכחה מיותרת מכיוון ש-$VCM$ היא מקרה פרטי של $VC$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אכן זהו מקרה פרטי, או תת-קבוצה, של שפה $NPC$. אבל תכונה זו לא עוברת \"בירושה\".\nלמשל, גם $2SAT$ היא מקרה פרטי של $SAT$, אבל $SAT$ היא $NPC$ ו-$2SAT$ היא ב-$P$.",
+   "contextId": "e",
+   "note": "Printed with '(2 נקודות)'. PDF has no explanation; explanation from deck slide 66."
+  },
+  {
+   "num": 23,
+   "topic": "poly_reductions",
+   "question": "אם $\\langle G, k\\rangle \\in VC$ אז מתקיים $\\langle G', k\\rangle \\in VCM$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $\\langle G, k\\rangle \\in VC$ אז קיים ב-$G$ כיסוי קדקודים בגודל $k$.\nב-$G'$ הדרגה של כל הקדקודים \\\"המקוריים\\\" של $G$ היא זוגית. ולכן יש לכל היותר קדקוד אחד שהדרגה שלו אי-זוגית. (אגב, משפט מתורת הגרפים מבטיח שגם הדרגה של $v_{new}$ היא זוגית, אבל זה לא נדרש כאן...)\nאבל לא בהכרח קיים ב-$G'$ כיסוי קדקודים בגודל $k$, משום שלא ברור האם הכיסוי של $G$ מכסה את כל הצלעות החדשות שהוספנו.\n(ברור שיש ב-$G'$ כיסוי קדקודים בגודל $k+1$, ע\\\"י הוספה של $v_{new}$ ל-$k$ הקדקודים מ-$G$ שמהווים כיסוי ב-$G$.)\nלכן לא בהכרח $\\langle G', k\\rangle \\in VCM$.",
+   "contextId": "e",
+   "note": "Printed with '(4 נקודות)'. The PDF's first explanation sentence is garbled ('אם <G,k>∈VC אז ב-G יש לכל היותר קדקוד אחד שהדרגה שלו זוגית וכן יש ב-G כיסוי קדקודים בגודל k'); replaced by the deck's (slide 68) first sentence. Deck slide 68 also draws an example graph (not reproduced)."
+  },
+  {
+   "num": 24,
+   "topic": "poly_reductions",
+   "question": "אם $\\langle G', k\\rangle \\in VCM$ אז מתקיים $\\langle G, k\\rangle \\in VC$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "low",
+   "explanation": "אם ב-$G'$ יש כיסוי קדקודים $C$ בגודל $k$, אז יש שתי אפשרויות:\nאפשרות 1: $v_{new} \\notin C$, ואז $C$ הוא כיסוי קדקודים ב-$G$ שגודלו $k$.\nאפשרות 2: $v_{new} \\in C$, ואז $C - v_{new}$ הוא כיסוי קדקודים ב-$G$ בגודל $k-1$, ולכן יש גם כיסוי בגודל $k$ (אפשר לבחור קדקוד כלשהו ולהוסיף אותו לכיסוי).\nבשני המקרים $\\langle G, k\\rangle \\in VC$.\n**הערות (מצגת החזרה):** 1. העובדה שב-$G'$ יש לכל היותר קדקוד אחד בדרגה אי-זוגית, היא לא רלוונטית בכיוון הזה. 2. אם ב-$G$ יש רק $k-1$ קדקודים, אז הטענה לא נכונה. מכיוון שזה לא צוין מפורשות בשאלה, יש מקום לענות \\\"לא נכון\\\"...",
+   "contextId": "e",
+   "note": "Key (PDF highlight and deck slide 70) = נכון, but the PDF carries a green author note: 'הערה: אם ב-G יש רק k−1 קדקודים אז זה לא נכון... האם לשנות את התשובה ???', and the deck (slide 71) says 'יש מקום לענות \"לא נכון\"'. Kept the highlighted answer; confidence low. Printed with '(4 נקודות)'."
+  },
+  {
+   "num": 25,
+   "topic": "mapping_reductions",
+   "question": "נאמר ששפה $A$ היא $R$-שלמה אם $A$ ניתנת להכרעה וכן כל שפה ב-$R$ ניתנת לרדוקציה אל $A$ (כלומר: $A$ היא $R$-שלמה אם $A \\in R$ וכן לכל $B \\in R$ מתקיים $B \\le_m A$).\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כל שפה ב-$R$ היא $R$-שלמה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אין אף שפה שהיא $R$-שלמה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "יש אינסוף שפות שהן $R$-שלמות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "יש ב-$R$ שפות שאינן $R$-שלמות, אבל מספרן סופי."
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "med",
+   "explanation": "יש רדוקציה מכל שפה ב-$R$ אל כל שפה אחרת פרט ל-$\\emptyset$ ו-$\\Sigma^*$.\n**מצגת החזרה:** ד: כל שפה לא טריוויאלית ב-$R$ היא $R$-שלמה, אבל ישנן שתי שפות טריוויאליות שלגביהן זה לא נכון... ג: אם מספר השפות ב-$R$ שאינן $R$-שלמות הוא סופי, אז מספר השפות ב-$R$ שהינן $R$-שלמות הוא אינסופי. (כנראה שיש טעות, ושתי התשובות נכונות.)",
+   "acceptedIds": [
+    "d",
+    "c"
+   ],
+   "note": "DISAGREEMENT: the PDF highlights only ד; the review deck (slide 75) highlights both ג and ד and says 'כנראה שיש טעות, ושתי התשובות נכונות'. correctId = ד (PDF key), ג accepted per the deck. Deck typo 'R-דלימות' fixed."
+  },
+  {
+   "num": 26,
+   "topic": "tm",
+   "question": "נתונה מ\\\"ט $M$ עם: $\\Sigma = \\{0,1\\}$, $\\Gamma = \\{0,1,\\sqcup\\}$, $Q = \\{q_0, q_1, q_2, q_{acc}, q_{rej}\\}$.\nנניח שנתונה מילת קלט $w \\in \\Sigma^*$.\nכמה קונפיגורציות שונות ייתכנו בריצה של $M$ על $w$ אם **ידוע** שהראש של המכונה לא מגיע לתא ה-$20$ משמאל?",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "5 \\cdot 3^{20}"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "5 \\cdot 2^{20} \\cdot 3^{20}"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "20^3 \\cdot 5"
+    },
+    {
+     "id": "d",
+     "type": "math",
+     "value": "3^{20} \\cdot 20 \\cdot 5"
+    },
+    {
+     "id": "e",
+     "type": "math",
+     "value": "3^{5 \\cdot 20}"
+    },
+    {
+     "id": "f",
+     "type": "text",
+     "value": "לא ניתן לקבוע בלי לדעת האם $M$ דטרמיניסטית או א\"ד."
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מספר האפשרויות הוא:\n$3^{20}$ אפשרויות לתוכן הסרט.\n$5$ אפשרויות למצב הנוכחי.\n$20$ אפשרויות למיקום הראש.\nלכן, סה\\\"כ: $3^{20} \\cdot 20 \\cdot 5$.\n(קונפיגורציה היא שלשה של מצב, מיקום הראש הקורא ותוכן הסרט.)"
+  },
+  {
+   "num": 27,
+   "topic": "npc",
+   "question": "יהיו $A, B \\in NP$ ו-$C \\in NPC$. איזו מהטענות הבאות בהכרח מתקיימת?",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "A \\le_p B"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "A \\le_p C"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "תשובות א ו-ב נכונות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$C \\in NPC$, לכן יש רדוקציה פולינומית אל $C$ מכל שפה ששייכת ל-$NP$.\nאין אינפורמציה לגבי $A$ ו-$B$ שלפיה ניתן לקבוע האם מתקיים $A \\le_p B$.",
+   "lockOrder": true
+  },
+  {
+   "num": 28,
+   "topic": "npc",
+   "question": "אם $A, B \\in NP$ ומתקיים $A \\le_p B$, אזי בהכרח:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $B \\in NPC$ אז $A \\in NPC$."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $A \\in NPC$ אז $B \\in NPC$."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "תשובות א ו-ב נכונות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לפי משפט: אם $A \\in NPC$ וגם $B \\in NP$ אז $B \\in NPC$.\n(מתוך הגדרת $NPC$ — שכל שפה אחרת ב-$NP$ ניתנת לרדוקציה אליה — ומתוך הטרנזיטיביות של יחס הרדוקציה.)",
+   "lockOrder": true
+  },
+  {
+   "num": 29,
+   "topic": "npc",
+   "question": "יהיו $A \\in NP$, ו-$B, C \\in NPC$. אילו מהרדוקציות הבאות בהכרח מתקיימות:\n(1) $A \\le_p B$\n(2) $B \\le_p A$\n(3) $B \\le_p C$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "(1)"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "(2)"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "(1), (2) ו-(3)"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "(1) ו-(3)"
+    },
+    {
+     "id": "e",
+     "type": "text",
+     "value": "(2) ו-(3)"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לפי ההגדרה, אם $L \\in NPC$ אז $L \\in NP$ וגם לכל $L' \\in NP$ מתקיים $L' \\le_p L$.\n$B, C \\in NPC$ וכן $A \\in NP$, לכן קיימות רדוקציות פולינומיות מכל אחת משלוש השפות אל $B$ וגם אל $C$."
+  }
+ ]
+}

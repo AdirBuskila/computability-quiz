@@ -1,0 +1,18 @@
+tools/node_modules/
+tools/package-lock.json
+tools/package.json
+
+# rendered exam pages (large) + screenshots; the transcriptions tools/raw/*.json ARE tracked
+tools/raw/**/*.png
+tools/raw/*.png
+tools/raw/shots/
+*.pdf
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# per-sitting render/scratch folders (regenerable, copies of course material)
+tools/raw/*/
+tools/raw/*.tsv

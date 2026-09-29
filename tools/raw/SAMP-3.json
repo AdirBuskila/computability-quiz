@@ -1,0 +1,601 @@
+{
+ "examCode": "SAMP-3",
+ "examLabel": "מבחן לדוגמה 3 (2021)",
+ "year": 2021,
+ "sourceFile": "מבחנים/מבחנים לדוגמה/פתרון מבחן לדוגמא.pdf",
+ "keyFile": "same file (cyan highlights + blue explanations; part B Q5 claims answered in blue text)",
+ "contexts": {
+  "rel": {
+   "kind": "text",
+   "title": "יחסים בין שפות (חלק א, שאלות 3–5)",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות:\n$$A = \\{L \\mid L \\le_m A_{TM}\\}$$$$B = \\{L \\mid \\overline{L} \\le_m A_{TM}\\}$$$$C = \\{L \\mid A_{TM} \\le_m L \\wedge L \\le_m A_{TM}\\}$$"
+  },
+  "map": {
+   "kind": "text",
+   "title": "רדוקציית מיפוי (חלק א, שאלות 6–9)",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות:\n**שפות:**\n$$H_{TM} = \\{\\langle M, w\\rangle \\mid (*)\\}$$(*): $M$ עוצרת על $w$\n$$NotEmpty_{TM} = \\{\\langle M\\rangle \\mid L(M) \\ne \\emptyset\\}$$$$INF_{TM} = \\{\\langle M\\rangle \\mid (**)\\}$$(**): $L(M)$ אינסופית\n**פונקציות מיפוי:**\n$$f(\\langle M, w\\rangle) = \\langle R_{Mw}\\rangle \\qquad g(\\langle M\\rangle) = \\langle T_M\\rangle$$כאשר המכונות $R_{Mw}$ ו-$T_M$ מוגדרות באופן הבא:\n$R_{Mw}$ על קלט $y$:\n1. הרץ את $M$ על $w$ למשך $|y|$ צעדים\n2. אם בשלב 1 המכונה $M$ עצרה על $w$: **קבל**; אחרת: **דחה**\n$T_M$ על קלט $y$:\n1. הרץ את $M$ על כל המילים שאורכן לכל היותר $|y|$ למשך $|y|$ צעדים\n2. אם בשלב 1 המכונה $M$ קיבלה לפחות מילה אחת: **קבל**; אחרת: **דחה**\n**ענה על השאלות הבאות**"
+  },
+  "dc": {
+   "kind": "text",
+   "title": "רדוקציה פולינומית: DOUBLE-CLIQUE (חלק ב, שאלה 5)",
+   "text": "נתונה שפה DOUBLE-CLIQUE הבאה:\n$$DOUBLE{-}CLIQUE = \\{\\langle G, k\\rangle \\mid (*)\\}$$(*): $G$ גרף לא מכוון, ב-$G$ יש שתי קליקות זרות בקדקדים בגודל $k$\nמנסים להוכיח שהשפה היא NP-שלמה בעזרת הרדוקציה $CLIQUE \\le_p DOUBLE{-}CLIQUE$, המתבססת על המיפוי $f(\\langle G, k\\rangle) = \\langle G', k\\rangle$ כאשר:\nאם ב-$G$ יש קליקה בגודל $k$, אז $G'$ הוא גרף המכיל שני עותקים של $G$, בלי שום חיבורים ביניהם,\nאחרת $G'$ זהה ל-$G$.\n**לפניך מספר טענות. עליך לסמן לכל טענה האם היא נכונה או לא.**"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "topic": "np",
+   "question": "תהיה $A, B \\in NP$. איזו מהטענות הבאות לגבי $A - B$ נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $B \\in P$ אז $A - B \\in NP$ ואם $B \\notin P$ אז ייתכן $A - B \\in NP$ וייתכן $A - B \\notin NP$."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $B \\in P$ אז $A - B \\in NP$ ואם $B \\notin P$ אז בהכרח $A - B \\notin NP$."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $B \\in P$ אז ייתכן $A - B \\in NP$ וייתכן $A - B \\notin NP$."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $B \\in P$ אז $\\overline{B} \\in P$ ולכן $\\overline{B} \\in NP$. $A - B = A \\cap \\overline{B}$. NP סגורה לחיתוך ולכן $A - B \\in NP$.\nכלומר ג לא נכון.\nבנוסף, אם $B \\notin P$ אז לא ניתן לקבוע האם $A - B \\in NP$ או לא:\nבפרט, ייתכן שמתקיים $A = B$ ואז $A - B = \\emptyset \\in P$.\nלכן א נכון וב לא נכון.",
+   "note": "Original: חלק א שאלה 1."
+  },
+  {
+   "num": 2,
+   "topic": "decidability",
+   "question": "תהא $M$ מ\"ט דטרמיניסטית ותהא $M'$ המכונה שמתקבלת מ-$M$ ע\"י כך שמחליפים בין המצבים $q_{rej}$ ו-$q_{acc}$. איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "בהכרח מתקיים: אם $L(M) \\in R$ אז $L(M') \\in R$."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בהכרח מתקיים: $L(M) \\ne L(M')$."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "ייתכן ש-$L(M) \\in RE$ אבל $L(M') \\notin RE$."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל התשובות נכונות."
+    },
+    {
+     "id": "e",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה."
+    }
+   ],
+   "correctId": "e",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אף תשובה אינה נכונה\n**א לא נכונה:** $M$ מכונה שעל קלט $\\langle N, w\\rangle$ מריצה את $N$ על $w$ ואם $N$ עוצרת, אז $M$ דוחה. במקרה כזה $L(M) = \\emptyset \\in R$ אבל $L(M') = H_{TM}$.\n**ב לא נכונה:** למשל $M = M_{loop}$\n**ג לא נכונה:** לא ייתכן שיתקיים $L(M') \\notin RE$ כי **בהגדרה**, כל שפה של מכונה **כלשהי** שייכת ל-RE.",
+   "lockOrder": true,
+   "note": "Original: חלק א שאלה 2. Option ד ('כל התשובות נכונות') refers to siblings -> lockOrder."
+  },
+  {
+   "num": 3,
+   "topic": "mapping_reductions",
+   "question": "קבע מהו היחס בין $A$ ל-$B$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "A = B"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "A \\subset B"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "A \\supset B"
+    },
+    {
+     "id": "d",
+     "type": "math",
+     "value": "A \\cap B = \\emptyset"
+    },
+    {
+     "id": "e",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה"
+    }
+   ],
+   "correctId": "e",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מתקיים $B \\not\\ni A_{TM} \\in A, C$ וכן $B \\ni \\overline{A_{TM}} \\notin A, C$\nלכן $B$ לא מוכלת ולא מכילה את $A$ או את $C$. כלומר: $A \\not\\subseteq B$, $B \\not\\subseteq A$, $C \\not\\subseteq B$, $B \\not\\subseteq C$.\nכמו כן, $A \\cap B \\ne \\emptyset$ מכיוון ש-$R \\subseteq A \\cap B$ (למעשה $R = A \\cap B$)",
+   "contextId": "rel",
+   "note": "Original: חלק א שאלה 3. Explanation = the shared blue box printed above Q3-5 (first bullet); key box text says 'את A או את B' — typo for C, fixed."
+  },
+  {
+   "num": 4,
+   "topic": "mapping_reductions",
+   "question": "קבע מהו היחס בין $B$ ל-$C$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "B = C"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "B \\subset C"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "B \\supset C"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מתקיים $B \\not\\ni A_{TM} \\in A, C$ וכן $B \\ni \\overline{A_{TM}} \\notin A, C$\nלכן $B$ לא מוכלת ולא מכילה את $A$ או את $C$. כלומר: $A \\not\\subseteq B$, $B \\not\\subseteq A$, $C \\not\\subseteq B$, $B \\not\\subseteq C$.",
+   "contextId": "rel",
+   "note": "Original: חלק א שאלה 4. Explanation = first bullet of the shared blue box above Q3-5."
+  },
+  {
+   "num": 5,
+   "topic": "mapping_reductions",
+   "question": "קבע מהו היחס בין $C$ ל-$A$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "A = C"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "A \\subset C"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "A \\supset C"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לכל $L \\in C$ מתקיים $L \\le_m A_{TM}$ לכן $L \\in A$ כלומר $C \\subseteq A$.\nכמו כן, $\\{0\\} \\in A$ אבל $\\{0\\} \\notin C$ ולכן $C \\subsetneq A$.",
+   "contextId": "rel",
+   "note": "Original: חלק א שאלה 5. Explanation = second bullet of the shared blue box above Q3-5."
+  },
+  {
+   "num": 6,
+   "topic": "mapping_reductions",
+   "question": "האם $f$ היא רדוקציה $H_{TM} \\le_m NotEmpty_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$f$ ניתנת לחישוב. כמו כן:\nאם $\\langle M, w\\rangle \\in H_{TM}$ אז קיים מספר צעדים סופי כלשהו $r$ שלאחריו $M$ עוצרת על $w$. ולכן קיימת מילה $y$ כך ש-$|y| = r$ ואז $R_{Mw}$ יקבל את $y$, ולכן $\\langle R_{Mw}\\rangle \\in NotEmpty_{TM}$.\nאם $\\langle R_{Mw}\\rangle \\in NotEmpty_{TM}$, אזי קיימת מילה $y$ ש-$R_{Mw}$ מקבלת. משמעות הדבר היא ש-$M$ עוצרת על $w$ אחרי $|y|$ צעדים או פחות, ובפרט $M$ עוצרת על $w$, ולכן $\\langle M, w\\rangle \\in H_{TM}$.",
+   "contextId": "map",
+   "note": "Original: חלק א שאלה 6."
+  },
+  {
+   "num": 7,
+   "topic": "mapping_reductions",
+   "question": "האם $f$ היא רדוקציה $H_{TM} \\le_m INF_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$f$ ניתנת לחישוב. כמו כן\nאם $\\langle M, w\\rangle \\in H_{TM}$, אז קיים מספר צעדים סופי כלשהו $r$ שלאחריו $M$ עוצרת על $w$. ולכן קיימת מילה $y$ כך ש-$|y| = r$ ואז $R_{Mw}$ תקבל את $y$. בנוסף $R_{Mw}$ תקבל את **כל המילים** שאורכן גדול מ-$y$. יש אין סוף מילים כאלו, ולכן $\\langle R_{Mw}\\rangle \\in INF_{TM}$.\nאם $\\langle M, w\\rangle \\notin H_{TM}$, אז $M$ לא עוצרת על $w$ בשום מספר של צעדים. כלומר לכל $y$, המכונה $M$ לא עוצרת על $w$ בתוך $|y|$ צעדים ולכן $R_{Mw}$ לא מקבלת אף מילה ומתקיים $L(R_{Mw}) = \\emptyset$ ואז $\\langle R_{Mw}\\rangle \\notin INF_{TM}$.",
+   "contextId": "map",
+   "note": "Original: חלק א שאלה 7."
+  },
+  {
+   "num": 8,
+   "topic": "mapping_reductions",
+   "question": "האם $g$ היא רדוקציה $NotEmpty_{TM} \\le_m INF_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$g$ ניתנת לחישוב. כמו כן\nאם $\\langle M\\rangle \\in NotEmpty_{TM}$ אזי קיימת לפחות מילה אחת $w$ ש-$M$ מקבלת. נגדיר את האורך שלה $|w| = r$. $g(\\langle M\\rangle) = \\langle T_M\\rangle$ ולפי הגדרה $T_M$ תקבל כל מילה $y$ שמקיימת $|y| \\ge r$. קיימות אין סוף מילים כאלה. ולכן $L(T_M)$ אינסופית, כלומר $\\langle T_M\\rangle \\in INF_{TM}$.\nאם $\\langle M\\rangle \\notin NotEmpty_{TM}$ אז $L(M) = \\emptyset$, כלומר $M$ לא מקבלת אף מילה ולכן גם $T_M$ לא מקבלת אף מילה, כלומר $L(T_M) = \\emptyset$ ומתקיים $\\langle T_M\\rangle \\notin INF_{TM}$.",
+   "contextId": "map",
+   "note": "Original: חלק א שאלה 8."
+  },
+  {
+   "num": 9,
+   "topic": "mapping_reductions",
+   "question": "האם $g$ היא רדוקציה $INF_{TM} \\le_m NotEmpty_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$g$ ניתנת לחישוב. אבל יכולה להיות $\\langle M\\rangle \\notin INF_{TM}$ אבל $\\langle T_M\\rangle \\in NotEmpty_{TM}$.\nלדוגמא:\n$M$ מכונה שמקבלת רק את מילה אחת. ברור ש-$\\langle M\\rangle \\notin INF_{TM}$ אבל $T_M$ מקבלת את כל המילים שהן \"ארוכות מספיק\": (לפחות באורך של המילה ש-$M$ מקבלת וגם לפחות באורך של מספר הצעדים שלוקח ל-$M$ לקבל את המילה ההיא). ולכן $\\langle T_M\\rangle \\in NotEmpty_{TM}$. סה\"כ, זו לא רדוקציה.",
+   "contextId": "map",
+   "note": "Original: חלק א שאלה 9."
+  },
+  {
+   "num": 10,
+   "topic": "poly_reductions",
+   "question": "תהינה $A$ ו-$B$ שפות כך שמתקיים $A \\le_p B$ וגם $B \\le_p A$. מה מהבאים **לא** ייתכן?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$A \\in R$ ו-$B \\notin RE$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$A \\in RE$ ו-$B \\notin R$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$A \\in P$ ו-$B \\in NP$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$A$ סופית ו-$B$ אינסופית"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**א:** רדוקציה פולינומית היא בפרט רדוקציית מיפוי. לכן מתקיים $A \\le_m B$ וגם $B \\le_m A$.\n$B \\le_m A$, לכן אם $A \\in R$ אז $B \\in R$ ולכן לא ייתכן שמתקיים $A \\in R$ ו-$B \\notin RE$.\nתשובות ב, ג, ד לא נכונות (כלומר המקרים שמתוארים בהם **ייתכנו**):\n**ב.** ייתכן $A \\in RE$ וגם $B \\notin R$: למשל, $A = B = H_{TM}$\n**ג.** ייתכן $A \\in P$ וגם $B \\in NP$: למשל $A = B = \\{0\\}$\n**ד.** ייתכן $A$ סופית ו-$B$ אינסופית: למשל $A = \\{0\\}$, $B = 0^*$.",
+   "note": "Original: חלק ב שאלה 1. Stem prints capital-P subscripts ('≤_P'); written as \\le_p."
+  },
+  {
+   "num": 11,
+   "topic": "decidability",
+   "question": "רוצים להוכיח ששפה $A$ ניתנת להכרעה. מה מהבאים יכול להוות הוכחה תקפה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "מתקיים $A \\le_m \\overline{A}$ וגם $A \\le_m A_{TM}$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "קיים אנומרטור (מ\"ט מונה) שמדפיס כל מילה של $A$ פעם אחת בדיוק"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "קיים אנומרטור (מ\"ט מונה) שמדפיס את כל המילים של $\\overline{A}$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "מתקיים $A \\le_m \\overline{A}$ וגם $A_{TM} \\le_m A$"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**א.** נראה שאם מתקיימים התנאים בתשובה א' אזי בהכרח $A$ ניתנת להכרעה:\nאם $A \\le_m A_{TM}$ אז $A \\in RE$.\nכעת, אם $A \\le_m \\overline{A}$ אז $\\overline{A} \\le_m A$ ומכיוון ש-$A \\in RE$ אז $\\overline{A} \\in RE$.\nסה\"כ: $A, \\overline{A} \\in RE$, ולפי משפט, $A \\in R$.\nתשובות ב, ג, ד לא נכונות:\n**ב.** כל אנומרטור ניתן להפוך לאנומרטור שמדפיס כל מילה רק פעם אחת (לפני שהוא מדפיס מילה, הוא ייבדוק שהיא עדיין לא מופיעה על סרט ההדפסה, ורק אם היא לא מופיעה - הוא ידפיס אותה). לכן, קיומו של כזה אנומרטור לא מעיד על כך ש-$A \\in R$.\n**ג.** אם קיים אנומרטור שמדפיס את כל המילים ב-$\\overline{A}$, אזי $\\overline{A}$ ניתנת לקבלה. אבל $A$ עצמה יכולה להיות לא-ניתנת לקבלה (עם משלימה, $\\overline{A}$, שכן ניתנת לקבלה).\n**ד.** אם $A_{TM} \\le_m A$ אז מתקיים דווקא $A \\notin R$",
+   "note": "Original: חלק ב שאלה 2. Overlines verified on a zoomed render (text layer drops them)."
+  },
+  {
+   "num": 12,
+   "topic": "time_p",
+   "question": "תהי $f$ פונקציה המוגדרת באופן הבא: הקלט הוא שלשה $\\langle M, x, 1^k\\rangle$ כאשר: $M$ היא מ\"ט בסיסית, $x \\in \\Sigma^*$ היא מילה ו-$1^k$ הוא קידוד אונארי של מספר טבעי $k \\ge 1$.\nוכן: אם $M$ מקבלת את $x$ בתוך לכל היותר $k$ צעדים, אז $f(\\langle M, x, 1^k\\rangle) = 1$\nאחרת, $f(\\langle M, x, 1^k\\rangle) = 0$.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הפונקציה $f$ ניתנת לחישוב בזמן פולינומיאלי."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הפונקציה $f$ ניתנת לחישוב, אבל לא בהכרח בזמן פולינומיאלי."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "הפונקציה $f$ לא ניתנת לחישוב."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "הפונקציה $f$ ניתנת לחישוב רק אם מתקיים $L(M) \\in R$."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ניתן לבנות מ\"ט שמחשבת את $f$ באמצעות מ\"ט אוניברסלית שמריצה את $M$ מספר צעדים $k$.\nכל צעד בסימולציה לוקח לכל היותר כמות פולינומיאלית של צעדים כפונקציה של $|x|$. ובסך הכל מספר הצעדים הינו לינארי באורך הקלט ולכן סך כל מספר הצעדים הנדרשים לחישוב $f$ הוא פולינומיאלי באורך הקלט.",
+   "note": "Original: חלק ב שאלה 3. Key text says 'מ\"ט שמחשבת את M' — typo for f, fixed."
+  },
+  {
+   "num": 13,
+   "topic": "decidability",
+   "question": "תהי $M_1, M_2, M_3, \\cdots$ קבוצה אינסופית של מכונות טיורינג שעוצרות תמיד.\n**טענה:** קיימת מ\"ט $MI$ שעוצרת תמיד ומקיימת: $(\\exists i : w \\in L(M_i)) \\Leftrightarrow w \\in L(MI)$.\nמה מהבאים נכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה לא נכונה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה נכונה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "הטענה נכונה רק אם לכל $i$ מתקיים $L(M_i) \\in R$."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אינה נכונה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הטענה לא נכונה.\nנסמן $H_{TM} = \\{x_1, x_2, x_3, \\cdots\\}$\n$M_i$ היא מכונה שמקבלת רק את המילה $x_i$ ועל כל שאר המילים היא עוצרת ודוחה.\nכל המכונות $M_1, M_2, M_3, \\cdots$ עוצרות תמיד.\nאילו הייתה קיימת מכונה $MI$ כמתואר, אז $MI$ היתה מכריעה את $H_{TM}$. אבל זה לא ייתכן.",
+   "note": "Original: חלק ב שאלה 4."
+  },
+  {
+   "num": 14,
+   "topic": "poly_reductions",
+   "question": "ההוכחה תקיפה כי הפונקציה $f$ עומדת בכל הדרישות של רדוקציה פולינומית.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לא. זה לא ידוע, כי לצורך החישוב של $f$ יש לבדוק האם יש בגרף קליקה בגודל נתון ולא ידוע האם זה ניתן לביצוע בסיבוכיות פולינומית.",
+   "contextId": "dc",
+   "note": "Original: חלק ב שאלה 5, טענה א. Key = blue answer text under the claim ('לא.'/'כן.'), not a highlight."
+  },
+  {
+   "num": 15,
+   "topic": "poly_reductions",
+   "question": "ההוכחה אינה תקיפה כי $f$ לא מבצעת מיפוי $\\Sigma^* \\to \\Sigma^*$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לא. כן מתבצע מיפוי $\\Sigma^* \\to \\Sigma^*$, אבל זו לא דרישה של רדוקציה.",
+   "contextId": "dc",
+   "note": "Original: חלק ב שאלה 5, טענה ב. Key = blue answer text under the claim ('לא.'/'כן.'), not a highlight."
+  },
+  {
+   "num": 16,
+   "topic": "poly_reductions",
+   "question": "ההוכחה אינה תקיפה כי $f$ אינה ניתנת לחישוב.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לא. $f$ כן ניתנת לחישוב.",
+   "contextId": "dc",
+   "note": "Original: חלק ב שאלה 5, טענה ג. Key = blue answer text under the claim ('לא.'/'כן.'), not a highlight."
+  },
+  {
+   "num": 17,
+   "topic": "poly_reductions",
+   "question": "ההוכחה אינה תקיפה כי לא מובטח ש-$f$ ניתנת לחישוב בזמן פולינומי.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "כן.",
+   "contextId": "dc",
+   "note": "Original: חלק ב שאלה 5, טענה ד. Key = blue answer text under the claim ('לא.'/'כן.'), not a highlight."
+  },
+  {
+   "num": 18,
+   "topic": "poly_reductions",
+   "question": "ההוכחה אינה תקיפה כי $f$ ניתנת לחישוב בזמן פולינומי על מכונה רב-סרטית אך לא בהכרח על מכונה חד-סרטית.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לא. אילו $f$ היתה ניתנת לחישוב בזמן פולינומי על מכונה רב-סרטית אזי היא היתה ניתנת לחישוב בזמן פולינומי גם על מכונה חד-סרטית",
+   "contextId": "dc",
+   "note": "Original: חלק ב שאלה 5, טענה ה. Key = blue answer text under the claim ('לא.'/'כן.'), not a highlight."
+  },
+  {
+   "num": 19,
+   "topic": "poly_reductions",
+   "question": "ההוכחה אינה תקיפה כי לא מתקיים $\\langle G', k\\rangle \\in DOUBLE{-}CLIQUE \\Longleftarrow \\langle G, k\\rangle \\in CLIQUE$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לא. כן מתקיים $\\langle G', k\\rangle \\in DOUBLE{-}CLIQUE \\Longleftarrow \\langle G, k\\rangle \\in CLIQUE$.",
+   "contextId": "dc",
+   "note": "Original: חלק ב שאלה 5, טענה ו. Key = blue answer text under the claim ('לא.'/'כן.'), not a highlight. Implication arrow transcribed in the visual left-to-right order of the printed formula (math spans inside an RTL line); both directions actually hold, so the answer is order-independent."
+  },
+  {
+   "num": 20,
+   "topic": "poly_reductions",
+   "question": "ההוכחה אינה תקיפה כי לא מתקיים $\\langle G', k\\rangle \\in DOUBLE{-}CLIQUE \\Longrightarrow \\langle G, k\\rangle \\in CLIQUE$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solution-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לא. כן מתקיים $\\langle G', k\\rangle \\in DOUBLE{-}CLIQUE \\Longrightarrow \\langle G, k\\rangle \\in CLIQUE$.",
+   "contextId": "dc",
+   "note": "Original: חלק ב שאלה 5, טענה ז. Key = blue answer text under the claim ('לא.'/'כן.'), not a highlight. Implication arrow transcribed in the visual left-to-right order of the printed formula (math spans inside an RTL line); both directions actually hold, so the answer is order-independent."
+  }
+ ]
+}

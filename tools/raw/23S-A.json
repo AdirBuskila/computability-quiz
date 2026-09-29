@@ -1,0 +1,726 @@
+{
+ "examCode": "23S-A",
+ "examLabel": "2023 סמסטר קיץ מועד א",
+ "year": 2023,
+ "examDate": "23.8.2023",
+ "sourceFile": "מבחנים/2023/סמסטר קיץ/2023-08-23-Exam-חישוביות-2023-moedA-גרסא-0 SOLUTION.pdf",
+ "keyFile": "same file — options NOT highlighted; answers inferred from the yellow 'הסבר' paragraphs (question text cross-checked with מבחנים/2023/סמסטר קיץ/23-8-23.pdf)",
+ "contexts": {
+  "rel": {
+   "kind": "text",
+   "title": "הגדרות לשאלות 10–12 (יחסים בין שפות)",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות:\n$$A = \\{\\langle M\\rangle \\mid L(M) \\in R\\}$$$$B = \\{\\langle M\\rangle \\mid M \\text{ halts on all } w \\in \\Sigma^*\\}$$$$C = \\{\\langle M\\rangle \\mid L(M) \\in RE\\}$$"
+  },
+  "red": {
+   "kind": "text",
+   "title": "הגדרות לשאלות 13–16 (רדוקציית מיפוי)",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות.\n**שפות:**\n$$H_\\varepsilon = \\{\\langle M\\rangle \\mid M \\text{ is a T.M. and } M \\text{ halts on } \\varepsilon\\}$$$$E_{TM} = \\{\\langle M\\rangle \\mid M \\text{ is a T.M. and } L(M) = \\emptyset\\}$$**פונקציות מיפוי:**\n$$f(\\langle M\\rangle) = \\langle R_M\\rangle \\qquad g(\\langle M\\rangle) = \\langle S_M\\rangle$$בהינתן מכונה $M$, המכונה $R_M$ מוגדרת באופן הבא:\n$R_M$ על הקלט $w$:\n• אם $w \\ne \\varepsilon$, עצור וקבל.\n• אחרת, בלולאה על $i$, החל מ-$i=1$, ובכל סיבוב $i=i+1$:\n  – ייצר את כל המילים באורך $0$ עד $i$.\n  – הרץ את $M$ על כל המילים שנוצרו בשורה הקודמת, למשך $i$ צעדים.\n  – אם $M$ עוצרת במצב מקבל על אחת מהמילים, עצור ו**דחה**.\nבהינתן מכונה $M$, המכונה $S_M$ מוגדרת באופן הבא:\n$S_M$ על הקלט $w$:\n• אם $w \\ne \\varepsilon$, עצור ודחה.\n• אחרת, בלולאה על $i$, החל מ-$i=1$, ובכל סיבוב $i=i+1$:\n  – ייצר את כל המילים באורך $0$ עד $i$.\n  – הרץ את $M$ על כל המילים שנוצרו בשורה הקודמת, למשך $i$ צעדים.\n  – אם $M$ עוצרת במצב מקבל על אחת מהמילים, עצור ו**קבל**."
+  },
+  "poly": {
+   "kind": "text",
+   "title": "הגדרות לשאלות 17–19 (רדוקציה פולינומית)",
+   "text": "תהיינה השפות הבאות:\n$$ALL_{DFA} = \\{\\langle A\\rangle \\mid A \\text{ is a DFA and } L(A) = \\Sigma^*\\}$$$$ALL_{NFA} = \\{\\langle NA\\rangle \\mid NA \\text{ is a NFA and } L(NA) = \\Sigma^*\\}$$$$R_G = \\{\\langle G, q_0, q_F\\rangle \\mid G \\text{ is a directed graph, } q_0 \\text{ and } q_F \\text{ are vertices in } G \\text{, and } q_F \\text{ is } \\textbf{not} \\text{ reachable from } q_0\\}$$נגדיר את הפונקציות הבאות:\n$$f(\\langle NA\\rangle) = \\langle A\\rangle$$כאשר $A$ הוא אוטומט החזקה של $NA$ (הנבנה בתהליך הדטרמינציה).\n$$g(\\langle A\\rangle) = \\langle G, q_0, q_F\\rangle$$כאשר $G$ גרף המצבים של האס\"ד $A$, $q_0$ מצב ההתחלה של $A$, $q_F$ קדקוד חדש שמחוברים אליו בצלע מכוונת כל הקדקודים של מצבים **לא** מקבלים של $A$."
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "topic": "time_p",
+   "question": "שאלת נכון / לא-נכון. קבעו האם הטענה נכונה או לא.\nתהי $L$ שפה הניתנת להכרעה על ידי מכונת טיורינג עם $k$ סרטים בזמן $\\Theta(n)$. אזי לכל מכונת טיורינג בסיסית המכריעה את $L$ יש סיבוכיות $\\Theta(n^2)$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "המשפט אומר ש**קיימת** מכונת טיורינג עם סרט אחד שתכריע בזמן **לכל היותר** ריבועי. אבל המשפט לא אומר שהחסם הדוק, וגם לא שולל את האפשרות שאולי קיימת מכונת טיורינג אחרת עם סרט אחד שיכולה לעשות את זה בזמן יותר טוב מאשר ריבועי."
+  },
+  {
+   "num": 2,
+   "topic": "poly_reductions",
+   "question": "שאלת נכון / לא-נכון. קבעו האם הטענה נכונה או לא.\nתהי $L$ שפה $NP$-קשה המקיימת $\\overline{L} \\le_p 3SAT$. אזי $L \\le_p \\overline{L}$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "$3SAT$ היא שפה ב-$NPC$, ובפרט היא ב-$NP$, ולכן מהנתון $\\overline{L} \\le_p 3SAT$ נובע $\\overline{L} \\in NP$ (משפט הרדוקציה הפולינומית).\nמהנתון ש-$L$ שפה $NP$-קשה, נובע שכל שפה $X$ ב-$NP$ ניתנת לרדוקציה פולינומיאלית אליה, כלומר $X \\le_p L$, וממילא $\\overline{X} \\le_p \\overline{L}$. ניקח בתור $X$ את $\\overline{L}$ ונקבל $\\overline{\\overline{L}} = L \\le_p \\overline{L}$."
+  },
+  {
+   "num": 3,
+   "topic": "np",
+   "question": "שאלת נכון / לא-נכון. קבעו האם הטענה נכונה או לא.\n$A_{NFA} \\in NP$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אפשר להביא בתור עד את המסלול המקבל, ולבדוק אותו בזמן פולינומי בגודל הקלט. אורך המסלול המקבל, באוטומט, הוא כאורך המילה, ולכן הבדיקה לוקחת זמן כאורך המסלול כפול אורך הייצוג של האוטומט, כי צריך לבדוק שכל מעבר במסלול הוא מעבר חוקי – וזה זמן פולינומי בגודל הקלט."
+  },
+  {
+   "num": 4,
+   "topic": "decidability",
+   "question": "שאלת נכון / לא-נכון. קבעו האם הטענה נכונה או לא.\nכל מכונת טיורינג בסיסית המכריעה שפה $L$ לא טריוויאלית, ניתנת לתרגום למכונת טיורינג בסיסית המקבלת את אותה שפה $L$ אבל לא מכריעה אותה.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ראינו (הרצאה על רדוקציות) איך להחליף את המצב הדוחה במצב מיוחד, שאם מגיעים אליו, נכנסים ללולאה אינסופית (בהנחה שקיימת מילה שנדחית – והרי נתון שהשפה לא טריוויאלית – ונקבל מילה שלא שייכת לשפה, שהמכונה לא עוצרת עליה)."
+  },
+  {
+   "num": 5,
+   "topic": "mapping_reductions",
+   "question": "שאלת נכון / לא-נכון. קבעו האם הטענה נכונה או לא.\nקיימת שפה $L$ ניתנת לקבלה, שאינה ניתנת להכרעה, המקיימת $L \\le_m \\overline{L}$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אילו זה היה נכון, היה מתקיים גם $\\overline{L} \\le_m L$, אבל אז לפי משפט הרדוקציה $\\overline{L}$ ניתנת לקבלה. אבל שפה שגם היא וגם המשלימה שלה ניתנות לקבלה, בהכרח ניתנת להכרעה, בסתירה לנתון."
+  },
+  {
+   "num": 6,
+   "topic": "np",
+   "question": "שאלת נכון / לא-נכון. קבעו האם הטענה נכונה או לא.\nאם $\\overline{SAT} \\in NP$ אזי $NP$ סגורה למשלים.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "על פי המשפט $NP = coNP$ אם ורק אם $NPC \\cap coNP \\ne \\emptyset$ (כי אם $\\overline{SAT} \\in NP$ אזי $SAT \\in coNP$, ומכיוון ש-$SAT \\in NPC$ קיבלנו $NPC \\cap coNP \\ne \\emptyset$ ולכן $NP = coNP$, כלומר $NP$ סגורה למשלים)."
+  },
+  {
+   "num": 7,
+   "topic": "classification",
+   "question": "סווגו את השפה הבאה:\n$$L = \\{\\langle M, w\\rangle \\mid M \\text{ moves its head left on input } w \\text{ (at some point)}\\}$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת להכרעה אך ניתנת לקבלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת לקבלה אך $\\overline{L}$ ניתנת לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "גם $L$ וגם $\\overline{L}$ לא ניתנות לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "נריץ את $M$ על $w$, ואחרי לכל היותר $|Q|+|w|+1$ צעדים, נוכל לעצור את ההרצה של $M$ ולהחזיר תשובה:\nמקרה א: אם תוך מספר הצעדים הזה $M$ הזיזה את הראש הקורא שמאלה, נעצור ונגיד קבל.\nמקרה ב: אם תוך מספר הצעדים הזה $M$ לא הזיזה את הראש הקורא שמאלה, נעצור ונגיד דחה.\nברור למה במקרה א התשובה נכונה, אבל למה במקרה ב אפשר לעצור ולדעת שאם עד עכשיו המכונה לא הזיזה את הראש הקורא שמאלה, זה גם לא יקרה בהמשך?\nנסביר: אחרי $|w|$ צעדים שבהם $M$ לא הזיזה את הראש הקורא שמאלה, היא הגיעה לרווח. מפה, כל עוד היא לא מזיזה את הראש הקורא שמאלה, המעברים הם מהצורה $\\delta(q_1, \\sqcup) = (q_2, \\sigma, R)$.\nמכיוון שיש רק $|Q|$ מצבים, אחרי לכל היותר $|Q|$ צעדים המכונה תחזור למצב שבו היא הייתה, ותעמוד על רווח (אולי במעברים הקודמים היא כתבה משהו על הרווחים, אבל כל הזמן זזה ימינה אז לא חזרה אליהם, לכן כל הזמן קוראת רק רווחים ולא תווים אחרים). ברגע שחוזרים לקונפיגורציה שבה כבר היינו, וזזנו משם ימינה, אז המכונה תגיב כמו קודם – תזוז ימינה."
+  },
+  {
+   "num": 8,
+   "topic": "classification",
+   "question": "סווגו את השפה הבאה:\n$$L = \\{\\langle M_1, M_2\\rangle : M_1, M_2 \\text{ are T.M.s and } L(M_1) \\subseteq L(M_2)\\}$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "גם $L$ וגם $\\overline{L}$ לא ניתנות לקבלה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת לקבלה אך $\\overline{L}$ ניתנת לקבלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת להכרעה אך ניתנת לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $L$ הייתה ניתנת לקבלה, אז גם $EQ_{TM}$ הייתה ניתנת לקבלה: כדי לבדוק אם $\\langle M_1, M_2\\rangle \\in EQ_{TM}$ יש לבדוק $\\langle M_1, M_2\\rangle \\in L$ וגם $\\langle M_2, M_1\\rangle \\in L$.\nאם $\\overline{L}$ הייתה ניתנת לקבלה, אז גם $\\overline{EQ_{TM}}$ הייתה ניתנת לקבלה: כדי לבדוק $\\langle M_1, M_2\\rangle \\notin EQ_{TM}$ יש לבדוק $\\langle M_1, M_2\\rangle \\notin L$ או $\\langle M_2, M_1\\rangle \\notin L$ (אבל פה צריך להריץ בצורה \\\"מקבילה\\\", כדי שלא יקרה מצב שהתנאי השני מתקיים, אבל הבדיקה של התנאי הראשון לא עוצרת).",
+   "note": "Key writes 'EQ_TM' / 'L משלים' / 'EQ_TM משלים' in plain text; rendered as EQ_{TM}, \\overline{L}, \\overline{EQ_{TM}}."
+  },
+  {
+   "num": 9,
+   "topic": "classification",
+   "question": "סווגו את השפה הבאה:\n$$L = \\{\\langle M\\rangle \\mid |L(M)| \\ge 3\\}$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת להכרעה אך ניתנת לקבלה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "גם $L$ וגם $\\overline{L}$ לא ניתנות לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא ניתנת לקבלה אך $\\overline{L}$ ניתנת לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אפשר להריץ את $M$ על כל המילים בהרצה מבוקרת, בסדר מנייה לקסיקוגרפי. ברגע ש-3 מילים מתקבלות, נוכל לעצור ולהגיד קבל. לכן השפה ניתנת לקבלה.\nאך המשלימה שלה (המשלימה היא $\\{\\langle M\\rangle \\mid |L(M)| < 3\\}$) לא ניתנת לקבלה, ולכן השפה לא ניתנת להכרעה.\nהסבר למה המשלימה לא ניתנת לקבלה: ניתן לעשות רדוקציה מ-$\\overline{H_{TM}}$ על ידי $f(\\langle M, w\\rangle) = \\langle K_{M,w}\\rangle$."
+  },
+  {
+   "num": 10,
+   "topic": "decidability",
+   "question": "קבעו מהו היחס בין $A$ ל-$B$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "B \\subset A"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "A \\subset B"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "A = B"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחד מהנ\"ל"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם $M$ מכונה שעוצרת על כל קלט, אז וודאי שהיא מכריעה את השפה שלה. לכן כל מכונה ב-$B$ בהכרח שייכת גם ל-$A$. אבל יש מכונות שלא תמיד עוצרות, ובכל זאת השפה שלהן ניתנת להכרעה (על ידי מכונה אחרת, המקבלת אותה שפה, אבל כן תמיד עוצרת. למשל, ראינו עבור השפה $0\\Sigma^*$ גם מכונה מכריעה וגם מכונה לא מכריעה).",
+   "contextId": "rel"
+  },
+  {
+   "num": 11,
+   "topic": "decidability",
+   "question": "קבעו מהו היחס בין $B$ ל-$C$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "B \\subset C"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "C \\subset B"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "C = B"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחד מהנ\"ל"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הקבוצה $C$ היא שפת כל הקידודים של מכונות טיורינג (בהגדרה, שפה של מכונת טיורינג ניתנת לקבלה). לכן ודאי $B$ מוכלת ב-$C$. אבל יש מכונות שלא תמיד עוצרות. לכן אין הכלה בכיוון השני.",
+   "contextId": "rel",
+   "note": "Key text: 'אבל יש מכונות שהשפה שלא תמיד עוצרות' (garbled); cleaned to 'אבל יש מכונות שלא תמיד עוצרות'."
+  },
+  {
+   "num": 12,
+   "topic": "decidability",
+   "question": "קבעו מהו היחס בין $C$ ל-$A$:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "A \\subset C"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "C \\subset A"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "A = C"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחד מהנ\"ל"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הקבוצה $C$ היא שפת כל הקידודים של מכונות טיורינג (בהגדרה, שפה של מכונת טיורינג ניתנת לקבלה). לכן ודאי $A$ מוכלת ב-$C$. אבל יש מכונות שהשפה שלהן ניתנת לקבלה אבל המכונה לא תמיד עוצרת, לכן אין הכלה בכיוון השני.",
+   "contextId": "rel"
+  },
+  {
+   "num": 13,
+   "topic": "mapping_reductions",
+   "question": "האם $f$ רדוקציה $E_{TM} \\le_m \\overline{H_\\varepsilon}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**$\\langle M\\rangle \\in E_{TM}$:** אזי $M$ מכונת טיורינג שהשפה שלה ריקה. נראה מה יקרה כאשר נריץ את $R_M$ על המילה הריקה: מכיוון שהשפה של $M$ ריקה, אף מילה שתיווצר לא תתקבל, ולכן $M$ לא תעצור על אף מילה, והמכונה $R_M$ תמשיך לייצר מילים בלולאה עד אינסוף, כלומר, לא תעצור. כלומר, המכונה $R_M$ לא עוצרת על המילה הריקה, ולכן $\\langle R_M\\rangle \\notin H_\\varepsilon$, כלומר $\\langle R_M\\rangle \\in \\overline{H_\\varepsilon}$.\n**$\\langle M\\rangle \\notin E_{TM}$:** אזי או ש-$M$ לא קידוד של מכונת טיורינג, ואז $f(\\langle M\\rangle) = \\langle M_{Acc}\\rangle$, ומתקיים $\\langle M_{Acc}\\rangle \\in H_\\varepsilon$ ולכן $\\langle M_{Acc}\\rangle \\notin \\overline{H_\\varepsilon}$, או ש-$M$ מכונת טיורינג שהשפה שלה לא ריקה: נראה מה יקרה כאשר נריץ את $R_M$ על המילה הריקה: מכיוון שהשפה של $M$ לא ריקה, קיימת מילה אחת לפחות שתתקבל בלולאה (מכיוון שהריצה היא ריצה מבוקרת, נגיע למילה זו), והמכונה $R_M$ תעצור ותדחה. הדחייה לא מעניינת, אלא העובדה שהמכונה $R_M$ עצרה על המילה הריקה. כלומר $\\langle R_M\\rangle \\in H_\\varepsilon$, כלומר $\\langle R_M\\rangle \\notin \\overline{H_\\varepsilon}$.",
+   "contextId": "red",
+   "note": "Key file names the language 'E'; the student question paper (23-8-23.pdf) prints E_TM — used E_TM throughout Q13-16."
+  },
+  {
+   "num": 14,
+   "topic": "mapping_reductions",
+   "question": "האם $g$ רדוקציה $E_{TM} \\le_m \\overline{H_\\varepsilon}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ההסבר כנ\"ל (כמו בשאלה 13), השאלה אם המכונה מקבלת או דוחה לא רלוונטית, אלא רק שהיא עוצרת.",
+   "contextId": "red",
+   "note": "Explanation only says 'as above; accept/reject is irrelevant, only halting' — implies כן (א)."
+  },
+  {
+   "num": 15,
+   "topic": "mapping_reductions",
+   "question": "האם $f$ רדוקציה $E_{TM} \\le_m H_\\varepsilon$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כן"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אם הייתה מתקיימת הרדוקציה, אזי $H_\\varepsilon$ הייתה לא ניתנת לקבלה (לפי משפט הרדוקציה, ברדוקציה מ-$E_{TM}$ שכידוע לא ניתנת לקבלה). אך היא כן ניתנת לקבלה: בהינתן מכונה $M$, אפשר לסמלץ ריצה של $M$ על המילה הריקה, ואם הסימולציה תעצור, נעצור ונקבל.",
+   "contextId": "red"
+  },
+  {
+   "num": 16,
+   "topic": "mapping_reductions",
+   "question": "האם $g$ רדוקציה $E_{TM} \\le_m H_\\varepsilon$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כן"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ההסבר כנ\"ל (כמו בשאלה 15).",
+   "contextId": "red",
+   "note": "Explanation only says 'הסבר כנ\"ל'; Q15's argument (no reduction E_TM -> H_eps exists at all) applies verbatim -> לא (א)."
+  },
+  {
+   "num": 17,
+   "topic": "poly_reductions",
+   "question": "האם הטענה הבאה נכונה?\n$$\\langle NA\\rangle \\in ALL_{NFA} \\iff f(\\langle NA\\rangle) \\in ALL_{DFA}$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "תהליך הדטרמינציה של אסל\"ד נותן אס\"ד שקול לו, כלומר, שניהם מקבלים אותה שפה, לכן השפה של האס\"ד היא כל המילים אם\"ם השפה של האסל\"ד היא כל המילים.",
+   "contextId": "poly",
+   "note": "Printed as 'f(<NA>) ∈ ALL_DFA ⇔ <NA> ∈ ALL_NFA' (visual RTL order of the same biconditional)."
+  },
+  {
+   "num": 18,
+   "topic": "poly_reductions",
+   "question": "האם הטענה הבאה נכונה?\n$$\\langle A\\rangle \\in ALL_{DFA} \\iff g(\\langle A\\rangle) \\in R_G$$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "השפה של אס\"ד מכילה את כל המילים, אם\"ם כל מילה מגיעה למצב מקבל, כלומר, אין מילים שמגיעות למצבים לא מקבלים, כלומר בגרף של האוטומט, עם המצב החדש $q_F$, לא ניתן להגיע מ-$q_0$ ל-$q_F$.",
+   "contextId": "poly"
+  },
+  {
+   "num": 19,
+   "topic": "poly_reductions",
+   "question": "האם המסקנה היא כי $ALL_{NFA} \\le_p R_G$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא, מכיוון שהפונקציה $f$ לא ניתנת לחישוב בזמן פולינומי"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא, מכיוון שהפונקציה $g$ לא ניתנת לחישוב בזמן פולינומי"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כן"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא, מכיוון שלא ניתן להרכיב את הפונקציות אחת על השנייה בכיוון הנכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הרכבת הרדוקציות נותנת רדוקציית מיפוי תקינה מאסל\"ד לגרף, אבל שלב הדטרמינציה הוא שלב אקספוננציאלי, ולכן הרדוקציה המתקבלת היא לא פולינומיאלית ($g$ לעומת זאת כן פולינומיאלית, על ידי הרצת $BFS$).",
+   "contextId": "poly"
+  },
+  {
+   "num": 20,
+   "topic": "npc",
+   "question": "כדי להוכיח $3SAT \\le_p IS$, הגדרנו רדוקציה $f(\\langle \\phi\\rangle) = \\langle G_\\phi, n\\rangle$, כאשר $\\phi$ נוסחה לוגית, ו-$G_\\phi = (V, E)$ כאשר:\n$V$: לכל מופע של ליטרל ב-$\\phi$ נתאים קודקוד.\n$E$:\n• צלעות פסוקית: נחבר בצלע קודקודים שמתאימים לליטרלים מאותה פסוקית.\n• צלעות משתנה: נחבר בצלע כל זוג קודקודים שמתאימים לליטרל ושלילתו.\nמהו $n$ בהגדרה זו?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "מספר הפסוקיות שמופיעות ב-$\\phi$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "מספר המשתנים שמופיעים ב-$\\phi$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "מספר הליטרלים שמופיעים ב-$\\phi$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף תשובה אחרת אינה נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "med",
+   "explanation": "כך הגדרנו את הרדוקציה, ניתן לראות במצגת.",
+   "note": "Explanation does not name an option. א (number of clauses) is the standard 3SAT<=p IS target size and matches the all-א pattern of this key, but it is inferred, not stated."
+  },
+  {
+   "num": 21,
+   "topic": "undecidability",
+   "question": "תהי $M$ מכונת טיורינג בסיסית. לפניכם הצעה לאלגוריתם שיכריע אם $L(M) = \\emptyset$ (יחזיר $TRUE$ אם השפה ריקה, ו-$FALSE$ אחרת):\n• נבנה את הגרף $G$ שמייצג את המכונה $M$ (הקדקודים יהיו המצבים של $M$ והצלעות יהיו בהתאם לפונקציית המעברים של $M$).\n• נריץ $BFS(G, q_0)$.\n• אם $d(q_{acc}) = \\infty$ נענה $TRUE$, אחרת, נענה $FALSE$.\nלפניכם שתי טענות:\nטענה 1: האלגוריתם לא מכריע את הבעיה, כי הוא עלול להחזיר $FALSE$ גם אם השפה ריקה.\nטענה 2: האלגוריתם לא מכריע את הבעיה, כי הוא עלול להחזיר $TRUE$ גם אם השפה לא ריקה.\nבחרו בתשובה הנכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "טענה 1 נכונה וטענה 2 שגויה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "טענה 2 נכונה וטענה 1 שגויה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "שתי הטענות נכונות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "שתי הטענות שגויות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ודאי שאם לא ניתן להגיע למצב המקבל בגרף, אזי אף מילה לא תוכל להתקבל והשפה תהיה ריקה. אז טענה 2 לא נכונה. אבל, ייתכן שאפשר להגיע למצב המקבל, ועדיין השפה ריקה, למשל, אם המעבר שמוביל למצב המקבל הוא על ידי תו שלא נמצא בא\"ב הקלט, ובאף מצב התו הזה לא נכתב על הסרט – זה לא שיקול שאפשר לעשות על ידי בדיקת מבנה הגרף בלבד.\nהערה: הסיבה שבאוטומט האלגוריתם הזה (בווריאציה קלה, כפי שראינו בהרצאה) כן עובד, היא שבאוטומטים אין אפשרות לכתוב על מילת הקלט, בפרט, אין שתי קבוצות שונות של א\"ב הקלט וא\"ב הסרט, ומתקדמים בצורה סדרתית על תווי הקלט (בלי אפשרות לחזור אחורה, כמו במ\"ט).",
+   "note": "Options printed 'שגוייה'; spelled 'שגויה'."
+  },
+  {
+   "num": 22,
+   "topic": "mapping_reductions",
+   "question": "תזכורת: יחס $R$ מהווה יחס שקילות אם הוא סימטרי (אם $aRb$ אז $bRa$), טרנזיטיבי (אם $aRb$ וגם $bRc$ אז $aRc$) ורפלקסיבי (לכל $a$ מתקיים $aRa$).\nיחס הרדוקציה $\\le_m$ הוא יחס שקילות, נכון או לא נכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון, מכיוון שהיחס אינו סימטרי"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון, מכיוון שהיחס אינו טרנזיטיבי"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא נכון, מכיוון שהיחס אינו רפלקסיבי"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "יחס הרדוקציה הוא יחס טרנזיטיבי ורפלקסיבי, אבל אינו סימטרי: ייתכן שמתקיים $A \\le_m B$ אבל לא $B \\le_m A$, למשל, אם $A$ ניתנת להכרעה ו-$B$ לא ניתנת להכרעה."
+  },
+  {
+   "num": 23,
+   "topic": "np",
+   "question": "האם קיימת שפה $L$ המקיימת $L \\in NP \\cap coNP$ וגם $L \\notin P$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא ידוע"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כן, השפה $SAT$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כן, השפה $PRIME$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "השפה $PRIME$ הוכחה לקיים גם $PRIME \\in NP \\cap coNP$ וגם $PRIME \\in P$. לגבי השפה $SAT$, לא ידוע אם היא ב-$P$, וגם לא ידוע אם היא ב-$coNP$. אם $P=NP$, אז ודאי שהמקרה בשאלה לא אפשרי, אבל לא ידוע אם זה המצב."
+  },
+  {
+   "num": 24,
+   "topic": "mapping_reductions",
+   "question": "תהיינה $A, B \\subseteq \\Sigma^*$ שפות, ונניח כי $A \\le_m \\emptyset$ וגם $\\emptyset \\le_m B$. להלן שתי טענות:\n1. בהכרח מתקיים כי $A = \\emptyset$.\n2. בהכרח מתקיים כי $B = \\emptyset$.\nבחרו בתשובה הנכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "טענה 1 נכונה וטענה 2 אינה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "טענה 2 נכונה וטענה 1 אינה נכונה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "שתי הטענות נכונות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "שתי הטענות שגויות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "רדוקציה לא אפשרית משפה לא טריוויאלית לשפה טריוויאלית: עבור $A$ שאינה ריקה, קיים $x \\in A$ אבל לכל $f: \\Sigma^* \\to \\Sigma^*$ יתקיים $f(x) \\notin \\emptyset$. לכן טענה 1 נכונה. לעומת זאת, מהקבוצה הריקה אפשר להגדיר רדוקציה ל-$B$, אם $B$ לא טריוויאלית: אם קיים $w \\notin B$, אזי נוכל להגדיר את הרדוקציה $f(x) = w$.",
+   "note": "Empty set printed as Φ; rendered as \\emptyset."
+  },
+  {
+   "num": 25,
+   "topic": "mapping_reductions",
+   "question": "תהיינה שתי שפות $A, B$ מעל הא\\\"ב $\\Sigma$, ונתון ש-$A$ שפה לא ניתנת להכרעה, $B$ שפה לא טריוויאלית, לכן קיימים $x, y \\in \\Sigma^*$ כך ש-$x \\in B, y \\notin B$.\nנגדיר את הפונקציה $f: \\Sigma^* \\to \\Sigma^*$:\n$$f(w) = \\begin{cases} x & \\text{if } w \\in A \\\\ y & \\text{if } w \\notin A \\end{cases}$$בחרו בתשובה הנכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$f$ לא ניתנת לחישוב"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$f$ ניתנת לחישוב אבל לא בהכרח בזמן פולינומיאלי"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$f$ ניתנת לחישוב בזמן פולינומיאלי"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$f$ ניתנת לחישוב אם\"ם $A$ לא טריוויאלית"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "explanation-inferred",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הפונקציה הזו ניתנת לחישוב רק אם $A$ ניתנת להכרעה, מכיוון שההחלטה אם הפלט של $f$ הוא $x$ או $y$ תלויה ביכולת לבדוק האם $w$ שייכת ל-$A$ או לא. מכיוון שנתון ש-$A$ לא ניתנת להכרעה, הפונקציה $f$ לא ניתנת לחישוב."
+  }
+ ]
+}

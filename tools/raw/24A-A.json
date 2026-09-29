@@ -1,0 +1,596 @@
+{
+ "examCode": "24A-A",
+ "examLabel": "2024 סמסטר א מועד א",
+ "year": 2024,
+ "examDate": "21.3.2024",
+ "sourceFile": "מבחנים/2024/סמסטר א/מועד א 21.3 פתרון.pdf",
+ "keyFile": "same file (yellow highlights + blue solutions; Q3 magenta second answer with red note)",
+ "questions": [
+  {
+   "num": 1,
+   "topic": "tm",
+   "question": "נתונה מ\"ט לא-דטרמיניסטית $M$ אשר מכריעה את $L(M)$.\nמגדירים מ\"ט $M'$ עם האלגוריתם הבא:\n1. העתק את תוכן סרט 1 לסרט 2 וחזור לתחילת שני הסרטים.\n2. הרץ את $M$ על סרט 1.\n3. הרץ את $M$ על סרט 2.\n4. אם שתי הריצות (בשלבים 2 ו-3) הסתיימו במצב מקבל: קבל. אחרת: דחה.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "L(M') = \\{v \\mid v = ww,\\ w \\in L(M)\\}"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "L(M') = L(M).L(M)"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "L(M') = L(M)"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מריצים את אותה מכונה $M$ פעמיים על אותה מילת קלט. היות ו-$M$ היא לא-דטרמיניסטית, מסלולי חישוב בשתי הריצות יכולים להיות שונים. אבל אם חישוב מסתיים במצב $ACCEPT$ זה אומר שקלט שייך ל-$L(M)$. אם שתי הריצות הגיעו ל-$ACCEPT$, אז $M'$ מקבלת את הקלט – והוא שייך לשפת $L(M)$.\nאם קלט לא ב-$L(M)$, אז כל החישובים של $M$ על קלט כזה מסתיימים ב-$REJECT$, ולכן גם כל החישובים של $M'$ מסתיימים ב-$REJECT$, כך גם $M'$ לא מקבלת קלט כזה.\n**לסיכום:** $L(M') = L(M)$."
+  },
+  {
+   "num": 2,
+   "topic": "np",
+   "question": "תהי $L$ שפה, כך שקיימת מכונת טיורינג $M$ שרצה בזמן פולינומי ומכריעה את $L$.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $M$ אי-דטרמיניסטית עם לפחות שלושה סרטים, אז $L$ בהכרח ב-$P$."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$L$ בהכרח אינה ב-$P$, ואינה ב-$NP$."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $M$ דטרמיניסטית, אז $L$ בהכרח לא ב-$NP$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכה של א':** שייכות ל-$P$ משמעותה שקיימת מכונה **דטרמיניסטית** המכריעה את $L$ בזמן פולינומי. נזכיר שאם מכונה אי-דטרמיניסטית מכריעה שפה בזמן $O(t(n))$, אז זמן הנדרש למכונה שקולה דטרמיניסטית המכריעה את אותה שפה יכול להגיע ל-$O(2^{t(n)})$ – וזהו זמן אקספוננציאלי, גם אם $t(n)$ הוא פולינומי. לכן $L$ לא בהכרח ב-$P$.\n**הפרכה של ב':** אם $M$ היא מכונה דטרמיניסטית, אז כמובן ש-$L$ שייכת ל-$P$ ולכן גם ל-$NP$. ואם $M$ היא מכונה אי-דטרמיניסטית, אז עדיין לפי הנתון $L$ שייכת ל-$NP$. יתכן ש-$L$ שייכת גם ל-$P$.\n**הפרכה של ג':** אם $M$ דטרמיניסטית, אז לפי הנתון $L$ שייכת ל-$P$, ולכן גם בהכרח שייכת ל-$NP$."
+  },
+  {
+   "num": 3,
+   "topic": "time_p",
+   "question": "נגדיר את השפה $L$ הבאה:\n$$L = \\{(A,B) \\mid (*)\\}$$(*): $A$ ו-$B$ הן רשימות באותו אורך של מספרים שלמים\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\overline{L}$ בהכרח ב-$P$."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$L$ בהכרח ב-$NP$."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\overline{L}$ אינה ב-$P$, ו-$L$ אינה ב-$NP$."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$L$ ב-$NP$ אבל לא ב-$P$."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "ברור ש-$L$ שייכת ל-$P$, ולכן גם $\\overline{L}$ בהכרח שייכת ל-$P$.\nאפשר להשוות את אורך של $A$ עם אורך של $B$ בדרכים שונות:\n- ספירת כמויות איברים בשתי הרשימות, ואז השוואת שני המספרים שהתקבלו כתוצאה מהספירה.\n- מעבר במקביל על שתי הרשימות (הנמצאות על סרטים שונים), תוך התאמה בין מספרים לפי הסדר שלהם ברשימות; מספרים שתואמו נמחקים מהסרטים הרלוונטיים. אחרי שמגיעים לסוף של אחת הרשימות, בודקים האם עוד נשארו מספרים ברשימה האחרת; אם כן אז זוג הרשימות לא שייך לשפה.\n**הערת המפתח:** גם תשובה ב נכונה ($L$ ב-$P$, לכן גם ב-$NP$). במקום זה היה צריך: אף תשובה אחרת אינה נכונה.",
+   "acceptedIds": [
+    "a",
+    "b"
+   ],
+   "note": "Key: א yellow; ב highlighted magenta with red note 'גם זאת תשובה נכונה (L ב-P, לכן גם ב-NP). במקום זה היה צריך: אף תשובה אחרת אינה נכונה' → both accepted."
+  },
+  {
+   "num": 4,
+   "topic": "closure",
+   "question": "בהינתן שפות $A, B$ מעל א\\\"ב $\\Sigma$, כאשר $\\#$ היא אות שאינה ב-$\\Sigma$, נגדיר את השפה הבאה מעל א\\\"ב $\\Sigma \\cup \\{\\#\\}$:\n$$A\\#B = \\{x\\#y \\mid x \\in A,\\ y \\in B\\}$$איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $A, B \\in R$ אז יתכן $A\\#B \\notin R$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $A, B \\in RE$ אז בהכרח $A\\#B \\in R$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $A, B \\in coRE$ אז בהכרח $A\\#B \\in coRE$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכה של א':** אם $A, B \\in R$ אז בהכרח $A\\#B \\in R$. להלן תיאור של מכונה $M$ עם 3 סרטים המכריעה את $A\\#B$ (כאן $M1$ היא מכונה המכריעה את $A$, ואילו $M2$ היא מכונה המכריעה את $B$):\n- $M$ סורקת את הקלט הנתון $w$ (המופיע בסרט 1) כדי לבדוק האם התו $\\#$ מופיע בו בדיוק פעם אחת. אם זה לא מתקיים, אז $REJECT$.\n- $M$ מעתיקה לסרט 2 את התת-מילה של $w$ שמשמאלה ל-$\\#$ לסרט 2, ואת תת-מילה של $w$ שמימינה של $\\#$ לסרט 3.\n- מריצים את המכונה $M1$ על תוכן של סרט 2, ואז מריצים את $M2$ על תוכן של סרט 3. אם שתי הריצות הסתיימו ב-$ACCEPT$, אז $M$ גם עוצרת ב-$ACCEPT$, אחרת $M$ עוצרת ב-$REJECT$.\n**הפרכה של ב':** נוכיח שאם $A, B \\in RE \\setminus R$ אז השפה $A\\#B$ לא שייכת ל-$R$. נניח בשלילה ש-$A\\#B \\in R$, ותהי $M$ המכונה שמכריעה אותה. אז מכונה $Q$ הבאה מכריעה את $A$:\n- נבחר מילה $y_0$ כלשהי השייכת ל-$B$ (מילה כזאת קיימת בהכרח: היות ו-$B$ לא ב-$R$, אז $B$ היא שפה לא ריקה)\n- בהינתן מילה $x$ כלשהי שלגביה רוצים להכריע האם היא ב-$A$, נבנה קודם מילה חדשה $x\\#y_0$. ברור שמתקיים: $x \\in A \\leftrightarrow x\\#y_0 \\in A\\#B$\n- נריץ את $M$ על $x\\#y_0$. אם $M$ עצרה ב-$ACCEPT$, אז $Q$ מקבלת את $x$. אחרת, אם $M$ עוצרת ב-$REJECT$, אז $Q$ דוחה את $x$.\nהגדרנו מכונה $Q$ המכריעה את $A$, בסתירה לכך ש-$A \\in RE \\setminus R$. באופן דומה אפשר להוכיח שאם $A\\#B \\in R$ אז גם $B \\in R$ – בסתירה לכך ש-$B \\in RE \\setminus R$.\n**נכונות של ג':** במקרה הנדון השפה $A\\#B$ שייכת ל-$coRE$. ההוכחה דומה למה שהוצג בסעיף א', רק שהפעם $M1$ היא מכונה המקבלת את המשלים של $A$, ואילו $M2$ היא מכונה המקבלת את המשלים של $B$. יש לשים לב ש-$M1$ יכולה לא לעצור על תת-מילה שמאלית אם היא שייכת ל-$A$; וכך גם המכונה $M2$ ביחס לתת-מילה ימנית. ברור שבמקרים כאלה גם $M$ לא עוצרת – וזה בסדר, כי מדובר על $w$ ש**לא** שייכת למשלים של $A\\#B$, ולכן $M$ אכן לא מקבלת אותה (על ידי אי-עצירה). זה מוכיח שהשפה $A\\#B$ אכן שייכת ל-$coRE$."
+  },
+  {
+   "num": 5,
+   "topic": "mapping_reductions",
+   "question": "תהא $M$ מ\\\"ט כך שמתקיים $E_{TM} \\le_m L(M)$. מה מהבאים בהכרח נכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "L(M) \\in RE \\setminus R"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "L(M) \\in R"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא ייתכן שקיימת מ\"ט כזו"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**נכונות של ג':** נניח בשלילה שקיימת מכונה $M$ כך ש-$E_{TM} \\le_m L(M)$. נשים לב שהשפה $L(M)$ בהכרח שייכת ל-$RE$ ($M$ מקבלת אותה). לכן, לפי משפט רדוקציה, גם $E_{TM}$ חייבת להיות ב-$RE$. אבל ידוע ששפה זו אינה ניתנת לקבלה, וזאת הסתירה. זה גם מפריך תשובות אחרות."
+  },
+  {
+   "num": 6,
+   "topic": "poly_reductions",
+   "question": "נתונה שפה $TRIPLE\\text{-}IS$ הבאה השייכת ל-$NP$:\n$$TRIPLE\\text{-}IS = \\{\\langle G,k\\rangle \\mid (*)\\}$$(*): בגרף לא מכוון $G$ יש שלוש קבוצות צמתים בלתי תלויות בגודל $k$\nמנסים להוכיח שהיא $NP$-שלמה בעזרת הרדוקציה $IS \\le_p TRIPLE\\text{-}IS$, המתבססת על הפונקציה\n$$f(\\langle G,k\\rangle) = \\langle G',k\\rangle$$כאשר:\n- אם ב-$G$ יש קבוצת צמתים בלתי תלויה בגודל $k$, אז $G'$ הוא גרף המכיל שלושה עותקים של $G$, בלי שום חיבורים ביניהם\n- אחרת $G'$ זהה ל-$G$.\nידוע ששפת $IS$ (Independent-Set) היא שפה $NP$-שלמה, לכן לפי הרדוקציה גם $TRIPLE\\text{-}IS$ חייבת להיות $NP$-שלמה.\nהאם הוכחה הזאת תקפה? סמנו את התשובה הנכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא, כי $f$ לא ניתנת לחישוב"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא, כי לא מובטח שחישוב של $f$ ניתן לבצע בזמן פולינומי"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא, כי לא מובטח שמתקיים היחס $\\langle G,k\\rangle \\in IS \\leftrightarrow f(\\langle G,k\\rangle) = \\langle G',k\\rangle \\in TRIPLE\\text{-}IS$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כן, כי פונקציה $f$ עומדת בכל הדרישות של רדוקציה פולינומית"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכה של א':** פונקציה $f$ ניתנת לחישוב: בהינתן זוג $\\langle G,k\\rangle$ אפשר לבנות את $\\langle G',k\\rangle$; זה כולל בדיקה האם ב-$G$ יש קבוצה בלתי תלויה בגודל $k$ (האלגוריתם נדון בתרגול 8) ובהתאם לתוצאה – העתקה של $k$ וגם שכפול או העתקת הקידוד של $G$.\n**נכונות של ב':** לפי הגדרה של רדוקציה פולינומית, פונקציה $f$ חייבת להיות ניתנת לחישוב **דטרמיניסטי בזמן פולינומי**. אך אלגוריתמים ידועים לבדיקה דטרמיניסטית האם ב-$G$ קיימת קבוצה בלתי תלויה בגודל $k$ הם אקספוננציאליים; אלגוריתם פולינומי קיים אם ורק אם $P=NP$, ולא ידוע (לא מובטח) שזה מתקיים.\n**הפרכה של ג':** קל לראות, לפי הגדרה של $f$, שכן מתקיים היחס $\\langle G',k\\rangle \\in TRIPLE\\text{-}IS \\leftrightarrow \\langle G,k\\rangle \\in IS$.",
+   "note": "Stem/options print the name as TRIPLE-IS and use <G,k> angle brackets; typeset with \\text{-} and \\langle\\rangle."
+  },
+  {
+   "num": 7,
+   "topic": "mapping_reductions",
+   "question": "רוצים להוכיח ששפה $L$ ניתנת להכרעה.\nמה מהבאים יכול להוות הוכחה תקפה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "מתקיים $PRIME \\le_m \\overline{L}$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "מתקיים $SAT \\le_p L$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "מתקיים $L \\le_m H_{10}$ וגם $L \\le_m \\overline{L}$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכה של א':** $PRIME$ היא שפה לא-טריוויאלית השייכת ל-$R$, ולכן קיימת ממנה רדוקציה לכל שפה לא-טריוויאלית $L$, גם אם $L$ לא ניתנת להכרעה.\n**הפרכה של ב':** כמו ב-א', כי $SAT$ ניתנת להכרעה.\n**נכונות של ג':** אם מתקיים $L \\le_m H_{10}$, אז לפי משפט רדוקציה $L$ ניתנת לקבלה (כי $H_{10}$ ניתנת לקבלה). בנוסף, אם $L \\le_m \\overline{L}$, אז מתקיים גם $\\overline{L} \\le_m L$, ולכן גם $\\overline{L}$ ניתנת לקבלה. לסיכום, בתנאים של סעיף ג' גם השפה $L$ וגם המשלים שלה ניתנים לקבלה, ולכן $L$ ניתנת להכרעה."
+  },
+  {
+   "num": 8,
+   "topic": "time_p",
+   "question": "נגדיר:\n$$CLIQUE_{2024} = \\{\\langle G\\rangle \\mid (*)\\}$$(*): $G$ גרף לא מכוון וב-$G$ יש קליקה בגודל $2024$\nנניח כי $P \\ne NP$. איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "CLIQUE_{2024} \\in P"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "CLIQUE_{2024} \\in NPC"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא ניתן לדעת (שאלה פתוחה)."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "בתרגול 8 הוכח שעבור כל $k$ טבעי, השפה $CLIQUE_k$ שייכת ל-$P$."
+  },
+  {
+   "num": 9,
+   "topic": "mapping_reductions",
+   "question": "נתונות שתי מחלקות של שפות:\n$$A = \\{L \\mid (*)\\}$$(*): $L \\in coRE$ וגם $L \\le_m H_{TM}$\n$$B = \\{L \\mid PALINDROMES \\le_m L\\}$$איזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "A = B"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "A \\subset B"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "A \\supset B"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "med",
+   "explanation": "השפה $H_{TM}$ שייכת ל-$RE$; לכן לפי משפט הרדוקציה כל שפה ב-$A$ גם היא שייכת ל-$RE$. בנוסף, כל שפה מ-$A$ שייכת ל-$coRE$, כלומר גם המשלים שלה שייך ל-$RE$. מכאן נובע ש**המחלקה $A$ שווה למחלקה $R$**.\nשפת $PALINDROMES$ היא שפה לא טריוויאלית השייכת ל-$R$; לכן הרדוקציה $PALINDROMES \\le_m L$ מתקיימת עבור כל שפה $L$ לא טריוויאלית. מכאן נובע ש-**$B$ היא קבוצת כל השפות הלא טריוויאליות**, ולכן מתקיים $A \\subset B$.",
+   "note": "Stem prints A = { L | L ∈ coRE וגם L ≤m H_TM }; condition moved to a (*) line. Key's proof box says 'השפה \\overline{E_TM} שייכת ל RE' — a typo for H_TM (the language in the definition); fixed. Doubt (not ours to change): A = R includes the trivial languages ∅, Σ*, which are not in B, so A ⊂ B as stated is questionable; kept the official key ב."
+  },
+  {
+   "num": 10,
+   "topic": "undecidability",
+   "question": "נגדיר:\n$$L_1 = \\{\\langle M\\rangle \\mid (*)\\}$$(*): $M$ דוחה כל קלט\n$$L_2 = \\{\\langle M\\rangle \\mid (**)\\}$$(**): $M$ לא עוצרת על אף קלט\n$$L = L_1 \\cup L_2$$מהו היחס בין השפה $L$ והשפה $E_{TM}$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "L = E_{TM}"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$L$ מוכלת ממש ב-$E_{TM}$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$E_{TM}$ מוכלת ממש ב-$L$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "לפי הגדרה, יש שני סוגים של מכונות בשפה $L$:\n- מכונות מ-$L_1$; מכונה כזאת **דוחה** כל קלט (עוצרת במצב $REJECT$ על כל קלט), ובפרט – לא מקבלת אף קלט. לכן $L_1$ מוכלת ב-$E_{TM}$\n- מכונות מ-$L_2$; מכונה כזאת לא עוצרת על אף קלט, ובפרט – לא מקבלת אף קלט. לכן גם $L_2$ מוכלת ב-$E_{TM}$\nולכן מסקנת ביניים היא שהשפה $L = L_1 \\cup L_2$ מוכלת ב-$E_{TM}$. כעת נוכיח ש-$L$ מוכלת ממש ב-$E_{TM}$.\nנגדיר כעת מכונה $M$ שלא עוצרת על כל המילים באורך אי-זוגי ודוחה את כל המילים באורך זוגי. מכונה $M$ שייכת לשפה $E_{TM}$ אבל לא שייכת לשפה $L$ (כי $M$ לא שייכת ל-$L_1$ וגם לא שייכת ל-$L_2$).\nולכן קיימת הכלה **ממש** של $L$ ב-$E_{TM}$."
+  },
+  {
+   "num": 11,
+   "topic": "mapping_reductions",
+   "question": "ידוע שבאופן כללי היחס $A \\le_m B$ **לא** גורר את $\\overline{A} \\le_m B$.\nהאם בכל זאת מתקיימים שני יחסי רדוקציה: $A_{DFA} \\le_m H_{TM}$ וגם $\\overline{A_{DFA}} \\le_m H_{TM}$?\n**תזכורת:**\n$$A_{DFA} = \\{\\langle A,w\\rangle \\mid (*)\\}$$(*): $A$ – אוטומט סופי דטרמיניסטי, ומתקיים $w \\in L(A)$\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "מתקיים $A_{DFA} \\le_m H_{TM}$, אבל לא מתקיים $\\overline{A_{DFA}} \\le_m H_{TM}$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "מתקיים $\\overline{A_{DFA}} \\le_m H_{TM}$, אבל לא מתקיים $A_{DFA} \\le_m H_{TM}$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כן, מתקיימות שתי הרדוקציות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת משתי הרדוקציות לא מתקיימת"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "גם $A_{DFA}$ וגם $\\overline{A_{DFA}}$ הן שפות לא טריוויאליות הניתנות להכרעה. ולכן מכל אחת מהן מתקיימת רדוקציה לכל שפה לא-טריוויאלית; בפרט – ל-$H_{TM}$."
+  },
+  {
+   "num": 12,
+   "topic": "classification",
+   "question": "נתונה שפה $L$ הבאה:\n$$L = \\{\\langle M\\rangle \\mid L(M) \\subseteq ODD\\_LENGTH\\}$$כאשר $ODD\\_LENGTH$ היא שפת כל המחרוזות באורך אי-זוגי.\nאיזו מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$L$ ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$L$ ניתנת לקבלה, אבל לא להכרעה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "גם $L$ וגם $\\overline{L}$ לא ניתנות לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$L$ לא ניתנת לקבלה, אבל $\\overline{L}$ ניתן לקבלה"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "מכונה $M$ שייכת ל-$\\overline{L}$ אמ\\\"מ $M$ מקבלת לפחות מילה אחת באורך זוגי. את זה ניתן לגלות בעזרת חיפוש משולב לרוחב ולעומק, ולכן $\\overline{L}$ ניתנות לקבלה. לעומת זאת, כדי לוודא ש-$M$ מקבלת רק מילים באורך אי-זוגי, יש לבצע אינסוף בדיקות, ולכן $L$ לא ניתנת לקבלה (וכמובן גם לא ניתנת להכרעה)."
+  },
+  {
+   "num": 13,
+   "topic": "mapping_reductions",
+   "question": "נתונה שפה $L$:\n$$L = \\{\\langle M\\rangle \\mid L(M) \\subseteq PALINDROMS\\}$$(כאן $PALINDROMS$ היא שפת כל מחרוזות-פלינדרומים).\nמנסים להוכיח ש-$L$ לא ניתנת לקבלה בעזרת רדוקציה $\\overline{H_{TM}} \\le_m L$. לצורך זה מגדירים פונקציה $f$ כדלקמן:\n$$f(\\langle M,w\\rangle) = \\langle Q\\rangle$$כאשר $Q$ היא מכונת טיורינג הבאה:\n`Q(x) {`\n`  if x ∈ PALINDROMS`\n`  then { M(w) ; ACCEPT }`\n`  else REJECT`\n`}`\nאיזו מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "פונקציה $f$ אכן עומדת בכל הדרישות של רדוקציה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$f$ לא מהווה רדוקציה, כי היא לא ניתנת לחישוב"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$f$ לא מהווה רדוקציה, כי לא מתקיים: $\\langle M,w\\rangle \\notin \\overline{H_{TM}} \\rightarrow \\langle Q\\rangle \\notin L$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$f$ לא מהווה רדוקציה, כי לא מתקיים: $\\langle M,w\\rangle \\in \\overline{H_{TM}} \\rightarrow \\langle Q\\rangle \\in L$"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכה של ב':** $f$ ניתנת לחישוב – בהינתן קידוד של מכונה $M$ ומילה $w$, ניתן ליצור קידוד של מכונה $Q$, לפי הגדרה לעיל.\n**הפרכה של ד':** אם $\\langle M,w\\rangle \\in \\overline{H_{TM}}$ אז $M$ לא עוצרת על $w$ ולכן במקרה זה $M$ לא מקבלת אף קלט, כלומר $L(Q) = \\emptyset$. ברור ש-$\\emptyset \\subseteq PALINDROMS$, ולכן $\\langle Q\\rangle \\in L$.\n**נכונות של ג':** אם $\\langle M,w\\rangle \\notin \\overline{H_{TM}}$ (כלומר, $M$ עוצרת על $w$), אז $M$ עוצרת על $w$, ולכן במקרה זה מכונה $Q$ מקבלת את כל הפלינדרומים: $L(Q) = PALINDROMS$, ולכן עדיין מתקיים ש-$\\langle Q\\rangle \\in L$.",
+   "note": "Stem says 'כאשר T היא מכונת טיורינג הבאה' while the machine is named Q — fixed T→Q. Proof of ד says 'M לא מקבלת אף קלט' (means Q); kept as printed."
+  },
+  {
+   "num": 14,
+   "topic": "np",
+   "question": "נתונה שפה $A$ כך ש-$A \\in NP$.\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "בהכרח מתקיים $\\overline{A} \\in NP$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בהכרח לא מתקיים $\\overline{A} \\in NP$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $P = NP$ אז בהכרח מתקיים $\\overline{A} \\in NP$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "סעיפים א,ב – שאלות פתוחות, לא ידוע. סעיף ג: אם $P = NP$, אז $A$ ב-$P$, ולכן גם $\\overline{A}$ ב-$P$ $\\Rightarrow$ $\\overline{A}$ ב-$NP$.",
+   "note": "Proof box prints a left arrow (←) from RTL layout; rendered as ⇒ (the implication direction)."
+  },
+  {
+   "num": 15,
+   "topic": "mapping_reductions",
+   "question": "נתונה שפה $L$ כך שמתקיימת הרדוקציה $A_{TM} \\le_m L$.\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "יתכן ש-$L \\in NP$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $P = NP$ אז בהכרח $L \\in P$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $P \\ne NP$ אז בהכרח $L \\in NPC$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "בכל אחד מהסעיפים א-ג מדובר על שפה $L$ שניתנת להכרעה. אבל אז לפי משפט רדוקצית מיפוי גם $A_{TM}$ חייבת להיות ניתנת להכרעה, וזה לא נכון."
+  },
+  {
+   "num": 16,
+   "topic": "npc",
+   "question": "נתונות שתי שפות $L1, L2$ כך שמתקיים: $L1 \\in NPC$, $L2 \\in P$.\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "בהכרח $L1 \\cup L2 \\in NP$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בהכרח $L1 \\cup L2 \\in P$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "בהכרח $L1 \\cup L2 \\in NPC$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הוכחה של א:** לפי הנתון, שתי השפות שייכות ל-$NP$ ($L1$ – לפי הגדרה; $L2$ – כי $P$ מוכלת ב-$NP$). ולכן לפי סגירות של $NP$ לאיחוד, גם השפה $L1 \\cup L2$ שייכת ל-$NP$.\n**הפרכה של ב:** אם $L2$ היא שפה ריקה אז $L1 \\cup L2 = L1 \\in NPC$. לא ידוע האם שפות מ-$NPC$ שייכות ל-$P$ (זה מתקיים אם ורק אם $P = NP$).\n**הפרכה של ג:** נניח $L1 = SAT$, $L2 = \\Sigma^* \\setminus \\{0,1\\}$. אז $L1 \\cup L2 = L2$ (שימו לב: $0$ ו-$1$ זה לא קידודים של נוסחאות ב-$SAT$). $L2$ היא שפה לא-טריוויאלית ב-$P$, ולא ידוע האם היא שייכת ל-$NPC$ (זה מתקיים אם ורק אם $P = NP$).",
+   "note": "Header in the key reads 'שטלה 16' (typo). Proof of ג literally says 'אז L1 ∪ L2 = L2'; kept."
+  },
+  {
+   "num": 17,
+   "topic": "poly_reductions",
+   "question": "נתונות ארבע שפות $A, B, C, D$ כך שמתקיימים יחסי רדוקציה הבאים:\n$$A \\le_p B \\le_m C \\le_p D$$(שימו לב לסוגים שונים של רדוקציות).\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "בהכרח מתקיים: $\\overline{A} \\le_p D$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בהכרח מתקיים: $C \\le_m A$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "בהכרח מתקיים: $B \\in P$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "בהכרח מתקיים: $\\overline{C} \\le_m \\overline{D}$"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "**הפרכה של א:** $A = B = C = D = A_{TM}$. כל הרדוקציות שבשאלה מתקיימות, אבל **לא** מתקיימת הרדוקציה $\\overline{A_{TM}} \\le_m A_{TM}$.\n**הפרכה של ב:** $A \\in P$ (ולכן גם $A \\in R$), ובנוסף $B = C = D \\in RE \\setminus R$. כל הרדוקציות שבשאלה מתקיימות, אבל לא מתקיימת הרדוקציה $C \\le_m A$ (לו הייתה מתקיימת, אז בהכרח היה גם $C \\in R$, וזה לא נכון).\n**הפרכה של ג:** זהה להפרכה של א.\n**הוכחה של ד:** נתון שמתקיים $C \\le_p D$, ולכן גם $C \\le_m D$. מכאן נובע שמתקיים $\\overline{C} \\le_m \\overline{D}$."
+  },
+  {
+   "num": 18,
+   "topic": "classification",
+   "question": "נתונה השפה הבאה:\n$$L = \\{\\langle M1, M2\\rangle \\mid (*)\\}$$(*): $M1, M2$ – מכונות טיורינג, כך ש-$M1$ מקבלת לפחות מילה אחת באורך $10$, ואילו $M2$ לא מקבלת לפחות מילה אחת באורך $10$\nאיזה מהטענות הבאות היא טענה נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "math",
+     "value": "L \\in R"
+    },
+    {
+     "id": "b",
+     "type": "math",
+     "value": "L \\in RE \\setminus R"
+    },
+    {
+     "id": "c",
+     "type": "math",
+     "value": "\\overline{L} \\in RE \\setminus R"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אף אחת מהתשובות האחרות אינה נכונה"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "highlighted-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "אי-קבלה כוללת בפרט אי-עצירה, ולכן מדובר על תכונה שלא נותנת לזיהוי. זה מיד מפריך את א-ב.\nהשפה $\\overline{L}$ מכילה, בין היתר, זוגות בהן $M1$ לא מקבלת אף מחרוזת באורך $10$, ושוב מדובר על תכונה שלא ניתנת לזיהוי."
+  }
+ ]
+}
