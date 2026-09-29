@@ -86,12 +86,9 @@ docs/briefs/*.md --build_learn.py--> learn.js
   `verify_strip.py compare <CODE>` lists disagreements → `hold`. The verifier outputs
   `tools/raw/_verify_<CODE>.json` are kept as the audit trail. Overrides live in a
   `# --- RESOLUTIONS` block before `exam = {` in each generator.
-- **Never put TeX in a non-raw Python string**: `
-otin`/`
-e` → newline, `	riangle` → TAB,
-  `angle` → CR. Write explanations as `"
-".join([r"""…""", …])`. `tools/gen/lint_escapes.py`
-  (run by validate) catches control chars and newlines inside `$…$`.
+- **Never put TeX in a non-raw Python string**: `\notin` / `\ne` become newline + text, `\triangle`
+  becomes TAB, `\rangle` becomes CR. Write explanations as `"\n".join([r"""…""", …])`.
+  `tools/gen/lint_escapes.py` (run by validate) catches control chars and newlines inside `$…$`.
 - Options are shuffled but explanations cite source letters → after answering, `app.js` tags each
   option "במקור: X" (`.orig-key`).
 
