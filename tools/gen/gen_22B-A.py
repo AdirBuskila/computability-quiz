@@ -189,6 +189,19 @@ Q(20, "npc",
        "a typo for MCLIQUE ∈ P; kept as printed."),
 ]
 
+# --- RESOLUTIONS (ASK_ADIR items resolved by independent math check; Adir authorized 2026-09-29) ---
+def _resolve(num, **kw):
+    q = next(q for q in questions if q["num"] == num)
+    q.pop("hold", None)
+    q.update(kw)
+_resolve(13, correctId="b", answerSource="solved", official=False, confidence="high",
+  explanation="\n".join([
+    r"""**התשובה הנכונה: ב (לא)** (בטבלת התשובות הרשמית סומנה א). כש-$M_1, M_2$ מכריעות, $T_{M_1,M_2}$ מקבלת את $w$ בדיוק כשאחת מהן מקבלת והשנייה דוחה, כלומר $L(T_{M_1,M_2}) = L(M_1) \triangle L(M_2)$. לפי ההגדרה $\langle T\rangle \in CE_{TM}$ אם"ם $\overline{L(T)} = \emptyset$, כלומר $L(M_1) \triangle L(M_2) = \Sigma^*$, כלומר $L(M_2) = \overline{L(M_1)}$ – וזה לא שקול ל-$L(M_1) \ne L(M_2)$.""",
+    r"""**דוגמה נגדית:** $L(M_1) = \{0\}$, $L(M_2) = \{1\}$. השפות שונות ולכן $\langle M_1,M_2\rangle \in NEQ_{TM}$, אבל $L(T) = \{0,1\} \ne \Sigma^*$ ולכן $f(\langle M_1,M_2\rangle) \notin CE_{TM}$.""",
+    r"""**הערה:** אילו $CE_{TM}$ הייתה שפת המכונות ששפתן **לא ריקה**, התשובה הייתה א (כנראה כוונת הבוחנים); לפי ההגדרה המודפסת התשובה היא ב.""",
+  ]),
+  note=r"""Official letter table = א. Printed CE_TM = {<M> | complement(L(M)) = ∅} (verified at zoom on the clean copy p5); under it the equivalence fails -> ב.""")
+
 exam = {
   "examCode": "22B-A",
   "examLabel": "2022 סמסטר ב מועד א",

@@ -305,6 +305,14 @@ Q(25, "mapping_reductions",
   "שאנו יודעים שלא קיימת עבורה מכונת טיורינג שתכריע אותה."),
 ]
 
+# --- RESOLUTIONS (ASK_ADIR items resolved by independent math check; Adir authorized 2026-09-29) ---
+def _resolve(num, **kw):
+    q = next(q for q in questions if q["num"] == num)
+    q.pop("hold", None)
+    q.update(kw)
+_resolve(14, confidence="high",
+  note="No highlight; א read from the explanation and independently verified: if <M,w> in N_TM then L(R_Mw) = {y : |y| < 2T_w} (finite, non-empty), else ∅.")
+
 exam = {
   "examCode": "23B-A",
   "examLabel": "2023 סמסטר ב מועד א",

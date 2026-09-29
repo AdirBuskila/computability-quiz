@@ -292,13 +292,12 @@
      "value": "שפה $L$ לא ניתנת לקבלה, וגם המשלים שלה לא ניתן לקבלה"
     }
    ],
-   "correctId": "b",
-   "answerSource": "highlighted-pdf",
-   "official": true,
-   "confidence": "med",
-   "explanation": "נסמן: $s_0, s_1, s_2, \\ldots$ - סדרת כל המילים מעל הא\\\"ב הנתון, ממויינים לפי האורך, ובתוך קבוצת מילים באותו אורך – בסדר לקסיקוגרפי.\n**אלגוריתם $ALG$ המקבל את $L$** בהינתן $\\langle M,k\\rangle$:\n1. `i = 0`\n2. `run M(s_i) for k steps`\n3. `if not terminated then ALG stops and Accepts`\n4. `i = i + 1`\n5. `goto 2`\nאם הזוג $\\langle M,k\\rangle$ לא שייך ל-$L$ (כלומר, הזוג שייך ל-$\\overline{L}$), אז $ALG$ לא עוצר.\n**שימו לב:** משמעות השייכות של $\\langle M,k\\rangle$ ל-$\\overline{L}$ היא שעל כל מילה $M$ עוצרת (מגיעה ל-$ACCEPT$ או $REJECT$) תוך $k$ צעדים. **אינטואיטיבית** ברור, שלא ניתן לוודא את קיומה של התכונה הזאת בזמן סופי, כי זה דורש אינסוף בדיקות (של $M$ על אינסוף מילים) – ולכן השפה $\\overline{L}$ לא ניתנת לקבלה, וכתוצאה, $L$ לא ניתנת להכרעה. כדי **להוכיח את זה פורמלית**, יש להגדיר רדוקציה ל-$L$ משפה שידועה כלא ניתנת להכרעה (למשל מ-$H_{TM}$). לא נציג כאן רדוקציה כזאת.",
-   "note": "Key (yellow) = ב, transcribed as-is. Doubt: in k steps M reads at most its first k input cells, so only words of length ≤ k need checking — which suggests L is actually decidable (א). The key's own 'proof' is only intuitive and says no reduction is given. ASK_ADIR.",
-   "hold": "official key (ב) disputed: within k steps M reads only its first ~k input cells, so checking all words of length <= k+1 decides L -> looks like א. ASK_ADIR"
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**התשובה הנכונה: א** (במחוון הרשמי סומנה ב – טעות). תוך $k$ צעדים הראש של $M$ יכול לבקר רק בתאים $1, \\dots, k$ של הסרט, ולכן ריצת $M$ ב-$k$ הצעדים הראשונים על מילה $w$ תלויה רק ב-$k$ התווים הראשונים של $w$. לכן קיימת מילה ש-$M$ לא עוצרת עליה תוך $k$ צעדים אם\"ם קיימת מילה כזו שאורכה לכל היותר $k$.\n**אלגוריתם מכריע:** בהינתן $\\langle M,k\\rangle$, הרץ את $M$ למשך $k$ צעדים על כל אחת מהמילים (מספר סופי) שאורכן לכל היותר $k$. אם על אחת מהן $M$ לא עצרה – קבל; אחרת – דחה. האלגוריתם תמיד עוצר, ולכן $L \\in R$.\n**הערה:** ההסבר במחוון (\"נדרשות אינסוף בדיקות\") מתעלם מכך שבזמן חסום המכונה רואה רק רישא חסומה של הקלט.",
+   "note": "Official key = ב (RE\\R). Resolved to א by the finite-prefix argument (Adir authorized resolving ASK items)."
   },
   {
    "num": 10,

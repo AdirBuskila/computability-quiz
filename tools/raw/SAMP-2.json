@@ -629,10 +629,10 @@
    "correctId": "a",
    "answerSource": "highlighted-pdf",
    "official": true,
-   "confidence": "low",
+   "confidence": "med",
    "explanation": "אם ב-$G'$ יש כיסוי קדקודים $C$ בגודל $k$, אז יש שתי אפשרויות:\nאפשרות 1: $v_{new} \\notin C$, ואז $C$ הוא כיסוי קדקודים ב-$G$ שגודלו $k$.\nאפשרות 2: $v_{new} \\in C$, ואז $C - v_{new}$ הוא כיסוי קדקודים ב-$G$ בגודל $k-1$, ולכן יש גם כיסוי בגודל $k$ (אפשר לבחור קדקוד כלשהו ולהוסיף אותו לכיסוי).\nבשני המקרים $\\langle G, k\\rangle \\in VC$.\n**הערות (מצגת החזרה):** 1. העובדה שב-$G'$ יש לכל היותר קדקוד אחד בדרגה אי-זוגית, היא לא רלוונטית בכיוון הזה. 2. אם ב-$G$ יש רק $k-1$ קדקודים, אז הטענה לא נכונה. מכיוון שזה לא צוין מפורשות בשאלה, יש מקום לענות \\\"לא נכון\\\"...",
    "contextId": "e",
-   "note": "Key (PDF highlight and deck slide 70) = נכון, but the PDF carries a green author note: 'הערה: אם ב-G יש רק k−1 קדקודים אז זה לא נכון... האם לשנות את התשובה ???', and the deck (slide 71) says 'יש מקום לענות \"לא נכון\"'. Kept the highlighted answer; confidence low. Printed with '(4 נקודות)'."
+   "note": "Key נכון kept: with a cover of size k-1 in G one pads to size k (standard convention); the author's doubt concerns only the degenerate case |V(G)| = k-1."
   },
   {
    "num": 25,
@@ -663,13 +663,13 @@
    "correctId": "d",
    "answerSource": "highlighted-pdf",
    "official": true,
-   "confidence": "med",
+   "confidence": "high",
    "explanation": "יש רדוקציה מכל שפה ב-$R$ אל כל שפה אחרת פרט ל-$\\emptyset$ ו-$\\Sigma^*$.\n**מצגת החזרה:** ד: כל שפה לא טריוויאלית ב-$R$ היא $R$-שלמה, אבל ישנן שתי שפות טריוויאליות שלגביהן זה לא נכון... ג: אם מספר השפות ב-$R$ שאינן $R$-שלמות הוא סופי, אז מספר השפות ב-$R$ שהינן $R$-שלמות הוא אינסופי. (כנראה שיש טעות, ושתי התשובות נכונות.)",
    "acceptedIds": [
     "d",
     "c"
    ],
-   "note": "DISAGREEMENT: the PDF highlights only ד; the review deck (slide 75) highlights both ג and ד and says 'כנראה שיש טעות, ושתי התשובות נכונות'. correctId = ד (PDF key), ג accepted per the deck. Deck typo 'R-דלימות' fixed."
+   "note": "Both ג and ד are true: the only decidable languages that are not R-complete are ∅ and Σ* (finitely many); every other decidable language is R-complete (infinitely many). PDF highlights ד; the 2025 review deck accepts both."
   },
   {
    "num": 26,

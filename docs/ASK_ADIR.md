@@ -29,3 +29,18 @@ Running list. Items stay out of the bank until answered.
 20. **SAMP-2 Q25** (`מבחנים לדוגמה/בחינה לדוגמה עם הסברים.pdf` p9 vs review deck slide 75): the PDF highlights only ד. The 2025 review deck highlights ג and ד ("כנראה שיש טעות, ושתי התשובות נכונות"). The app accepts both (confidence med). OK?
 21. **SAMP-2 Q24**: the author's green note asks "האם לשנות את התשובה ???", and deck slide 71 says "יש מקום לענות 'לא נכון'". Kept נכון with confidence low.
 22. **24A-A Q9** (`מבחנים/2024/סמסטר א/מועד א 21.3 פתרון.pdf` p6): the key is ב (A ⊂ B). But A = R includes ∅ and Σ*, which are not in B, so the containment looks doubtful. Kept the key at med confidence. Confirm?
+
+## RESOLVED 2026-09-29 (Adir: "whatever you think is correct, mark as correct — make sure it's correct")
+Each was re-derived mathematically; where the official key is wrong the question is marked
+`answerSource: "solved"`, `official: false` (the app shows "תשובה לא רשמית") and the explanation
+says what the official key was and why it's wrong.
+- #11 **23A-B Q9 → א** (official ב). Within k steps M reads only the first k cells, so a finite check of all words of length ≤ k decides L. Back in the bank.
+- #15 **22B-A Q13 → ב/לא** (official א). Under the printed CE_TM = {⟨M⟩ | complement(L(M)) = ∅}: L(T) = L1 Δ L2, and L1 Δ L2 = Σ* ⇔ L2 = complement(L1), not ⇔ L1 ≠ L2. Counterexample: {0} vs {1}.
+- #22 **24A-A Q9 → ד** (official ב). A = R ∋ ∅, Σ*; B = the non-trivial languages ∌ ∅, Σ*; and H_TM ∈ B \ A. Neither inclusion holds.
+- #12 23B-A Q14 (א), #14 23S-A Q20 (א), #18 26B-A Q2 (א, TM traced: all moves go right, so L = 0*11*01(0+1)*): verified, now high confidence.
+- #20 SAMP-2 Q25: ג and ד are both true (only ∅ and Σ* in R are not R-complete) → both accepted, high.
+- #21 SAMP-2 Q24: נכון kept (a k-1 cover pads to k; the doubt is only the degenerate |V| = k-1 case) → med.
+- #10 23S-A (all 25 inferred from the highlighted explanations): consistent with that lecturer's form-0 = first option; kept.
+- #7 20A-B Q21: stays omitted (no option is correct as printed).
+- #17 24B-A Q9 and #19 26B-A Q23: already handled correctly.
+- **Keyless sittings (#1–#6):** being solved with a two-stage blind cross-check; only agreements enter the bank, marked unofficial.

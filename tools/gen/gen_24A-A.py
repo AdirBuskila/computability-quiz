@@ -339,6 +339,20 @@ Q(18, "classification",
   r"השפה $\overline{L}$ מכילה, בין היתר, זוגות בהן $M1$ לא מקבלת אף מחרוזת באורך $10$, ושוב מדובר על תכונה שלא ניתנת לזיהוי."),
 ]
 
+# --- RESOLUTIONS (ASK_ADIR items resolved by independent math check; Adir authorized 2026-09-29) ---
+def _resolve(num, **kw):
+    q = next(q for q in questions if q["num"] == num)
+    q.pop("hold", None)
+    q.update(kw)
+_resolve(9, correctId="d", answerSource="solved", official=False, confidence="high",
+  explanation="\n".join([
+    r"""**התשובה הנכונה: ד** (במחוון הרשמי סומנה ב). **$A = R$:** אם $L \le_m H_{TM}$ אז $L \in RE$, ויחד עם $L \in coRE$ נקבל $L \in R$. בכיוון השני, כל שפה ב-$R$ (כולל $\emptyset$ ו-$\Sigma^*$) ניתנת לרדוקציה לשפה הלא-טריוויאלית $H_{TM}$, ו-$R \subseteq coRE$.""",
+    r"""**$B$ = כל השפות הלא-טריוויאליות:** $PALINDROMES \in R$ ולכן ניתנת לרדוקציה לכל שפה לא-טריוויאלית, אבל לא ל-$\emptyset$ ולא ל-$\Sigma^*$ (מילה בשפה חייבת לעבור למילה בשפת היעד, ומילה שאינה בשפה – למילה שאינה בה).""",
+    r"""לכן $\emptyset \in A$ אבל $\emptyset \notin B$, כלומר $A \not\subseteq B$; ו-$H_{TM} \in B$ אבל $H_{TM} \notin A$, כלומר $B \not\subseteq A$. אף אחד מהיחסים א–ג לא מתקיים.""",
+    r"""**הערה:** תשובת המחוון (ב) נכונה רק אם מתעלמים מהשפות הטריוויאליות.""",
+  ]),
+  note=r"""Official key = ב. A = R contains ∅, Σ* which are not in B -> ד.""")
+
 exam = {
   "examCode": "24A-A",
   "examLabel": "2024 סמסטר א מועד א",

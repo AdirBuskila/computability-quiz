@@ -556,9 +556,9 @@
    "correctId": "a",
    "answerSource": "explanation-inferred",
    "official": true,
-   "confidence": "med",
+   "confidence": "high",
    "explanation": "כך הגדרנו את הרדוקציה, ניתן לראות במצגת.",
-   "note": "Explanation does not name an option. א (number of clauses) is the standard 3SAT<=p IS target size and matches the all-א pattern of this key, but it is inferred, not stated."
+   "note": "Explanation only says 'as defined in the slides'; א verified: the standard 3SAT <=p IS reduction asks for an independent set of size = number of clauses."
   },
   {
    "num": 21,

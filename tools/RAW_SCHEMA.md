@@ -27,7 +27,7 @@
       "correctId": "c",
       "acceptedIds": ["c", "a"],       // only when >1 accepted (correctId first)
       "lockOrder": true,               // optional; build also auto-detects "א ו-ב" style refs
-      "answerSource": "solution-pdf",  // solution-pdf | highlighted-pdf | corrected-key | letter-table | explanation-inferred
+      "answerSource": "solution-pdf",  // solution-pdf | highlighted-pdf | corrected-key | letter-table | explanation-inferred | solved (derived + independently verified; official:false)
       "official": true,
       "confidence": "high",            // high | med | low
       "explanation": "rich text (Hebrew, from the key's proof box; may be empty)"

@@ -402,10 +402,10 @@
    "correctId": "a",
    "answerSource": "explanation-inferred",
    "official": true,
-   "confidence": "med",
+   "confidence": "high",
    "explanation": "$f$ ניתנת לחישוב (ניתן לחשב את הקידוד של המכונה $R_{Mw}$ בזמן סופי).\nנראה שמתקיים $\\langle M,w\\rangle \\in N_{TM} \\Leftrightarrow \\langle R_{Mw}\\rangle \\in F_{TM}$:\n**(כיוון 1):** אם $\\langle M,w\\rangle \\in N_{TM}$ אז $M$ מקבלת את $w$ אחרי יותר מ-$|w|$ צעדים. נראה מה זה אומר על $R_{Mw}$: בכל מקרה השפה של $R_{Mw}$ סופית כי הוא לא מקבל מילים שהאורך שלהם גדול מ-$2 \\cdot T_w$ ויש מספר סופי של מילים כאלה. כמו כן היא תקבל לפחות את $w$. ולכן היא סופית ולא ריקה.\n**(כיוון 2):** אם $\\langle M,w\\rangle \\notin N_{TM}$ אזי או ש-$M$ לא עוצרת על $w$ ואז $R_{Mw}$ לא עוצרת על אף קלט והשפה שלה ריקה, או שהיא עוצרת אבל לא מקבלת את $w$ – אז תנאי 2 מתקיים ושוב השפה של $R_{Mw}$ ריקה, או שהיא מקבלת את $w$ אבל אחרי פחות מ-$|w|$ צעדים ואז החלק השני בתנאי 3 לא מתקיים ושוב השפה של $R_{Mw}$ ריקה. ולכן $f(\\langle M,w\\rangle) \\notin F_{TM}$.",
    "contextId": "map",
-   "note": "No option highlighted. The explanation proves f(<M,w>) ∈ F_TM ⇔ <M,w> ∈ N_TM, i.e. כן (א). Its opening line copy-pasted from Q13 says '⇔ <R_Mw> ∈ B_TM' — written as F_TM."
+   "note": "No highlight; א read from the explanation and independently verified: if <M,w> in N_TM then L(R_Mw) = {y : |y| < 2T_w} (finite, non-empty), else ∅."
   },
   {
    "num": 15,

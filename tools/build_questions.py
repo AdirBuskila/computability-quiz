@@ -41,7 +41,7 @@ TOPIC_LABEL = {
 OPT_TYPES = {"text", "math", "image"}
 CONFIDENCE = {"high", "med", "low"}
 ANSWER_SOURCES = {"solution-pdf", "highlighted-pdf", "corrected-key", "letter-table",
-                  "explanation-inferred"}
+                  "explanation-inferred", "solved"}
 
 HEB = re.compile(r"[֐-׿]")
 HEB_LETTER = "א-ת"

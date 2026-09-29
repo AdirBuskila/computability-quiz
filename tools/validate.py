@@ -19,7 +19,7 @@ OPT_TYPES = {"text", "math", "image"}
 OPT_IDS = {"a", "b", "c", "d", "e", "f"}
 CONFIDENCE = {"high", "med", "low"}
 ANSWER_SOURCES = {"solution-pdf", "highlighted-pdf", "corrected-key", "letter-table",
-                  "explanation-inferred"}
+                  "explanation-inferred", "solved"}
 DERIVED = {"id", "examCode", "examLabel", "year", "source", "topicLabel", "dedupKey",
            "questionHtml", "explanationHtml"}
 CODE_RE = re.compile(r"^(\d{2}[ABS]-[ABC]|SAMP-\d+)$")
@@ -190,6 +190,12 @@ def main():
         print(f"\nWARNINGS ({len(all_w)}):")
         for x in all_w:
             print("  -", x.encode("ascii", "backslashreplace").decode())
+    # string-escape corruption (e.g. "\notin" in a non-raw generator string -> newline + "otin")
+    import subprocess
+    lint = subprocess.run([sys.executable, str(pathlib.Path(__file__).parent / "gen" / "lint_escapes.py")],
+                          capture_output=True, text=True, encoding="utf-8")
+    if lint.returncode:
+        all_p += ["escape-lint: " + l for l in lint.stdout.splitlines() if not l.startswith("escape problems")]
     print(f"\nPROBLEMS ({len(all_p)}):")
     for x in all_p:
         print("  -", x.encode("ascii", "backslashreplace").decode())

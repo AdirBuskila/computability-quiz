@@ -416,12 +416,19 @@ Q(25, "npc",
   r"**הפרכת ג:** לא נכון. למשל, אם $A = B$, אז הרדוקציה $A \le_P B$ כמובן מתקיימת, אבל $A \setminus B = \emptyset$, ושפה ריקה איננה NP-שלמה."),
 ]
 
-# Held out of the bank (ASK_ADIR): official key disputed on the math.
-HOLD = {9: "official key (ב) disputed: within k steps M reads only its first ~k input cells, "
-           "so checking all words of length <= k+1 decides L -> looks like א. ASK_ADIR"}
-for q in questions:
-    if q["num"] in HOLD:
-        q["hold"] = HOLD[q["num"]]
+
+# --- RESOLUTIONS (ASK_ADIR items resolved by independent math check; Adir authorized 2026-09-29) ---
+def _resolve(num, **kw):
+    q = next(q for q in questions if q["num"] == num)
+    q.pop("hold", None)
+    q.update(kw)
+_resolve(9, correctId="a", answerSource="solved", official=False, confidence="high",
+  explanation="\n".join([
+    r"""**התשובה הנכונה: א** (במחוון הרשמי סומנה ב – טעות). תוך $k$ צעדים הראש של $M$ יכול לבקר רק בתאים $1, \dots, k$ של הסרט, ולכן ריצת $M$ ב-$k$ הצעדים הראשונים על מילה $w$ תלויה רק ב-$k$ התווים הראשונים של $w$. לכן קיימת מילה ש-$M$ לא עוצרת עליה תוך $k$ צעדים אם"ם קיימת מילה כזו שאורכה לכל היותר $k$.""",
+    r"""**אלגוריתם מכריע:** בהינתן $\langle M,k\rangle$, הרץ את $M$ למשך $k$ צעדים על כל אחת מהמילים (מספר סופי) שאורכן לכל היותר $k$. אם על אחת מהן $M$ לא עצרה – קבל; אחרת – דחה. האלגוריתם תמיד עוצר, ולכן $L \in R$.""",
+    r"""**הערה:** ההסבר במחוון ("נדרשות אינסוף בדיקות") מתעלם מכך שבזמן חסום המכונה רואה רק רישא חסומה של הקלט.""",
+  ]),
+  note=r"""Official key = ב (RE\R). Resolved to א by the finite-prefix argument (Adir authorized resolving ASK items).""")
 
 exam = {
   "examCode": "23A-B",

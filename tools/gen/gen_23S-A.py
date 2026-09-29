@@ -306,6 +306,14 @@ Q(25, "mapping_reductions",
   "האם $w$ שייכת ל-$A$ או לא. מכיוון שנתון ש-$A$ לא ניתנת להכרעה, הפונקציה $f$ לא ניתנת לחישוב."),
 ]
 
+# --- RESOLUTIONS (ASK_ADIR items resolved by independent math check; Adir authorized 2026-09-29) ---
+def _resolve(num, **kw):
+    q = next(q for q in questions if q["num"] == num)
+    q.pop("hold", None)
+    q.update(kw)
+_resolve(20, confidence="high",
+  note="Explanation only says 'as defined in the slides'; א verified: the standard 3SAT <=p IS reduction asks for an independent set of size = number of clauses.")
+
 exam = {
   "examCode": "23S-A",
   "examLabel": "2023 סמסטר קיץ מועד א",

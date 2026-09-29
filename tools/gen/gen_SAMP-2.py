@@ -348,6 +348,16 @@ Q(29, "npc",
   r"$B, C \in NPC$ וכן $A \in NP$, לכן קיימות רדוקציות פולינומיות מכל אחת משלוש השפות אל $B$ וגם אל $C$."),
 ]
 
+# --- RESOLUTIONS (ASK_ADIR items resolved by independent math check; Adir authorized 2026-09-29) ---
+def _resolve(num, **kw):
+    q = next(q for q in questions if q["num"] == num)
+    q.pop("hold", None)
+    q.update(kw)
+_resolve(24, confidence="med",
+  note="Key נכון kept: with a cover of size k-1 in G one pads to size k (standard convention); the author's doubt concerns only the degenerate case |V(G)| = k-1.")
+_resolve(25, confidence="high",
+  note="Both ג and ד are true: the only decidable languages that are not R-complete are ∅ and Σ* (finitely many); every other decidable language is R-complete (infinitely many). PDF highlights ד; the 2025 review deck accepts both.")
+
 exam = {
   "examCode": "SAMP-2",
   "examLabel": "מבחן לדוגמה 2 (תש\"פ)",

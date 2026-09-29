@@ -294,12 +294,12 @@
      "value": "אף אחת מהתשובות האחרות אינה נכונה"
     }
    ],
-   "correctId": "b",
-   "answerSource": "highlighted-pdf",
-   "official": true,
-   "confidence": "med",
-   "explanation": "השפה $H_{TM}$ שייכת ל-$RE$; לכן לפי משפט הרדוקציה כל שפה ב-$A$ גם היא שייכת ל-$RE$. בנוסף, כל שפה מ-$A$ שייכת ל-$coRE$, כלומר גם המשלים שלה שייך ל-$RE$. מכאן נובע ש**המחלקה $A$ שווה למחלקה $R$**.\nשפת $PALINDROMES$ היא שפה לא טריוויאלית השייכת ל-$R$; לכן הרדוקציה $PALINDROMES \\le_m L$ מתקיימת עבור כל שפה $L$ לא טריוויאלית. מכאן נובע ש-**$B$ היא קבוצת כל השפות הלא טריוויאליות**, ולכן מתקיים $A \\subset B$.",
-   "note": "Stem prints A = { L | L ∈ coRE וגם L ≤m H_TM }; condition moved to a (*) line. Key's proof box says 'השפה \\overline{E_TM} שייכת ל RE' — a typo for H_TM (the language in the definition); fixed. Doubt (not ours to change): A = R includes the trivial languages ∅, Σ*, which are not in B, so A ⊂ B as stated is questionable; kept the official key ב."
+   "correctId": "d",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**התשובה הנכונה: ד** (במחוון הרשמי סומנה ב). **$A = R$:** אם $L \\le_m H_{TM}$ אז $L \\in RE$, ויחד עם $L \\in coRE$ נקבל $L \\in R$. בכיוון השני, כל שפה ב-$R$ (כולל $\\emptyset$ ו-$\\Sigma^*$) ניתנת לרדוקציה לשפה הלא-טריוויאלית $H_{TM}$, ו-$R \\subseteq coRE$.\n**$B$ = כל השפות הלא-טריוויאליות:** $PALINDROMES \\in R$ ולכן ניתנת לרדוקציה לכל שפה לא-טריוויאלית, אבל לא ל-$\\emptyset$ ולא ל-$\\Sigma^*$ (מילה בשפה חייבת לעבור למילה בשפת היעד, ומילה שאינה בשפה – למילה שאינה בה).\nלכן $\\emptyset \\in A$ אבל $\\emptyset \\notin B$, כלומר $A \\not\\subseteq B$; ו-$H_{TM} \\in B$ אבל $H_{TM} \\notin A$, כלומר $B \\not\\subseteq A$. אף אחד מהיחסים א–ג לא מתקיים.\n**הערה:** תשובת המחוון (ב) נכונה רק אם מתעלמים מהשפות הטריוויאליות.",
+   "note": "Official key = ב. A = R contains ∅, Σ* which are not in B -> ד."
   },
   {
    "num": 10,
