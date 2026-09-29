@@ -16,3 +16,4 @@ Thumbs.db
 # per-sitting render/scratch folders (regenerable, copies of course material)
 tools/raw/*/
 tools/raw/*.tsv
+tools/raw/_blind_*.json

@@ -1,0 +1,124 @@
+{
+ "answers": {
+  "1": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "L1∩L2 may be empty (L1=co-A_TM, L2=A_TM gives Σ*) or nonempty (L1=co-A_TM∪{x}, x∈A_TM)"
+  },
+  "2": {
+   "answer": "b",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "L̄1∈R⊆RE and RE is closed under intersection"
+  },
+  "3": {
+   "answer": "c",
+   "confident": false,
+   "transcriptionIssues": "",
+   "reason": "Mathematically none is forced: a countable union of RE\\R languages can be Σ* (in R,P) or non-RE (e.g. {x}∪1A_TM for x in 0·co-A_TM). No 'none' option; c (dovetailing intuition, cf. 22A Q5 key=c) is the likely intended answer"
+  },
+  "4": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "P≠coNP ⇔ P≠NP (P closed under complement); this does not settle NP vs coNP, so co-CLIQUE∈NP is undetermined"
+  },
+  "5": {
+   "answer": "c",
+   "confident": false,
+   "transcriptionIssues": "",
+   "reason": "M2 accepts iff some branch of M1 halts. If M1 has an immediate-reject branch (still accepts A_TM) then L̄(M2)=∅ (finite, true); a deterministic M1 that loops on all non-members gives L̄(M2)=co-A_TM (infinite, false). If the author thought deterministically (undecidable ⇒ loops on infinitely many) the intended answer would be a"
+  },
+  "6": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "sum of cardinalities ≥0 always holds, so L = all valid triple encodings, decidable"
+  },
+  "7": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "complement |L(M1)∩L(M2)|≥|w| is RE by dovetailing; for |w|=1 L asks emptiness of the intersection (E_TM-hard), so L∉RE"
+  },
+  "8": {
+   "answer": "b",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "h∈{0,1}>|w|² only when w=ε and M accepts ε: A_TM restricted to ε is RE, undecidable"
+  },
+  "9": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "E_TM≤m L̄ ⇔ co-E_TM≤m L, and co-E_TM ≡m A_TM, so A=B"
+  },
+  "10": {
+   "answer": "b",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "C = B ∪ {L : L≤m co-E_TM} = B ∪ RE, and e.g. ∅∈C\\B, so B⊊C"
+  },
+  "11": {
+   "answer": "b",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "A=B⊊C"
+  },
+  "12": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "option ב 'לא' is printed in bold in the source (same in 22B-C); probably a template artifact, not an answer marking",
+   "reason": "f only writes the fixed description of T_{M1,M2}; it never runs M1/M2"
+  },
+  "13": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "parallel run: L(T)=L(M1)∪L(M2) regardless of deciders, so L(T)=Σ* ⇔ pair∈INF"
+  },
+  "14": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "f is computable and x∈INF_TM ⇔ f(x)∈CE_TM for all pairs"
+  },
+  "15": {
+   "answer": "d",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "even k: identity; odd k: set x_n=T, giving ≤k+1 true, satisfying φ' with even k'"
+  },
+  "16": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "if φ' has ≤k+1 true: x_n=T gives ≤k in φ (contradiction); x_n=F forces x_f=T with ≤k+1 true in φ, impossible since min>k and x_f is F in every minimum assignment"
+  },
+  "17": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "identifying x_f requires knowing the minimum satisfying assignments of φ (NP-hard), so f is not poly-time computable (same pattern as the 22A key: 15=d,16=c,17=a)"
+  },
+  "18": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "B≤P A∈NP ⇒ B∈NP; B∉P ⇒ NP≠P"
+  },
+  "19": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "co-A is NP-hard and in coNP ⇒ NP⊆coNP ⇒ NP=coNP"
+  },
+  "20": {
+   "answer": "b",
+   "confident": true,
+   "transcriptionIssues": "stem heading says 'MCLIQUE' but the language defined is MIS2, and it is written ⟨φ⟩ instead of ⟨G⟩ (source print errors, transcribed faithfully)",
+   "reason": "IS of size n−2 ⇔ vertex cover of size ≤2: check all O(n²) vertex pairs ⇒ in P; under P≠NP, not NPC, and c is false since MIS2∈NP−NPC"
+  }
+ }
+}

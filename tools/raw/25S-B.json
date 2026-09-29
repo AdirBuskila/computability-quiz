@@ -1,0 +1,554 @@
+{
+ "examCode": "25S-B",
+ "examLabel": "2025 קיץ מועד ב",
+ "year": 2025,
+ "sourceFile": "מבחנים/2025/2025 קיץ מועד ב.pdf",
+ "keyFile": "none — answers solved (stage 1, tools/SOLVE_GUIDE.md), pending blind re-solve",
+ "contexts": {
+  "blk": {
+   "kind": "text",
+   "title": "בלוק של שאלות 15–18",
+   "text": "בהינתן גרף $G$ לא-מכוון עם $n$ קדקודים, ומספר טבעי $k$, נגדיר את הפונקציה הבאה:\n$$f(\\langle G, k\\rangle) = \\langle \\overline{G}, n-k\\rangle$$כאשר $\\overline{G}$ הוא הגרף המשלים של הגרף $G$.\nבנוסף, נגדיר את השפה הבאה:\n$$L = \\{\\langle G, k\\rangle \\mid (*)\\}$$(*): הגרף הלא מכוון $G$ מכיל תת קבוצה $S$ של קודקודים בגודל $n-k$ שהיא כיסוי קדקודים וגם $G$ מכיל תת קבוצה $T$ של קודקודים בגודל $k$ שהיא קליקה\n**ענו נכון או לא נכון, לכל אחת מהטענות הבאות:**"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "topic": "mapping_reductions",
+   "question": "תהיינה שתי שפות, $A, B$, המקיימות $A \\le_m B$.\nנתבונן בשתי הטענות הבאות:\nI. אם $A \\in coRE$ אז $B \\in coRE$\nII. אם $B \\in coRE$ אז $A \\in coRE$\nאיזה מהסעיפים הבאים נכון:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**טענה II נכונה:** $A \\le_m B$ גורר $\\overline{A} \\le_m \\overline{B}$. אם $B \\in coRE$ אז $\\overline{B} \\in RE$, ולפי משפט הרדוקציה $\\overline{A} \\in RE$, כלומר $A \\in coRE$.\n**טענה I לא נכונה:** $A = \\{0\\}$, $B = A_{TM}$. $A \\in R$ ו-$B$ לא טריוויאלית, ולכן $A \\le_m B$; $A \\in coRE$ אבל $A_{TM} \\notin coRE$.",
+   "note": "form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 2,
+   "topic": "decidability",
+   "question": "תהי $L$ שפה כך שמתקיים: $L \\in RE$ וגם קיימת שפה $L' \\in coRE$ שעבורה $L \\le_m L'$.\nאיזו מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** מ-$L \\le_m L'$ נקבל $\\overline{L} \\le_m \\overline{L'}$, ו-$\\overline{L'} \\in RE$, ולכן לפי משפט הרדוקציה $\\overline{L} \\in RE$. יחד עם $L \\in RE$ נקבל $L \\in R$.\n**הפרכת השאר:** ב, ד טוענות $L \\notin RE$ – סותר את הנתון; ג טוענת $L \\notin R$ – סותר את ההוכחה.",
+   "note": "form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 3,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M, w\\rangle \\mid M \\text{ stops on } w \\text{ or } M \\text{ stops on } w^R\\}$$כלומר, $\\langle M, w\\rangle \\in L$ אםם $M$ עוצרת על $w$ במצב מקבל או $M$ עוצרת על $w^R$ במצב מקבל.\nאיזו מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "בשתי הקריאות (\"עוצרת\" או \"עוצרת במצב מקבל\") $L \\in RE \\setminus R$: מקבלים ע\"י הרצה מקבילית של $M$ על $w$ ועל $w^R$; ורדוקציה מ-$H_{TM}$ (או $A_{TM}$) ע\"י $f(\\langle M,w\\rangle) = \\langle M_w, w\\rangle$ כאשר $M_w$ מתעלמת מהקלט ומריצה את $M$ על $w$.",
+   "note": "Released after stage 2: stem is inconsistent ('stops on' vs 'halts in accept'), but both readings give א (RE\\R); both solvers agree."
+  },
+  {
+   "num": 4,
+   "topic": "tm",
+   "question": "תהי $M_1$ מ\"ט דטרמיניסטית, ותהי $M_2$ מ\"ט לא-דטרמיניסטיות, כך שמתקיים $L(M_1) = L(M_2)$.\nנתבונן בשתי הטענות הבאות:\nI. לכל קלט $w$, אם $M_1$ דוחה את $w$, אזי כל מסלול חישוב של $M_2$ על $w$ מסתיים ב-REJECT.\nII. לכל קלט $w$, אם $M_1$ לא עוצרת על $w$, אזי לא קיים מסלול חישוב של $M_2$ על $w$ שמסתיים ב-ACCEPT.\nאיזה מהסעיפים הבאים נכון:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**טענה II נכונה:** אם $M_1$ לא עוצרת על $w$ אז $w \\notin L(M_1) = L(M_2)$, ולכן אין ל-$M_2$ מסלול מקבל על $w$.\n**טענה I לא נכונה:** $M_1 = M_{REJ}$ (דוחה מיד כל קלט), $M_2 = M_{LOOP}$ (לא עוצרת על אף קלט). $L(M_1) = L(M_2) = \\emptyset$, $M_1$ דוחה כל $w$, אבל אף מסלול של $M_2$ לא מסתיים ב-REJECT.",
+   "note": "Printed 'מ\"ט לא-דטרמיניסטיות' (plural, sic) for M2. form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 5,
+   "topic": "decidability",
+   "question": "תהי $M$ מ\"ט.\nנתבונן בשתי הטענות הבאות:\nI. ייתכן $L(M) \\in R$ וגם $M$ מכונה לא-מכריעה\nII. ייתכן $L(M) \\notin R$ וגם $M$ מכונה מכריעה\nאיזה מהסעיפים הבאים נכון:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**טענה I נכונה:** $M$ שמקבלת את $\\varepsilon$ ונכנסת ללולאה על כל קלט אחר: $L(M) = \\{\\varepsilon\\} \\in R$ אבל $M$ לא עוצרת על כל קלט.\n**טענה II לא נכונה:** אם $M$ מכריעה אז היא עוצרת על כל קלט ומכריעה את $L(M)$, ולכן $L(M) \\in R$.",
+   "note": "form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 6,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle A_1, A_2\\rangle \\mid (*)\\}$$(*): $A_1$ הוא אסל\"ד וגם $A_2$ הוא אסל\"ד כך שמתקיים $L(A_1) \\cap L(A_2) = \\emptyset$\nאיזו מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "בהינתן שני אסל\"דים (אוטומטים סופיים לא-דטרמיניסטיים) ניתן להמיר כל אחד לאס\"ד שקול (בניית תת-הקבוצות), לבנות אוטומט מכפלה לחיתוך ולבדוק בזמן סופי אם שפתו ריקה ($E_{DFA}$ כריעה). לכן $L$ ניתנת להכרעה.",
+   "note": "Empty set printed as ϕ; rendered \\emptyset. 'אסל\"ד' = NFA (the answer is the same for DFAs). form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 7,
+   "topic": "time_p",
+   "question": "נתבונן בשתי הטענות הבאות:\nI. תהי $f: \\Sigma^* \\to \\Sigma^*$ פונקציה המקיימת שלכל $x$ מתקיים $f(x) \\in \\{1\\}$, אזי $f$ ניתנת לחישוב\nII. תהי $f: \\Sigma^* \\to \\Sigma^*$ פונקציה המקיימת שלכל $x$ מתקיים $f(x) \\in \\{1\\}$, אזי $f$ ניתנת לחישוב **בזמן פולינומי**\nאיזה מהסעיפים הבאים נכון:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**שתי הטענות נכונות:** הקבוצה $\\{1\\}$ היא יחידון, ולכן $f$ היא בהכרח הפונקציה הקבועה $f(x) = 1$. מכונה שמוחקת את הקלט (בזמן לינארי) וכותבת $1$ מחשבת אותה, ובפרט בזמן פולינומי.",
+   "note": "'בזמן פולינומי' underlined in the source; rendered bold. Variant of 25B-A Q3 ({0,1,11,111}, key ב) / 25B-C Q7 ({01,10}); with the singleton {1} f is forced to be constant, so the answer flips to א. Stage 2 please check the set is really '{1}' (text layer also reads {𝟏}). form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 8,
+   "topic": "poly_reductions",
+   "question": "נתבונן בשתי הטענות הבאות:\nI. אם $A \\le_m \\overline{B}$ וגם $B \\le_p C$ אזי מתקיים $A \\le_p \\overline{C}$.\nII. אם $A \\le_m \\overline{B}$ וגם $B \\le_p C$ אזי מתקיים $A \\le_m \\overline{C}$.\nאיזה מהסעיפים הבאים נכון:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**טענה II נכונה:** $B \\le_p C$ גורר $\\overline{B} \\le_p \\overline{C}$ (אותה פונקציה), ובפרט $\\overline{B} \\le_m \\overline{C}$. מטרנזיטיביות $A \\le_m \\overline{C}$.\n**טענה I לא נכונה:** הרדוקציה $A \\le_m \\overline{B}$ יכולה לא להיות פולינומית. דוגמה: $B = C = \\{0\\}$ (ולכן $\\overline{B} = \\overline{C}$) ו-$A$ שפה כריעה שאינה ב-$P$ (קיימת לפי משפט היררכיית הזמן). $A \\le_m \\overline{B}$ כי $A \\in R$ ו-$\\overline{B}$ לא טריוויאלית, $B \\le_p C$ בזהות, אבל $A \\le_p \\overline{C}$ היה גורר $A \\in P$ (כי $\\overline{C} \\in P$).",
+   "note": "Overlines (on B in the premise and on C in the conclusions only) verified at 4x zoom. form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 9,
+   "topic": "np",
+   "question": "**נתבונן בטענה הבאה:** אם קיימת שפה $L \\in NPC$ כך ש-$L \\le_p \\overline{L}$ אזי $NP$ סגורה למשלים.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה לא נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הטענה נכונה:** מ-$L \\le_p \\overline{L}$ נקבל (משלימים את שני הצדדים) $\\overline{L} \\le_p L$. $L \\in NP$ ו-$NP$ סגורה תחת רדוקציה פולינומית, ולכן $\\overline{L} \\in NP$.\nתהי $A \\in NP$. $L$ היא $NP$-קשה ולכן $A \\le_p L$, כלומר $\\overline{A} \\le_p \\overline{L}$, ו-$\\overline{L} \\in NP$, ולכן $\\overline{A} \\in NP$. כלומר $NP$ סגורה למשלים.",
+   "note": "form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 10,
+   "topic": "npc",
+   "question": "יהיו $L_1, L_2$ שפות לא-טריוויאליות.\nנתבונן בשתי הטענות הבאות:\nI. אם $L_1 \\in NP$ וגם $L_2 \\in NP$ וגם $L_2 \\le_p L_1$ אז $L_1 \\in NPC$\nII. אם $L_2 \\in P$ וגם $L_2 \\le_p L_1$ אז $L_1 \\in P$\nאיזה מהסעיפים הבאים נכון:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**טענה I לא נכונה (לא נובעת):** רדוקציה משפה **אחת** $L_2$ לא מראה ש-$L_1$ היא $NP$-קשה. למשל $L_1 = L_2 = \\{0\\}$: מקיימות את ההנחות, אבל $\\{0\\} \\in P$ ולכן היא $NP$-שלמה רק אם $P = NP$ – המסקנה לא נובעת מההנחות.\n**טענה II לא נכונה:** $L_2 = \\{0\\} \\in P$ ו-$L_1 = A_{TM}$ (לא טריוויאלית): $L_2 \\le_p L_1$ (מכריעים את $L_2$ בזמן פולינומי ומחזירים קידוד קבוע שבתוך $A_{TM}$ או מחוצה לה), אבל $A_{TM} \\notin P$.",
+   "note": "Claim I is 'not provable' (it holds iff P=NP, since under P=NP every nontrivial NP language is NP-complete) — refuted per the course convention (cf. 25B-A Q10 ג, 25B-C Q10 ג). form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 11,
+   "topic": "decidability",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M\\rangle \\mid M = \\langle Q, \\Sigma, \\Gamma, q_0, q_{acc}, q_{rej}, \\delta\\rangle,\\ |Q| = 3\\}$$כלומר, $\\langle M\\rangle \\in L$ אםם $M$ מכונת טיורינג עם בדיוק שלושה מצבים.\nאיזו מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "מספר המצבים הוא חלק מהקידוד $\\langle M\\rangle$; מכונה מכריעה מפענחת את הקידוד וסופרת את המצבים בזמן סופי, בלי להריץ את $M$. לכן $L$ ניתנת להכרעה.",
+   "note": "Tuple printed with < > brackets; rendered as \\langle \\rangle. Same as 25B-C Q11 with |Q| = 3. form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 12,
+   "topic": "closure",
+   "question": "**נתבונן בטענה הבאה:** תהיינה $A, B$ שפות לא-טריוויאליות כך שמתקיים: $A \\cap B \\in RE$ וגם $\\overline{A \\cap B} \\in RE$. אזי מתקיים $A \\in R$ וגם $B \\in R$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה לא נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הטענה לא נכונה:** $A = A_{TM}$, $B = \\overline{A_{TM}}$. שתיהן לא טריוויאליות ו-$A \\cap B = \\emptyset$, כך ש-$A \\cap B \\in RE$ וגם $\\overline{A \\cap B} = \\Sigma^* \\in RE$, אבל $A_{TM} \\notin R$.",
+   "note": "The overline covers the whole A ∩ B (verified at 5x zoom). form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 13,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M\\rangle \\mid 101 \\in L(M)\\}$$איזו מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**$L \\in RE$:** מריצים את $M$ על $101$ ומקבלים אם היא מקבלת.\n**$L \\notin R$:** רדוקציה $A_{TM} \\le_m L$: $f(\\langle M,w\\rangle) = \\langle M_w\\rangle$ כאשר $M_w$ מתעלמת מהקלט, מריצה את $M$ על $w$ ועונה כמוה. $101 \\in L(M_w)$ אם\"ם $M$ מקבלת את $w$.",
+   "note": "form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 14,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M, w\\rangle \\mid (*)\\}$$(*): $M$ היא מכונת טיורינג שמקבלת את $w^R$\nאיזו מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**$L \\in RE$:** מחשבים את $w^R$ ומריצים עליו את $M$; מקבלים אם היא מקבלת.\n**$L \\notin R$:** רדוקציה $A_{TM} \\le_m L$: $f(\\langle M,w\\rangle) = \\langle M, w^R\\rangle$ (ניתנת לחישוב), ו-$(w^R)^R = w$, כך ש-$\\langle M, w^R\\rangle \\in L$ אם\"ם $M$ מקבלת את $w$.",
+   "note": "form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees."
+  },
+  {
+   "num": 15,
+   "topic": "poly_reductions",
+   "question": "אם $f(\\langle G, k\\rangle) \\in L$ אזי $\\langle G, n-k\\rangle \\in IS$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**עובדה:** $S$ כיסוי קדקודים בגודל $n-k$ אם\"ם $V \\setminus S$ קבוצה בלתי תלויה בגודל $k$. לכן $\\langle G,k\\rangle \\in L$ אם\"ם ב-$G$ יש גם קבוצה בלתי תלויה בגודל $k$ וגם קליקה בגודל $k$. עבור $f(\\langle G,k\\rangle) = \\langle \\overline{G}, n-k\\rangle$: ב-$\\overline{G}$ יש כיסוי בגודל $k$ (כלומר קבוצה בלתי תלויה בגודל $n-k$ ב-$\\overline{G}$ = קליקה בגודל $n-k$ ב-$G$) וקליקה בגודל $n-k$ (= קבוצה בלתי תלויה בגודל $n-k$ ב-$G$). לכן $f(\\langle G,k\\rangle) \\in L$ אם\"ם ב-$G$ יש גם קליקה וגם קבוצה בלתי תלויה בגודל $n-k$.\n**נכון:** אם $f(\\langle G,k\\rangle) \\in L$ אז ב-$\\overline{G}$ יש קליקה $T$ בגודל $n-k$, ו-$T$ היא קבוצה בלתי תלויה בגודל $n-k$ ב-$G$. לכן $\\langle G, n-k\\rangle \\in IS$.",
+   "note": "form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees.",
+   "contextId": "blk"
+  },
+  {
+   "num": 16,
+   "topic": "poly_reductions",
+   "question": "אם $\\langle G, n-k\\rangle \\in IS$ אזי $f(\\langle G, k\\rangle) \\in L$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**עובדה:** $S$ כיסוי קדקודים בגודל $n-k$ אם\"ם $V \\setminus S$ קבוצה בלתי תלויה בגודל $k$. לכן $\\langle G,k\\rangle \\in L$ אם\"ם ב-$G$ יש גם קבוצה בלתי תלויה בגודל $k$ וגם קליקה בגודל $k$. עבור $f(\\langle G,k\\rangle) = \\langle \\overline{G}, n-k\\rangle$: ב-$\\overline{G}$ יש כיסוי בגודל $k$ (כלומר קבוצה בלתי תלויה בגודל $n-k$ ב-$\\overline{G}$ = קליקה בגודל $n-k$ ב-$G$) וקליקה בגודל $n-k$ (= קבוצה בלתי תלויה בגודל $n-k$ ב-$G$). לכן $f(\\langle G,k\\rangle) \\in L$ אם\"ם ב-$G$ יש גם קליקה וגם קבוצה בלתי תלויה בגודל $n-k$.\n**לא נכון:** $G$ גרף ללא צלעות על $n = 3$ קודקודים ו-$k = 1$: ב-$G$ יש קבוצה בלתי תלויה בגודל $n-k = 2$, אבל אין בו קליקה בגודל 2, ולכן $f(\\langle G,k\\rangle) \\notin L$.",
+   "note": "form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees.",
+   "contextId": "blk"
+  },
+  {
+   "num": 17,
+   "topic": "poly_reductions",
+   "question": "אם $f(\\langle G, k\\rangle) \\in IS$ אזי $\\langle G, k\\rangle \\in L$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**עובדה:** $S$ כיסוי קדקודים בגודל $n-k$ אם\"ם $V \\setminus S$ קבוצה בלתי תלויה בגודל $k$. לכן $\\langle G,k\\rangle \\in L$ אם\"ם ב-$G$ יש גם קבוצה בלתי תלויה בגודל $k$ וגם קליקה בגודל $k$. עבור $f(\\langle G,k\\rangle) = \\langle \\overline{G}, n-k\\rangle$: ב-$\\overline{G}$ יש כיסוי בגודל $k$ (כלומר קבוצה בלתי תלויה בגודל $n-k$ ב-$\\overline{G}$ = קליקה בגודל $n-k$ ב-$G$) וקליקה בגודל $n-k$ (= קבוצה בלתי תלויה בגודל $n-k$ ב-$G$). לכן $f(\\langle G,k\\rangle) \\in L$ אם\"ם ב-$G$ יש גם קליקה וגם קבוצה בלתי תלויה בגודל $n-k$.\n**לא נכון:** $f(\\langle G,k\\rangle) = \\langle \\overline{G}, n-k\\rangle \\in IS$ שקול לקליקה בגודל $n-k$ ב-$G$. דוגמה: $G = K_3$, $k = 2$: ב-$G$ יש קליקה בגודל $n-k = 1$, אבל אין בו קבוצה בלתי תלויה בגודל 2, ולכן $\\langle G,k\\rangle \\notin L$.",
+   "note": "form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees.",
+   "contextId": "blk"
+  },
+  {
+   "num": 18,
+   "topic": "poly_reductions",
+   "question": "אם $\\langle G, k\\rangle \\in IS$ אזי $f(\\langle G, k\\rangle) \\in L$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**עובדה:** $S$ כיסוי קדקודים בגודל $n-k$ אם\"ם $V \\setminus S$ קבוצה בלתי תלויה בגודל $k$. לכן $\\langle G,k\\rangle \\in L$ אם\"ם ב-$G$ יש גם קבוצה בלתי תלויה בגודל $k$ וגם קליקה בגודל $k$. עבור $f(\\langle G,k\\rangle) = \\langle \\overline{G}, n-k\\rangle$: ב-$\\overline{G}$ יש כיסוי בגודל $k$ (כלומר קבוצה בלתי תלויה בגודל $n-k$ ב-$\\overline{G}$ = קליקה בגודל $n-k$ ב-$G$) וקליקה בגודל $n-k$ (= קבוצה בלתי תלויה בגודל $n-k$ ב-$G$). לכן $f(\\langle G,k\\rangle) \\in L$ אם\"ם ב-$G$ יש גם קליקה וגם קבוצה בלתי תלויה בגודל $n-k$.\n**לא נכון:** $G$ גרף ללא צלעות על $n = 3$ קודקודים ו-$k = 1$: $\\langle G,1\\rangle \\in IS$, אבל ב-$G$ אין קליקה בגודל $n-k = 2$, ולכן $f(\\langle G,k\\rangle) \\notin L$.",
+   "note": "form evidence: solved answer = first printed option (א), as for every question in this file (retype likely lists the answer first) — agrees.",
+   "contextId": "blk"
+  }
+ ]
+}

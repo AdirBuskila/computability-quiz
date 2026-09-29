@@ -1,0 +1,20 @@
+{"answers": {
+"1": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "Non-RE not closed under complement (co-A_TM vs A_TM); not closed under union (L and its complement both non-RE, e.g. EQ_TM, union is Sigma*)"},
+"2": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "H_TM reduces to L so L is undecidable, hence not in P, NP or NPC"},
+"3": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "Dovetailing search for an accepted even and odd word gives RE; nontrivial semantic property (Rice) so not R"},
+"4": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Transitivity gives A <=p C, the same f gives coA <=p coC, and any poly reduction is a mapping reduction"},
+"5": {"answer": "c", "confident": true, "transcriptionIssues": "", "reason": "If PRIME (in P) were NP-complete then 3SAT <=p PRIME in P so 3SAT in P; a false since PRIME <=p 3SAT holds unconditionally; b concludes the wrong direction (it gives P=NP)"},
+"6": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "L decidable so complement decidable, and a 1-tape DTM accepts it; a and c are false"},
+"7": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "B empty gives B minus A empty, in R; a fails by same example; c impossible since complement of B is in R"},
+"8": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "M may be nondeterministic without implying P=NP; if M halts on all inputs then complement is in R, not RE minus R"},
+"9": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "L(M) equals a fixed nontrivial language: neither RE nor coRE, so no enumerator and not in NP/P"},
+"10": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "M may have an unreachable accept state, may halt-reject, and the empty language has an enumerator"},
+"11": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "NP languages are decidable so complement is RE (a false); arbitrary nontrivial L need not be in P or NPC"},
+"12": {"answer": "c", "confident": true, "transcriptionIssues": "", "reason": "NP closed under union gives L in NP, and 3SAT <=p L gives NP-hardness; a and b each give only half"},
+"13": {"answer": "d", "confident": false, "transcriptionIssues": "", "reason": "A = NPC, B = nontrivial languages with more than 100 words; A subset B holds only if P != NP (under P=NP a 1-word language is NPC, cf 25B-A Q10); by the follows-from-hypotheses convention none of a-c follows; if the setter ignored finite NPC languages the intended answer would be c"},
+"14": {"answer": "b", "confident": false, "transcriptionIssues": "Source option c reads f(<G,k>) in IS <-> <G',k> in STAR (malformed, likely meant <G,k> in IS); transcribed faithfully", "reason": "Computing f requires solving IS, so not guaranteed polynomial; but c is also a genuine flaw (G = path on 3 vertices, k=3: no 3-IS yet G'=G contains a 3-star), so two options are defensible"},
+"15": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "If M loops on w then L(Q)=PALINDROMS so Q in L; if M halts then L(Q)=Sigma* not subset of PALINDROMS; f computable"},
+"16": {"answer": "c", "confident": true, "transcriptionIssues": "", "reason": "L and its complement are decidable and complement of H10 is nontrivial, so both reduce"},
+"17": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "Accepting NTM may have looping branches (a false); course NTM rejects only if all branches reject (b false, cf 23A-A Q1); a looping branch does not make L(M) undecidable (c false)"},
+"18": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "Mutual poly reducibility holds both for two distinct nontrivial P languages and for SAT/3SAT, so none of a-c is forced"}
+}}

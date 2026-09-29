@@ -79,6 +79,21 @@ docs/briefs/*.md --build_learn.py--> learn.js
   `hold` / `confidence:"med"` + ASK_ADIR, never silently "fix" the answer.
 - Parallel extraction agents must use unique temp-file names (one overwrote another's script).
 - Rice's theorem and space complexity are not taught in this course — no topics for them.
+- **Keyless sittings** (22B-B, 22B-C, 23B-B, 24B-B, 24S-A, 25A-A, 25B-C, 25S-B, SAMP-1 rest) are in
+  the bank as `answerSource:"solved"`, `official:false`, via a two-stage blind protocol
+  (`tools/SOLVE_GUIDE.md`): stage 1 transcribes + solves; stage 2 re-solves from
+  `tools/gen/verify_strip.py strip <CODE>` (no answers) and re-checks transcription;
+  `verify_strip.py compare <CODE>` lists disagreements → `hold`. The verifier outputs
+  `tools/raw/_verify_<CODE>.json` are kept as the audit trail. Overrides live in a
+  `# --- RESOLUTIONS` block before `exam = {` in each generator.
+- **Never put TeX in a non-raw Python string**: `
+otin`/`
+e` → newline, `	riangle` → TAB,
+  `angle` → CR. Write explanations as `"
+".join([r"""…""", …])`. `tools/gen/lint_escapes.py`
+  (run by validate) catches control chars and newlines inside `$…$`.
+- Options are shuffled but explanations cite source letters → after answering, `app.js` tags each
+  option "במקור: X" (`.orig-key`).
 
 ## Docs
 `docs/build_plan.md` (plan/milestones) · `docs/format_triage.md` (every source file → sitting,

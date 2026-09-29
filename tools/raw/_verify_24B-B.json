@@ -1,0 +1,20 @@
+{"answers": {
+"1": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Every decidable L reduces to the non-trivial E_TM; b would put co-E_TM (RE minus R) in coRE hence R; c fails for L=E_TM (not RE)."},
+"2": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "co-PALINDROMES is in P, which is contained in NP; co-A_TM is not in R; c fails with L2=empty; d fails with L1=A_TM, L2=its complement."},
+"3": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "M1 accepts w means w is in L(M2), so M2 accepts and halts on w; halting or looping on rejected words can differ between the two machines."},
+"4": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "The blank is in Gamma but not in Sigma, and Sigma is contained in Gamma, so the containment is strict; b and c are impossible (Sigma is a non-empty alphabet)."},
+"5": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "C in P is in NP, and NP is closed under intersection, so B∩C is in NP; NP is closed under ≤p, so A is in NP."},
+"6": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A_TM is in RE minus R; R is contained in RE; a subset of a decidable or acceptable language can be anything (e.g. L1=Sigma*)."},
+"7": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Reverse the input in polynomial time and then run the P decider or NP verifier/NTM, so both claims hold."},
+"8": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "x∉L1 ⇔ f(x)∉L2 is equivalent to x∈L1 ⇔ f(x)∈L2, so L1 ≤m L2 and L2 in R gives L1 in R."},
+"9": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A(L) = complement(L) ∩ {|w|>3}, which is decidable because R is closed under complement and intersection."},
+"10": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A deterministic TM (a special NTM) can recognize A_TM, which is not in R; NTM languages are always RE; NTMs for finite languages give languages in P and NP."},
+"11": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Counting the a's, b's and c's decides L."},
+"12": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "RE: simulate and count steps. Not R: A_TM ≤m L via M' that makes 3 dummy moves and then runs M."},
+"13": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "RE: run both machines on ε in parallel. Not R: A_TM ≤m L via <M,w> -> <K_{M,w},K_{M,w}>."},
+"14": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "IS and CLIQUE are poly-reducible to each other (complement graph) and both are in NP, so b, c and d are impossible."},
+"15": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A non-halting machine x is not in H*, but f(x)=x is in Sigma*, so the reduction fails."},
+"16": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A machine that rejects everything is in H* but not in ALL, so the identity fails the reverse direction."},
+"17": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "M halts on all inputs ⇔ M_g accepts all inputs, so <M> in H* ⇔ <M_g> in ALL_TM."},
+"18": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A machine that halts on everything but rejects some input is not in ALL, yet M_g halts on all inputs and is in H*, so g fails."}
+}}

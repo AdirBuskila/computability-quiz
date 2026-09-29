@@ -44,3 +44,14 @@ says what the official key was and why it's wrong.
 - #7 20A-B Q21: stays omitted (no option is correct as printed).
 - #17 24B-A Q9 and #19 26B-A Q23: already handled correctly.
 - **Keyless sittings (#1–#6):** being solved with a two-stage blind cross-check; only agreements enter the bank, marked unofficial.
+
+## RESOLVED — keyless sittings (2026-09-29)
+Solved with the two-stage blind protocol (`tools/SOLVE_GUIDE.md`, audit trail `tools/raw/_verify_*.json`):
+22B-B 18/20, 22B-C 16/20, 23B-B 25/25, 24B-B 18/18, 24S-A 18/18, 25A-A 16/18, 25B-C 18/18,
+25S-B 18/18, SAMP-1 24/25 → 171 questions, all `official:false` (4 of them from other keys).
+24B-B and 24S-A: stage 1, stage 2 and the form-0 first option all agree (36/36).
+**Still out of the bank (9, ambiguous as printed — only a corrected official text could settle them):**
+22B-B Q3 (no option always true without the chain condition), 22B-B Q5 (deterministic vs NTM reading),
+22B-C Q4 (implication reading), Q13 (M1/M2 swapped in the box), Q17 (f undefined for even k),
+Q20 (KSAT undefined), 25A-A Q13 (depends on P vs NP), Q14 (misprinted option ג),
+SAMP-1 Q7 (empty-word edge case).

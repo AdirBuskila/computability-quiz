@@ -1,0 +1,20 @@
+{"answers": {
+"1": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "coRE is closed downward under <=m (II true); upward fails, e.g. empty set <=m A_TM with A_TM not in coRE (I false)"},
+"2": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "L <=m L' in coRE gives L in coRE; with L in RE this gives L in R"},
+"3": {"answer": "a", "confident": true, "transcriptionIssues": "Source formula says 'stops on' while the Hebrew gloss says halts in an accepting state; transcribed faithfully, both readings give RE minus R", "reason": "Run on w and w^R in parallel: RE; A_TM reduces with M' ignoring its input, so not R"},
+"4": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "II true: w not in L so M2 has no accepting branch; I false: M2 branches may loop on w not in L"},
+"5": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A machine looping on some inputs can accept a decidable language (I); a decider's language is always in R (II false)"},
+"6": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "NFAs: product construction then emptiness test, decidable"},
+"7": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "f is the constant function 1, computable in constant time"},
+"8": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "B <=p C gives coB <=m coC, so A <=m coC (II true); A <=p coC not guaranteed since A <=m coB may be non-polynomial (I false)"},
+"9": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "L <=p coL gives coL <=p L in NP so coL in NP; any A in NP has coA <=p coL <=p L so coA in NP"},
+"10": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "I false (L2 may be in P, L1 in P); II false (any P language reduces to any nontrivial L1, e.g. SAT)"},
+"11": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Syntactic check of the encoding"},
+"12": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A = X, B = complement of X for undecidable X: intersection empty is in R but A not in R, so the claim is false"},
+"13": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Simulate M on 101: RE; nontrivial semantic property so not R"},
+"14": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Simulate M on w^R: RE; A_TM reduces via <M,w> to <M,w^R>, so not R"},
+"15": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "f in L iff complement of G has a k-VC and an (n-k)-clique iff G has an (n-k)-clique and an (n-k)-IS; so G has an (n-k)-IS: true"},
+"16": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Not true: membership of f in L also needs an (n-k)-clique in G"},
+"17": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Not true: f in IS means only that G has an (n-k)-clique; <G,k> in L needs a k-IS and a k-clique"},
+"18": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Not true: a k-IS in G gives neither an (n-k)-clique nor an (n-k)-IS"}
+}}

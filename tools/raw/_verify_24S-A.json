@@ -1,0 +1,20 @@
+{"answers": {
+"1": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A = non-trivial decidable and B = A_TM: A ≤m B holds, and B ≤m A would make A_TM decidable. b fails because non-trivial decidable languages reduce to each other; c fails because A ≤m B in R forces A in R."},
+"2": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A(L) = complement(L) ∩ EVEN-LENGTH, which is decidable by closure of R."},
+"3": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "I: a 2-tape DTM decider becomes a 1-tape DTM decider, which is also an NTM decider. II: an NTM can have both accepting and rejecting branches (and can loop), so swapping states does not give the complement."},
+"4": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A path to q_reject says nothing about emptiness or non-triviality. With no path to q_reject, M can still loop, so L(M) need not be Sigma*."},
+"5": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "b fails with A=A_TM, B=co-A_TM, C={0}. c fails with A=B={0}, C=∅. d fails with A=B=∅, C=A_TM."},
+"6": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "The false statement is a: A_TM is RE but its complement is not. b (A_TM), c (EQ_TM) and d (R is closed under complement and R ⊆ RE) are true."},
+"7": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Whether NP is closed under complement (NP=coNP) is open, so b, c and d each assert something unknown."},
+"8": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "The condition means co-L1 ≤m L2, so L2 in RE only gives co-L1 in RE. Counterexample: L1 = co-A_TM, L2 = A_TM."},
+"9": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Every decider of co-A has language co-A, so L2 ⊆ L1. The containment is strict: a recognizer of co-A that loops on some word of A (A is non-empty) is in L1 but not in L2."},
+"10": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "q_acc ≠ q_rej is required and q0 may coincide with one of them, so |Q| ≥ 2 (the course summary also states |Q| ≥ 2)."},
+"11": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Counting letters decides L."},
+"12": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Within 2|Q| steps M reads at most the first 2|Q| symbols, so it is enough to simulate the finitely many words of length ≤ 2|Q| for 2|Q| steps each; L is decidable."},
+"13": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "I is false: K halting only needs M to halt on the one word w. II is true: if M always halts, K always halts."},
+"14": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "A signed integer encodes the jump direction and length (0 = stay), which is exactly Q×Γ→Q×Γ×Z."},
+"15": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "The identity maps a pair <M,w> in H_TM to a string that is not a machine with |L|=1 in general, so it fails."},
+"16": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "<M> with |L(M)|=1 is not a pair <M,w> in H_TM, so the identity fails."},
+"17": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "If M halts on w then L(M_g)={101}, which is in S1. Otherwise L(M_g)=∅, which is not in S1."},
+"18": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "g takes pairs <M,w> and outputs a single machine encoding, not a pair in H_TM, so it is not a reduction S1 ≤m H_TM."}
+}}

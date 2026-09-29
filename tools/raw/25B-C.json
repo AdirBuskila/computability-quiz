@@ -1,0 +1,548 @@
+{
+ "examCode": "25B-C",
+ "examLabel": "2025 סמסטר ב מועד ג",
+ "year": 2025,
+ "examDate": "7.9.2025",
+ "sourceFile": "מבחנים/2025/מס ב מועד ג 7-9.pdf",
+ "keyFile": "none — answers solved (stage 1, tools/SOLVE_GUIDE.md), pending blind re-solve",
+ "contexts": {
+  "blk": {
+   "kind": "text",
+   "title": "בלוק של שאלות 15–18",
+   "text": "בהינתן גרף $G$ לא-מכוון ומספר טבעי $k$, נגדיר את הפונקציה הבאה: $f(\\langle G, k\\rangle) = \\langle \\overline{G}, k\\rangle$\nכאשר $\\overline{G}$ הוא הגרף המשלים של הגרף $G$.\nבנוסף, נגדיר את השפה הבאה:\n$$L = \\{\\langle G, k\\rangle \\mid (*)\\}$$(*): הגרף הלא מכוון $G$ מכיל תת קבוצה $S$ של קודקודים בגודל $k$ שהיא קליקה וגם $G$ מכיל תת קבוצה $T$ של קודקודים בגודל $k+1$ שהיא בלתי תלויה\n**ענו נכון או לא נכון, לכל אחת מהטענות הבאות:**"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "topic": "decidability",
+   "question": "נתבונן בשתי הטענות הבאות:\nI. אם $L \\in RE \\cup coRE$ אזי מתקיים $L \\in R$.\nII. אם $\\overline{L} \\in NP$ אזי מתקיים $L \\in RE$.\nאיזה מהסעיפים הבאים נכון:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה."
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**טענה I לא נכונה:** $A_{TM} \\in RE \\subseteq RE \\cup coRE$ אבל $A_{TM} \\notin R$.\n**טענה II נכונה:** $NP \\subseteq R$, ולכן $\\overline{L} \\in R$. $R$ סגורה למשלים ולכן $L \\in R \\subseteq RE$."
+  },
+  {
+   "num": 2,
+   "topic": "classification",
+   "question": "תהי $L$ שפה כך שמתקיים: $\\overline{ALL_{TM}} \\le_m L$.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת ד:** ידוע ש-$ALL_{TM} \\notin RE \\cup coRE$, כלומר גם $ALL_{TM}$ וגם $\\overline{ALL_{TM}}$ לא ניתנות לקבלה.\nמ-$\\overline{ALL_{TM}} \\le_m L$ ומשפט הרדוקציה: אילו $L \\in RE$ אז $\\overline{ALL_{TM}} \\in RE$ – סתירה. לכן $L \\notin RE$.\nכמו כן $ALL_{TM} \\le_m \\overline{L}$ (משלימים את שני הצדדים), ולכן באותו אופן $\\overline{L} \\notin RE$.",
+   "note": "Same format as 25B-A Q2 (EQ_TM ≤m L, key ד); here with the complement of ALL_TM (overline over the whole ALL_TM)."
+  },
+  {
+   "num": 3,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M, w\\rangle \\mid M \\text{ accepts } w \\text{ and } M \\text{ accepts } w^R\\}$$כלומר, $\\langle M, w\\rangle \\in L$ אם $M$ עוצרת על $w$ במצב מקבל וגם $M$ עוצרת על $w^R$ במצב מקבל.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**$L \\in RE$:** בהינתן $\\langle M,w\\rangle$ נריץ את $M$ על $w$; אם קיבלה – נריץ את $M$ על $w^R$; אם גם זו קיבלה – נקבל. אם $\\langle M,w\\rangle \\in L$ שתי הריצות מסתיימות בקבלה.\n**$L \\notin R$:** רדוקציה $A_{TM} \\le_m L$: $f(\\langle M,w\\rangle) = \\langle M_w, w\\rangle$ כאשר $M_w$ על קלט $x$ מתעלמת מ-$x$, מריצה את $M$ על $w$ ועונה כמוה. אם $M$ מקבלת את $w$ אז $M_w$ מקבלת גם את $w$ וגם את $w^R$; אחרת $M_w$ לא מקבלת אף מילה.\nלכן $L \\in RE \\setminus R$ – תשובה ב (ובפרט לא א, ג, ד).",
+   "note": "Set-builder condition printed in English; kept via \\text{}."
+  },
+  {
+   "num": 4,
+   "topic": "tm",
+   "question": "יהיו $M_1, M_2$ מ\"ט לא-דטרמיניסטיות כך שמתקיים $L(M_1) = L(M_2)$.\nנתבונן בשתי הטענות הבאות:\nI. לכל קלט $w$, אם קיים מסלול חישוב של $M_1$ על $w$ שמסתיים ב-REJECT אזי קיים מסלול חישוב של $M_2$ על $w$ שמסתיים ב-ACCEPT או ב-REJECT.\nII. לכל קלט $w$, אם כל מסלול חישוב של $M_1$ על $w$ מסתיים ב-ACCEPT אזי כל מסלול חישוב של $M_2$ על $w$ מסתיים ב-ACCEPT או ב-REJECT.\nאיזה מהסעיפים הבאים נכון:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה."
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**טענה I לא נכונה:** $M_1 = M_{REJ}$ (דוחה מיד כל קלט), $M_2 = M_{LOOP}$ (לא עוצרת על אף קלט). $L(M_1) = L(M_2) = \\emptyset$, ל-$M_1$ יש מסלול שמסתיים ב-REJECT, אבל ל-$M_2$ אין אף מסלול שעוצר.\n**טענה II לא נכונה:** $M_1$ מקבלת מיד כל קלט; $M_2$ מנחשת בכל קלט: באחד הענפים מקבלת ובענף אחר נכנסת ללולאה אינסופית. $L(M_1) = L(M_2) = \\Sigma^*$, כל מסלולי $M_1$ מסתיימים ב-ACCEPT, אבל ל-$M_2$ יש מסלול שלא עוצר.",
+   "note": "Option ג printed with a typo 'ענה I נכונה…' (for 'טענה'); standard TWO_CLAIMS wording used. Variant of 25B-B Q4 (different claims). 'כל' in claim II ('אזי כל מסלול חישוב של M2') verified in the text layer."
+  },
+  {
+   "num": 5,
+   "topic": "tm",
+   "question": "תהי $M$ מכונת הטיורינג הבסיסית הבאה:\nאיזו מהטענות הבאות היא נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "מתקיים $L(M) \\in R$ וגם $M$ מכונה מכריעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "מתקיים $L(M) \\notin R$ וגם $M$ מכונה מכריעה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "מתקיים $L(M) \\in R$ וגם $M$ מכונה לא-מכריעה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**מעקב אחרי המכונה** (קלט $x = x_1x_2\\cdots$ מעל $\\{0,1\\}$, הראש בתא 1):\n• $q_0$ קוראת את $x_1$ (או רווח), משאירה אותו, זזה ימינה ועוברת ל-$q_1$.\n• $q_1$ קוראת את התו בתא 2: רווח (כלומר $|x| \\le 1$) – עוברת ל-rej; $1$ – עוברת ל-acc; $0$ – זזה שמאלה לתא 1 וחוזרת ל-$q_0$.\n• במקרה האחרון $q_0$ שוב זזה ימינה, $q_1$ שוב קוראת $0$ וחוזר חלילה – לולאה אינסופית.\nלכן $L(M) = \\{x \\mid |x| \\ge 2,\\ x_2 = 1\\} = (0+1)1(0+1)^*$ – שפה רגולרית ובפרט ב-$R$. אבל $M$ לא עוצרת למשל על $00$, ולכן אינה מכריעה. תשובה ג; א, ב, ד לא נכונות.",
+   "image": "images/exams/25B-C-Q5.png",
+   "note": "Diagram: q0 --(⊔→⊔,R | 0→0,R | 1→1,R)--> q1; q1 --(0→0,L)--> q0; q1 --(⊔→0,L)--> rej; q1 --(1→0,L)--> acc. Same option set as 25B-B Q10."
+  },
+  {
+   "num": 6,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle A_1, A_2\\rangle \\mid (*)\\}$$(*): $A_1$ הוא אס\"ד וגם $A_2$ הוא אס\"ד כך שמתקיים $L(A_1) \\subseteq L(A_2)$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "$L(A_1) \\subseteq L(A_2)$ אם\"ם $L(A_1) \\cap \\overline{L(A_2)} = \\emptyset$. בהינתן שני אס\"דים ניתן לבנות אס\"ד ל-$\\overline{L(A_2)}$ (החלפת מצבים מקבלים), אוטומט מכפלה לחיתוך, ולבדוק בזמן סופי אם שפתו ריקה (האם מצב מקבל ישיג מההתחלתי – $E_{DFA}$ כריעה). לכן $L$ ניתנת להכרעה.",
+   "note": "PRINT ERROR: the options are lettered ה/ו/ז/ח instead of א/ב/ג/ד (content = the standard four decidability options, same order); answer = first option (printed ה). No question line printed after the definition."
+  },
+  {
+   "num": 7,
+   "topic": "time_p",
+   "question": "נתבונן בשתי הטענות הבאות:\nI. תהי $f: \\Sigma^* \\to \\Sigma^*$ פונקציה המקיימת שלכל $x$ מתקיים $f(x) \\in \\{01, 10\\}$, אזי $f$ ניתנת לחישוב\nII. תהי $f: \\Sigma^* \\to \\Sigma^*$ פונקציה המקיימת שלכל $x$ מתקיים $f(x) \\in \\{01, 10\\}$, אזי $f$ ניתנת לחישוב **בזמן פולינומי**\nאיזה מהסעיפים הבאים נכון:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה."
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**שתי הטענות לא נכונות:** נגדיר $f(x) = 01$ אם $x \\in A_{TM}$ ו-$f(x) = 10$ אחרת. $f$ מקיימת את הנתון, אבל אילו הייתה ניתנת לחישוב היינו מכריעים את $A_{TM}$ (מחשבים $f(x)$ ובודקים את התו הראשון). לכן $f$ לא ניתנת לחישוב, ובפרט לא בזמן פולינומי.",
+   "note": "'בזמן פולינומי' underlined in the source; rendered bold. Same stem as 25B-A Q3 with {01,10} instead of {0,1,11,111} (25B-A key ב — agrees)."
+  },
+  {
+   "num": 8,
+   "topic": "poly_reductions",
+   "question": "נתבונן בשתי הטענות הבאות:\nI. אם $A \\le_m \\overline{B}$ וגם $\\overline{B} \\le_p C$ אזי מתקיים $A \\le_m C$.\nII. אם $A \\le_m \\overline{B}$ וגם $\\overline{B} \\le_p C$ אזי מתקיים $A \\le_p C$.\nאיזה מהסעיפים הבאים נכון:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא-נכונות."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא-נכונה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא-נכונה."
+    }
+   ],
+   "correctId": "c",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**טענה I נכונה:** כל רדוקציה פולינומית היא רדוקציית מיפוי, ולכן $\\overline{B} \\le_m C$, ומטרנזיטיביות $A \\le_m C$.\n**טענה II לא נכונה:** הרדוקציה $A \\le_m \\overline{B}$ יכולה לרוץ בזמן לא פולינומי. דוגמה: $\\overline{B} = C = \\{1\\}$ ו-$A$ שפה כריעה שאינה ב-$P$ (קיימת כזו לפי משפט היררכיית הזמן). $A \\le_m \\{1\\}$ (מכריעים את $A$ ומחזירים $1$ או $0$), $\\overline{B} \\le_p C$ בזהות, אבל $A \\le_p \\{1\\}$ היה גורר $A \\in P$.",
+   "note": "Claim I is identical to 26B-A Q8 claim I (key: true — agrees). Options continue on p5."
+  },
+  {
+   "num": 9,
+   "topic": "npc",
+   "question": "**נתבונן בטענה הבאה:** אם $A \\in NPC$ וגם $B \\in NPC$ אזי מתקיים $A \\le_m B$ וגם $B \\le_m A$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה לא נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הטענה נכונה:** לפי הגדרת $NP$-שלמות, $A \\in NP$ ו-$B$ היא $NP$-קשה ולכן $A \\le_p B$; באופן סימטרי $B \\le_p A$. כל רדוקציה פולינומית היא בפרט רדוקציית מיפוי, ולכן $A \\le_m B$ וגם $B \\le_m A$."
+  },
+  {
+   "num": 10,
+   "topic": "npc",
+   "question": "תהי $L$ שפה לא-טריוויאלית. איזו מהטענות הבאות היא נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $P \\ne NP$ וגם $L \\in NPC$ אזי $L \\in P$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $P \\ne NP$ וגם $L \\in P$ אזי $L \\in NPC$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $L \\in NPC$ וגם $\\overline{L} \\in P$ אזי $P \\ne NP$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אם $P = NP$ וגם $L \\in NPC$ אזי $L \\in P$"
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת ד:** $L \\in NPC \\subseteq NP = P$.\n**הפרכת א, ב:** אם $P \\ne NP$ אז $P \\cap NPC = \\emptyset$, ולכן שפה $NP$-שלמה אינה ב-$P$ ושפה ב-$P$ אינה $NP$-שלמה.\n**הפרכת ג:** $P$ סגורה למשלים, ולכן $\\overline{L} \\in P$ גורר $L \\in P$; יחד עם $L \\in NPC$ נקבל $P \\cap NPC \\ne \\emptyset$, כלומר $P = NP$ – ההפך מהמסקנה.",
+   "note": "Option ג is the same as 25B-A Q10 ג (refuted there by the key)."
+  },
+  {
+   "num": 11,
+   "topic": "decidability",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M\\rangle \\mid M = \\langle Q, \\Sigma, \\Gamma, q_0, q_{acc}, q_{rej}, \\delta\\rangle,\\ |Q| = 2\\}$$כלומר, $\\langle M\\rangle \\in L$ אם יש בה בדיוק שני מצבים. איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "מספר המצבים הוא חלק מהקידוד $\\langle M\\rangle$. מכונה מכריעה פשוט מפענחת את הקידוד וסופרת את המצבים (ודוחה קלט שאינו קידוד חוקי) – בזמן סופי, בלי להריץ את $M$. לכן $L$ ניתנת להכרעה.",
+   "note": "Tuple printed with < > brackets; rendered as \\langle \\rangle."
+  },
+  {
+   "num": 12,
+   "topic": "closure",
+   "question": "**נתבונן בטענה הבאה:** תהיינה $A, B$ שפות לא-טריוויאליות כך שמתקיים: $A \\cap B \\in R$ וגם $A \\cup B \\in R$. אזי מתקיים $A \\in RE$ וגם $B \\in RE$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה לא נכונה"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הטענה לא נכונה:** $A = \\overline{A_{TM}}$, $B = A_{TM}$. שתיהן לא טריוויאליות, $A \\cap B = \\emptyset \\in R$ ו-$A \\cup B = \\Sigma^* \\in R$, אבל $A = \\overline{A_{TM}} \\notin RE$."
+  },
+  {
+   "num": 13,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M\\rangle \\mid L(M) = (\\Sigma\\Sigma)^*\\}$$כלומר, $\\langle M\\rangle \\in L$ אם השפה של $M$ מכילה את כל המילים באורך זוגי וגם לא מכילה אף מילה באורך אי-זוגי. איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "d",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**$L \\notin RE$:** רדוקציה $\\overline{H_{TM}} \\le_m L$: $f(\\langle M,w\\rangle) = \\langle M'\\rangle$, כאשר $M'$ על קלט $x$: אם $|x|$ זוגי – קבל; אחרת הרץ את $M$ על $w$ וקבל. אם $M$ לא עוצרת על $w$ אז $L(M') = (\\Sigma\\Sigma)^*$; אחרת $L(M') = \\Sigma^*$.\n**$\\overline{L} \\notin RE$:** רדוקציה $H_{TM} \\le_m L$ (ולכן $\\overline{H_{TM}} \\le_m \\overline{L}$): $f(\\langle M,w\\rangle) = \\langle M''\\rangle$, כאשר $M''$ על קלט $x$: הרץ את $M$ על $w$; אם $|x|$ זוגי קבל, אחרת דחה. אם $M$ עוצרת על $w$ אז $L(M'') = (\\Sigma\\Sigma)^*$; אחרת $L(M'') = \\emptyset$."
+  },
+  {
+   "num": 14,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M, w\\rangle \\mid (*)\\}$$(*): $M$ היא מכונת טיורינג שמקבלת מילה $w$ לאחר ביצוע של בדיוק מספר זוגי של צעדי חישוב\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**$L \\in RE$:** נריץ את $M$ על $w$ תוך ספירת צעדים; אם $M$ מקבלת – נקבל אם מספר הצעדים זוגי ונדחה אחרת.\n**$L \\notin R$:** רדוקציה $A_{TM} \\le_m L$: $f(\\langle M,w\\rangle) = \\langle M', w\\rangle$, כאשר $M'$ מסמלצת את $M$ וסופרת צעדים, ולפני שהיא נכנסת למצב המקבל היא מוסיפה צעד \"ריק\" אחד אם הזוגיות אינה מתאימה. כך $M'$ מקבלת את $w$ אחרי מספר זוגי של צעדים אם\"ם $M$ מקבלת את $w$.\nלכן $L \\in RE \\setminus R$ – תשובה ב.",
+   "note": "Set-builder condition printed over three lines inside the braces; merged into a (*) line."
+  },
+  {
+   "num": 15,
+   "topic": "poly_reductions",
+   "question": "אם $f(\\langle G, k\\rangle) \\in L$ אזי $\\langle G, k\\rangle \\in CLIQUE$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**נכון:** $f(\\langle G,k\\rangle) = \\langle \\overline{G}, k\\rangle \\in L$, ולכן בפרט ב-$\\overline{G}$ יש קבוצה בלתי תלויה $T$ בגודל $k+1$. $T$ היא קליקה בגודל $k+1$ ב-$G$, וכל $k$ מקודקודיה הם קליקה בגודל $k$ ב-$G$. לכן $\\langle G,k\\rangle \\in CLIQUE$.",
+   "contextId": "blk"
+  },
+  {
+   "num": 16,
+   "topic": "poly_reductions",
+   "question": "אם $\\langle G, k\\rangle \\in CLIQUE$ אזי $f(\\langle G, k\\rangle) \\in L$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**לא נכון:** $G = K_k$ (קליקה מלאה על $k \\ge 2$ קודקודים). $\\langle G,k\\rangle \\in CLIQUE$, אבל $\\overline{G}$ הוא גרף ללא צלעות על $k$ קודקודים, ואין בו קליקה בגודל $k$ (וגם אין בו $k+1$ קודקודים בכלל). לכן $f(\\langle G,k\\rangle) \\notin L$.",
+   "contextId": "blk"
+  },
+  {
+   "num": 17,
+   "topic": "poly_reductions",
+   "question": "אם $f(\\langle G, k\\rangle) \\in IS$ אזי $\\langle G, k\\rangle \\in L$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**לא נכון:** $f(\\langle G,k\\rangle) = \\langle \\overline{G}, k\\rangle \\in IS$ שקול לכך שב-$G$ יש קליקה בגודל $k$. אבל $L$ דורשת גם קבוצה בלתי תלויה בגודל $k+1$. דוגמה: $G = K_k$ עם $k \\ge 1$ – יש קליקה בגודל $k$, אבל אין אפילו $k+1$ קודקודים. לכן $\\langle G,k\\rangle \\notin L$.",
+   "contextId": "blk"
+  },
+  {
+   "num": 18,
+   "topic": "poly_reductions",
+   "question": "אם $\\langle G, k\\rangle \\in IS$ אזי $f(\\langle G, k\\rangle) \\in L$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "b",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**לא נכון:** $f(\\langle G,k\\rangle) \\in L$ דורש שב-$\\overline{G}$ תהיה קבוצה בלתי תלויה בגודל $k+1$, כלומר קליקה בגודל $k+1$ ב-$G$. דוגמה: $G$ גרף ללא צלעות על $k \\ge 1$ קודקודים – $\\langle G,k\\rangle \\in IS$, אבל ב-$G$ אין קליקה בגודל $k+1$. לכן $f(\\langle G,k\\rangle) \\notin L$.",
+   "contextId": "blk"
+  }
+ ]
+}

@@ -304,6 +304,8 @@ math .ovl{border-top:.065em solid currentColor;padding-top:.07em;margin-top:.06e
   transition:background .13s,color .13s
 }
 .opt .txt{padding-top:.12rem;flex:1;min-width:0}
+.opt .orig-key{flex:none;align-self:center;font-size:.72rem;font-weight:700;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:.1rem .5rem;white-space:nowrap}
 .opt.correct{border-color:var(--ok);background:var(--ok-bg)}
 .opt.correct .key{background:var(--ok);color:#04231a}
 .opt.wrong{border-color:var(--bad);background:var(--bad-bg)}

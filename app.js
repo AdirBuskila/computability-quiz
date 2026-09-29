@@ -314,6 +314,15 @@ function choose(disp){
     if(v.correctSet.has(i)) b.classList.add("correct");
     else if(i===disp) b.classList.add("wrong");
   });
+  // Explanations cite the ORIGINAL exam letters ("הפרכת א…"), but options were shuffled —
+  // once answered, tag every option with its letter in the source exam.
+  const shuffled = v.order.some((oid,i)=> q.options[i] && q.options[i].id!==oid);
+  if(shuffled){
+    document.querySelectorAll("#optionsList .opt").forEach((b,i)=>{
+      const src = q.options.findIndex(o=>o.id===v.order[i]);
+      b.insertAdjacentHTML("beforeend", `<span class="orig-key" title="האות במבחן המקורי">במקור: ${HE_KEYS[src]||src+1}</span>`);
+    });
+  }
   recordAnswer(q, correct);
   S.streak = correct ? (S.streak||0)+1 : 0;
   const fb=$("#feedback");
@@ -321,6 +330,7 @@ function choose(disp){
   const srcNote = SRC_NOTE[q.answerSource] || "";
   const multi = acceptedIdsOf(q).length>1;
   fb.innerHTML = `<div class="verdict">${correct?"✓ נכון":"✗ לא נכון"}</div>`+
+    (shuffled && q.explanationHtml ? `<span class="note">האותיות בהסבר מתייחסות לסדר המקורי במבחן (מסומן "במקור" ליד כל תשובה).</span>` : "")+
     (q.explanationHtml ? `<div class="expl">${q.explanationHtml}</div>` : `<div class="expl expl-none">אין הסבר במקור.</div>`)+
     (multi?`<span class="accept-note">בשאלה זו התקבלה יותר מתשובה אחת כנכונה.</span>`:"")+
     (q.official?"":`<span class="note">⚠ תשובה לא רשמית — מומלץ לאמת מול המקור.</span>`)+

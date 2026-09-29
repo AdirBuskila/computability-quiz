@@ -1,0 +1,124 @@
+{
+ "answers": {
+  "1": {
+   "answer": "b",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "L̄2∉RE, so it is infinite (every finite set is decidable), and the union contains it"
+  },
+  "2": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "L̄1∈R⊆RE, so L̄1∩L2∈RE always"
+  },
+  "3": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "the intersection is a subset of the finite L1, so it is finite and hence in R"
+  },
+  "4": {
+   "answer": "b",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "P=coNP ⇒ P=NP=coNP ⇒ co-CLIQUE∈NP, so the claim is false"
+  },
+  "5": {
+   "answer": "b",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "L(M2)=∅, so the intersection is co-L(M1); if that were finite, L(M1) would be cofinite and hence decidable"
+  },
+  "6": {
+   "answer": "b",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "some L(Mi)≠∅: RE by dovetailing; M↦⟨M,M,M⟩ reduces co-E_TM, so undecidable"
+  },
+  "7": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "complement |∩|≥|w|² is RE; for |w|=1 L is emptiness of the intersection (not RE)"
+  },
+  "8": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "L = {|w|≥2} ∪ {|w|=1, M does not accept w}; the complement is RE, and L is co-A_TM-hard via single-letter w"
+  },
+  "9": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "B = {L: co-E_TM≤m L} = hard class; A = B ∪ {L≤m co-E_TM} = B ∪ RE ⊋ B"
+  },
+  "10": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "co-E_TM ≡m A_TM, so B=C"
+  },
+  "11": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "C=B⊊A"
+  },
+  "12": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "option ב 'לא' is printed in bold in the source (also in 22B-B); likely a template artifact",
+   "reason": "f only writes the description of T"
+  },
+  "13": {
+   "answer": "a",
+   "confident": false,
+   "transcriptionIssues": "box as printed: step 2 checks 'if M2 accepted' before M2 runs and step 4 checks 'if M1 accepted' (M1/M2 look swapped); transcribed faithfully",
+   "reason": "Intended reading (step 2: M1 accepted, step 4: M2 accepted): M1 always halts, so L(T)=L(M1)∪L(M2) ⇒ yes. A literal reading gives L(T)=L(M1)∩halt(M2) ⇒ no (b), e.g. with L(M1)=Σ* and M2 looping somewhere"
+  },
+  "14": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "either reading: M1 loops everywhere (or M2 loops) with the other accepting Σ* gives a pair in ALL_TM with f∉CE_TM; L(T)⊆L(M1)∪L(M2) rules out d"
+  },
+  "15": {
+   "answer": "d",
+   "confident": true,
+   "transcriptionIssues": "box defines only the odd-k case (k'=2k, φ'=φ∧φ''); the even-k case is missing in the source",
+   "reason": "an assignment with ≤k true, duplicated on the copy, gives ≤2k true; k'=2k is even"
+  },
+  "16": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "min true count of φ' is twice the minimum m of φ, and 2m≤2k ⇔ m≤k; unsatisfiable stays unsatisfiable"
+  },
+  "17": {
+   "answer": "b",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "copying φ is poly-time and correct in both directions (even k taken as identity), so this is a valid reduction"
+  },
+  "18": {
+   "answer": "d",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "B≤P C∈NP ⇒ B∈NP; B could be in P or NPC, so neither is forced"
+  },
+  "19": {
+   "answer": "a",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "co-A is NP-hard and in coNP ⇒ NP=coNP"
+  },
+  "20": {
+   "answer": "c",
+   "confident": true,
+   "transcriptionIssues": "",
+   "reason": "KSAT = satisfiable K-CNF (course summary). With K=n−2 each clause kills ≤4 of 2^n assignments, so fewer than 2^{n−2} clauses ⇒ satisfiable; otherwise brute force over 2^n≤4m is polynomial ⇒ P. (If KSAT meant '≤K true vars' it would be NPC.)"
+  }
+ }
+}

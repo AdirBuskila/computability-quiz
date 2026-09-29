@@ -1,0 +1,565 @@
+{
+ "examCode": "24B-B",
+ "examLabel": "2024 סמסטר ב מועד ב",
+ "year": 2024,
+ "examDate": "1.8.2024",
+ "sourceFile": "מבחנים/2024/סמסטר ב/2024-08-01-Exam-חישוביות-2024-moedB-טופס-0.pdf",
+ "keyFile": "none — answers solved (stage 1 of tools/SOLVE_GUIDE.md); form-0 first-option used only as partial evidence",
+ "contexts": {
+  "blk": {
+   "kind": "text",
+   "title": "הגדרות לשאלות 15–18",
+   "text": "השאלות בחלק זה מתייחסות להגדרות הבאות:\n$$H^*_{TM} = \\{\\langle M\\rangle \\mid (*)\\}$$(*): $M$ היא מכונת טיורינג שעוצרת על כל קלט\nכעת נגדיר שתי פונקציות:\n$$f(x) = x$$$$g(\\langle M\\rangle) = \\langle M_g\\rangle$$כאשר $M_g$ היא מ\"ט אשר בהינתן קלט $y$: היא מריצה את $M$ על $y$. אם ההרצה הנ\"ל של $M$ על $y$ עצרה (במצב מקבל או דוחה), אז $M_g$ עוצרת במצב מקבל.\nקבעו לכל אחת מהטענות הבאות האם היא נכונה או לא:"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "topic": "mapping_reductions",
+   "question": "איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $L \\in R$ אז מתקיים $L \\le_m E_{TM}$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "מתקיים $\\overline{E_{TM}} \\le_m E_{TM}$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $L \\notin R$ אז מתקיים $L \\le_m \\overline{E_{TM}}$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** כל שפה ב-$R$ ניתנת לרדוקציית מיפוי לכל שפה לא טריוויאלית, ו-$E_{TM}$ לא טריוויאלית: מכריעים את $L$ על הקלט $x$, ואם $x \\in L$ מחזירים קידוד קבוע של מכונה שדוחה הכול (ששייך ל-$E_{TM}$), אחרת קידוד קבוע של מכונה שמקבלת הכול.\n**הפרכת ב:** $\\overline{E_{TM}} \\in RE$, ולכן מהרדוקציה היינו מקבלים $E_{TM} \\in RE$ (כי $\\overline{E_{TM}} \\le_m E_{TM}$ שקול ל-$E_{TM} \\le_m \\overline{E_{TM}}$). אז $E_{TM} \\in RE \\cap coRE = R$ – סתירה.\n**הפרכת ג:** $L = E_{TM}$: היא לא ב-$R$, ואילו $E_{TM} \\le_m \\overline{E_{TM}}$ הייתה נותנת $E_{TM} \\in RE$ – סתירה כנ\"ל.\n**הפרכת ד:** א נכונה.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution."
+  },
+  {
+   "num": 2,
+   "topic": "np",
+   "question": "איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "מתקיים $\\overline{PALINDROMES} \\in NP$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "מתקיים $\\overline{A_{TM}} \\in P$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $L_1 \\cap L_2 \\in NP$ אז מתקיים $L_1 \\in NP$ וגם $L_2 \\in NP$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אם $L_1 \\cup L_2 \\in NP$ אז מתקיים $L_1 \\in NP$ וגם $L_2 \\in NP$"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** $PALINDROMES \\in P$ (משווים את המילה להיפוכה בזמן פולינומי), $P$ סגורה למשלים ולכן $\\overline{PALINDROMES} \\in P \\subseteq NP$.\n**הפרכת ב:** $\\overline{A_{TM}}$ אינה ניתנת לקבלה, ובפרט אינה ב-$P \\subseteq R$.\n**הפרכת ג:** $L_1 = A_{TM}$, $L_2 = \\emptyset$: החיתוך $\\emptyset \\in NP$ אבל $A_{TM} \\notin NP$ (כי $NP \\subseteq R$).\n**הפרכת ד:** $L_1 = A_{TM}$, $L_2 = \\Sigma^*$: האיחוד $\\Sigma^* \\in NP$ אבל $A_{TM} \\notin NP$.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution."
+  },
+  {
+   "num": 3,
+   "topic": "tm",
+   "question": "יהיו $M_1, M_2$ מכונות טיורינג דטרמיניסטיות כך שמתקיים $L(M_1) = L(M_2)$.\nתהי $w$ מילה השייכת ל-$\\Sigma^*$.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $M_1$ מקבלת את $w$ אז $M_2$ עוצרת על $w$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $M_1$ עוצרת על $w$ אז $M_2$ עוצרת על $w$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $M_1$ לא-עוצרת על $w$ אז $M_2$ לא-עוצרת על $w$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** אם $M_1$ מקבלת את $w$ אז $w \\in L(M_1) = L(M_2)$, כלומר $M_2$ מקבלת את $w$ – ובפרט עוצרת עליה.\n**הפרכת ב:** $M_1$ דוחה את כל המילים ו-$M_2$ לא עוצרת על אף מילה: $L(M_1) = L(M_2) = \\emptyset$, $M_1$ עוצרת על $w$ ו-$M_2$ לא.\n**הפרכת ג:** אותה דוגמה עם התפקידים הפוכים.\n**הפרכת ד:** א נכונה.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution."
+  },
+  {
+   "num": 4,
+   "topic": "tm",
+   "question": "תהי $M = \\langle Q, \\Sigma, \\Gamma, \\delta, q_0, q_{acc}, q_{rej}\\rangle$ מכונת טיורינג, כאשר $\\Sigma$ הוא א\"ב הקלט וכאשר $\\Gamma$ הוא א\"ב הסרט.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הא\"ב $\\Sigma$ מוכל ממש בא\"ב $\\Gamma$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "יתכן שהא\"ב $\\Sigma$ שווה לא\"ב $\\Gamma$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "יתכן שמתקיים $\\Gamma \\cap \\Sigma = \\emptyset$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** לפי ההגדרה $\\Sigma \\subseteq \\Gamma$, ותו הרווח $\\sqcup$ שייך ל-$\\Gamma$ אך לא ל-$\\Sigma$. לכן $\\Sigma \\subsetneq \\Gamma$.\n**הפרכת ב:** $\\sqcup \\in \\Gamma \\setminus \\Sigma$, ולכן $\\Sigma \\ne \\Gamma$.\n**הפרכת ג:** $\\Sigma \\subseteq \\Gamma$ ו-$\\Sigma$ (אלפבית) אינו ריק, ולכן $\\Gamma \\cap \\Sigma = \\Sigma \\ne \\emptyset$.\n**הפרכת ד:** א נכונה.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution. Option ג relies on the course convention that an alphabet is non-empty (if Σ=∅ were allowed, ג would also hold)."
+  },
+  {
+   "num": 5,
+   "topic": "np",
+   "question": "תהיינה $A, B, C$ שפות לא-טריוויאליות כך שמתקיים: $A \\le_p B \\cap C$.\nבנוסף, מתקיים $C \\in P$ וגם $B \\in NP$.\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "מתקיים $A \\in NP$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "יתכן שמתקיים $A \\notin NP$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא ידוע האם מתקיים $P = NP$ ולכן לא ניתן לקבוע בוודאות האם מתקיים $A \\in NP$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** $C \\in P \\subseteq NP$, ו-$NP$ סגורה לחיתוך (מריצים את המוודא של $B$ ואת המכריע של $C$), לכן $B \\cap C \\in NP$. מאחר ש-$A \\le_p B \\cap C$ ו-$NP$ סגורה תחת רדוקציה פולינומית, $A \\in NP$.\n**הפרכת ב, ג:** לפי ההוכחה $A \\in NP$ בוודאות, ללא תלות בשאלה $P = NP$.\n**הפרכת ד:** א נכונה.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution."
+  },
+  {
+   "num": 6,
+   "topic": "decidability",
+   "question": "איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "קיימת שפה ניתנת לקבלה שאינה ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "קיימת שפה ניתנת להכרעה שאינה ניתנת לקבלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $L_2 \\subseteq L_1$ וגם השפה $L_1$ ניתנת להכרעה אז מתקיים: השפה $L_2$ ניתנת לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אם $L_2 \\subseteq L_1$ וגם השפה $L_1$ ניתנת לקבלה אז מתקיים: השפה $L_2$ ניתנת להכרעה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** $A_{TM} \\in RE \\setminus R$.\n**הפרכת ב:** $R \\subseteq RE$ – מכריע הוא בפרט מקבל.\n**הפרכת ג:** $L_1 = \\Sigma^*$ (כריעה), $L_2 = \\overline{A_{TM}} \\subseteq L_1$ שאינה ניתנת לקבלה.\n**הפרכת ד:** $L_1 = \\Sigma^*$, $L_2 = A_{TM}$ שאינה ניתנת להכרעה.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution."
+  },
+  {
+   "num": 7,
+   "topic": "time_p",
+   "question": "תזכורת: אם $w = \\sigma_1\\sigma_2\\cdots\\sigma_n$ אז נגדיר $w^R = \\sigma_n\\sigma_{n-1}\\cdots\\sigma_1$. לכל שפה $L$ נגדיר את השפה ההופכית באופן הבא: $L^R = \\{w \\mid w^R \\in L\\}$.\nנתבונן בשתי הטענות הבאות:\nI. אם $L \\in P$ אזי מתקיים $L^R \\in P$.\nII. אם $L \\in NP$ אזי מתקיים $L^R \\in NP$.\nאיזה מהסעיפים הבאים נכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "שתי הטענות I, II הן נכונות."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "טענה I נכונה וגם טענה II לא נכונה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "שתי הטענות I, II הן לא נכונות."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "טענה II נכונה וגם טענה I לא נכונה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**טענה I נכונה:** על קלט $w$ מחשבים את $w^R$ (בזמן $O(|w|^2)$ במ\"ט בסיסית) ומריצים עליו את המכריע הפולינומי של $L$ (כאשר $|w^R| = |w|$). סה\"כ זמן פולינומי, והמכונה מקבלת בדיוק כאשר $w^R \\in L$.\n**טענה II נכונה:** אותה בנייה עם מכונה לא דטרמיניסטית פולינומית עבור $L$ (או: מוודא של $L^R$ מקבל $\\langle w, c\\rangle$ ומריץ את המוודא של $L$ על $\\langle w^R, c\\rangle$).",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution."
+  },
+  {
+   "num": 8,
+   "topic": "mapping_reductions",
+   "question": "תהיינה $L_1, L_2$ שפות.\nנניח כי קיימת פונקציה ניתנת לחישוב $f: \\Sigma^* \\to \\Sigma^*$ כך שלכל $x \\in \\Sigma^*$ מתקיים:\n$$x \\notin L_1 \\Leftrightarrow f(x) \\notin L_2$$נתבונן בטענה הבאה: אם מתקיים $L_2 \\in R$ אזי מתקיים $L_1 \\in R$.\nאיזה מהסעיפים הבאים נכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הטענה נכונה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הטענה לא נכונה"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הטענה נכונה:** התנאי $x \\notin L_1 \\Leftrightarrow f(x) \\notin L_2$ שקול ל-$x \\in L_1 \\Leftrightarrow f(x) \\in L_2$, ולכן $f$ היא רדוקציה $L_1 \\le_m L_2$. לפי משפט הרדוקציה, אם $L_2 \\in R$ אז $L_1 \\in R$.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution."
+  },
+  {
+   "num": 9,
+   "topic": "closure",
+   "question": "תהי $L$ שפה ניתנת להכרעה, כלומר $L \\in R$.\nנגדיר את השפה הבאה:\n$$A(L) = \\{w \\mid (*)\\}$$(*): $w \\notin L$ וגם $|w| > 3$\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $A(L)$ ניתנת להכרעה"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $A(L)$ ניתנת לקבלה וגם יתכן שהשפה $A(L)$ לא-ניתנת להכרעה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "יתכן שהשפה $A(L)$ לא-ניתנת לקבלה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** $A(L) = \\overline{L} \\cap \\{w \\mid |w| > 3\\}$. $\\overline{L} \\in R$ (סגירות למשלים) והשפה $\\{w \\mid |w| > 3\\}$ רגולרית ולכן ב-$R$; $R$ סגורה לחיתוך. בפועל: על קלט $w$ – אם $|w| \\le 3$ דחה, אחרת הרץ את המכריע של $L$ והחזר את התשובה ההפוכה.\n**הפרכת ב, ג, ד:** $A(L)$ תמיד ניתנת להכרעה.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution. Printed set: 'A(L) = { w | w ∉ L וגם |w| > 3 }' — condition moved to a (*) line."
+  },
+  {
+   "num": 10,
+   "topic": "np",
+   "question": "איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "קיימת מכונת טיורינג לא-דטרמיניסטית $M$ כך שמתקיים: $L(M) \\notin R$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "קיימת מכונת טיורינג לא-דטרמיניסטית $M$ כך שמתקיים: $L(M) \\notin RE$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לכל מכונת טיורינג לא-דטרמיניסטית $M$ מתקיים: $L(M) \\notin P$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לכל מכונת טיורינג לא-דטרמיניסטית $M$ מתקיים: $L(M) \\notin NP$"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** כל מ\"ט דטרמיניסטית היא בפרט לא-דטרמיניסטית; המכונה האוניברסלית $U$ מקיימת $L(U) = A_{TM} \\notin R$.\n**הפרכת ב:** לכל מ\"ט לא-דטרמיניסטית יש מ\"ט דטרמיניסטית שקולה, ולכן תמיד $L(M) \\in RE$.\n**הפרכת ג, ד:** מכונה לא-דטרמיניסטית שדוחה מיד כל קלט מקיימת $L(M) = \\emptyset \\in P \\subseteq NP$.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution."
+  },
+  {
+   "num": 11,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{a^n b^{n+1} c^{n+2} \\mid n \\ge 0\\}$$איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** מכריע: בודקים שהקלט מהצורה $a^* b^* c^*$, סופרים את מספרי ה-$a$, ה-$b$ וה-$c$ ובודקים ש-$\\#b = \\#a + 1$ ו-$\\#c = \\#a + 2$. המכונה תמיד עוצרת, לכן $L \\in R$ (ובפרט $L, \\overline{L} \\in RE$, ולכן ב, ג, ד שגויות).",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution."
+  },
+  {
+   "num": 12,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M, w\\rangle \\mid (*)\\}$$(*): $M$ היא מכונת טיורינג וגם החישוב של $M$ על $w$ עוצר במצב מקבל על ידי ביצוע של 3 צעדי חישוב או יותר\nאיזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**$L \\in RE$:** על קלט $\\langle M, w\\rangle$ מסמלצים את $M$ על $w$ וסופרים צעדים; אם $M$ מקבלת אחרי 3 צעדים או יותר – קבל, אם עצרה אחרת – דחה.\n**$L \\notin R$:** רדוקציה $A_{TM} \\le_m L$: $f(\\langle M, w\\rangle) = \\langle M', w\\rangle$ כאשר $M'$ מבצעת תחילה 4 צעדי סרק (ימינה, שמאלה, ימינה, שמאלה – הראש חוזר למקום והסרט לא משתנה) ואז מריצה את $M$ על הקלט. $M'$ מקבלת את $w$ אם\"ם $M$ מקבלת את $w$, ואם היא מקבלת – זה קורה אחרי יותר מ-3 צעדים. לכן $\\langle M, w\\rangle \\in A_{TM} \\Leftrightarrow f(\\langle M, w\\rangle) \\in L$, ו-$A_{TM} \\notin R$ נותן $L \\notin R$.\nלכן התשובה היא א ($RE \\setminus R$); ב, ג, ד נפסלות.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution. Options 1-2 printed in the order (RE\\R, R, ...). Printed stem condition in a 3-line brace; moved to (*)."
+  },
+  {
+   "num": 13,
+   "topic": "classification",
+   "question": "נגדיר את השפה הבאה:\n$$L = \\{\\langle M_1, M_2\\rangle \\mid \\varepsilon \\in L(M_1) \\cup L(M_2)\\}$$איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "השפה $L$ ניתנת לקבלה אבל לא-ניתנת להכרעה."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "השפה $L$ ניתנת להכרעה."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה אבל $\\overline{L}$ ניתנת לקבלה."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "השפה $L$ לא-ניתנת לקבלה וגם $\\overline{L}$ לא-ניתנת לקבלה."
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**$L \\in RE$:** מריצים את $M_1$ ואת $M_2$ על $\\varepsilon$ במקביל (צעד-צעד לסירוגין) ומקבלים ברגע שאחת מהן מקבלת.\n**$L \\notin R$:** רדוקציה $A_{TM} \\le_m L$: $f(\\langle M, w\\rangle) = \\langle K_{M,w}, K_{M,w}\\rangle$ כאשר $K_{M,w}$ על כל קלט מריצה את $M$ על $w$ ומחזירה את תשובתה. $\\varepsilon \\in L(K_{M,w})$ אם\"ם $M$ מקבלת את $w$.\nלכן התשובה היא א ($RE \\setminus R$); ב, ג, ד נפסלות.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution. Options 1-2 printed in the order (RE\\R, R, ...)."
+  },
+  {
+   "num": 14,
+   "topic": "npc",
+   "question": "איזו מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "כל הטענות האחרות לא נכונות"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "יתכן שמתקיים: $IS \\in P$ וגם $CLIQUE \\notin P$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "יתכן שמתקיים: $CLIQUE \\in P$ וגם $IS \\notin P$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "יתכן שמתקיים: $IS \\notin NP$ וגם $CLIQUE \\notin NP$"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**הוכחת א:** $CLIQUE, IS \\in NPC$.\n**הפרכת ב:** אם $IS \\in P$ אז, כיוון ש-$IS \\in NPC$, מתקיים $P = NP$ ולכן $CLIQUE \\in NP = P$ (ישירות: $CLIQUE \\le_p IS$ על ידי מעבר לגרף המשלים).\n**הפרכת ג:** סימטרי – $IS \\le_p CLIQUE$.\n**הפרכת ד:** ידוע ש-$CLIQUE, IS \\in NP$ (הקליקה/הקבוצה הבלתי תלויה היא עד שנבדק בזמן פולינומי).\nלכן ב, ג, ד שגויות ו-א נכונה.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution."
+  },
+  {
+   "num": 15,
+   "topic": "mapping_reductions",
+   "question": "$f$ היא רדוקציה $H^*_{TM} \\le_m \\Sigma^*$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**לא נכון:** $f$ היא הזהות, ולכן היא רדוקציה $H^*_{TM} \\le_m \\Sigma^*$ רק אם $H^*_{TM} = \\Sigma^*$. אבל למשל קידוד של מכונה שלא עוצרת על אף קלט אינו ב-$H^*_{TM}$ (ובכלל – רק $\\Sigma^*$ עצמה ניתנת לרדוקציה ל-$\\Sigma^*$).",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution.",
+   "contextId": "blk"
+  },
+  {
+   "num": 16,
+   "topic": "mapping_reductions",
+   "question": "$f$ היא רדוקציה $ALL_{TM} \\le_m H^*_{TM}$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**לא נכון:** הזהות היא רדוקציה רק אם $ALL_{TM} = H^*_{TM}$. מכונה $M$ שדוחה מיד כל קלט עוצרת על כל קלט, לכן $\\langle M\\rangle \\in H^*_{TM}$, אבל $L(M) = \\emptyset$ ולכן $\\langle M\\rangle \\notin ALL_{TM}$.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution.",
+   "contextId": "blk"
+  },
+  {
+   "num": 17,
+   "topic": "mapping_reductions",
+   "question": "$g$ היא רדוקציה $H^*_{TM} \\le_m ALL_{TM}$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**נכון:** $g$ ניתנת לחישוב (רק בונים את הקידוד של $M_g$). $L(M_g) = \\{y \\mid M \\text{ halts on } y\\}$.\nאם $\\langle M\\rangle \\in H^*_{TM}$ אז $M$ עוצרת על כל $y$, לכן $M_g$ מקבלת כל $y$ ו-$\\langle M_g\\rangle \\in ALL_{TM}$.\nאם $\\langle M\\rangle \\notin H^*_{TM}$ יש $y$ ש-$M$ לא עוצרת עליו, ואז גם $M_g$ לא עוצרת עליו – $y \\notin L(M_g)$ ולכן $\\langle M_g\\rangle \\notin ALL_{TM}$.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution.",
+   "contextId": "blk"
+  },
+  {
+   "num": 18,
+   "topic": "mapping_reductions",
+   "question": "$g$ היא רדוקציה $ALL_{TM} \\le_m H^*_{TM}$.",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא נכון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "נכון"
+    }
+   ],
+   "correctId": "a",
+   "answerSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "explanation": "**לא נכון:** ניקח $M$ שדוחה מיד כל קלט: $\\langle M\\rangle \\notin ALL_{TM}$, אבל $M$ עוצרת על כל קלט ולכן $M_g$ מקבלת כל קלט (ובפרט עוצרת תמיד), כלומר $g(\\langle M\\rangle) = \\langle M_g\\rangle \\in H^*_{TM}$. תנאי הרדוקציה מופר.",
+   "note": "form-0 (מבחן מס' 000) first option: א — agrees with my solution.",
+   "contextId": "blk"
+  }
+ ]
+}

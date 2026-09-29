@@ -1,0 +1,20 @@
+{"answers": {
+"1": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "I false (A_TM in RE not R); II true since complement in NP implies L in R subset RE"},
+"2": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "co-ALL_TM is neither RE nor coRE, so by the reduction theorem L is neither RE nor coRE"},
+"3": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "Run M on w and w^R, accept if both accept: RE; A_TM reduces (M' ignores its input), so not R"},
+"4": {"answer": "b", "confident": true, "transcriptionIssues": "Source option c has typo 'ענה' for 'טענה' (cosmetic)", "reason": "I false: a rejecting branch of M1 allows w outside L, and M2 may loop on all branches; II false: w in L gives M2 an accepting branch but other branches may loop"},
+"5": {"answer": "c", "confident": true, "transcriptionIssues": "", "reason": "Traced diagram: q0 moves right to q1 on any symbol; q1 on 1 accepts, on blank rejects, on 0 moves left back to q0 and loops forever; L(M) = words whose second symbol is 1 (regular) but M loops on e.g. 00"},
+"6": {"answer": "a", "confident": true, "transcriptionIssues": "Source labels this question's options with ה,ו,ז,ח instead of א-ד and omits the question line; mapping by order to a-d is correct", "reason": "DFA inclusion is decidable (test emptiness of L(A1) intersect complement of L(A2))"},
+"7": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "f(x)=01 iff x in A_TM else 10 satisfies the condition but is not computable, so neither claim holds"},
+"8": {"answer": "c", "confident": true, "transcriptionIssues": "", "reason": "coB <=p C implies <=m, so A <=m C by transitivity; A <=p C not guaranteed since A <=m coB need not be polynomial"},
+"9": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Both NP-complete so A <=p B and B <=p A, and poly reductions are mapping reductions"},
+"10": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "P=NP and L in NPC subset NP = P gives L in P; c's hypotheses force P=NP; a,b contradict P disjoint from NPC under P != NP"},
+"11": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Counting states in the encoding is a syntactic check"},
+"12": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "A = co-A_TM, B = A_TM: intersection empty and union Sigma* are in R but A not in RE"},
+"13": {"answer": "d", "confident": true, "transcriptionIssues": "", "reason": "L(M) equals a fixed nontrivial infinite language: co-H_TM reduces to both L and its complement"},
+"14": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "Simulate and check step parity: RE; A_TM reduces by padding M to accept only after an even number of steps, so not R"},
+"15": {"answer": "a", "confident": true, "transcriptionIssues": "", "reason": "Complement of G has a (k+1)-IS so G has a (k+1)-clique, hence a k-clique"},
+"16": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "A k-clique in G does not give a (k+1)-clique in G, needed for a (k+1)-IS in the complement"},
+"17": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "f in IS means only that G has a k-clique; G need not have a (k+1)-IS"},
+"18": {"answer": "b", "confident": true, "transcriptionIssues": "", "reason": "A k-IS in G gives neither a k-IS nor a (k+1)-clique requirement for the complement graph"}
+}}
