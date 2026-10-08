@@ -109,7 +109,7 @@ function optionHtml(o){
 }
 
 /* ---------- session state ---------- */
-const S = { mode:"practice", topic:"all", pool:[], pos:0, current:null, streak:0, _views:null,
+const S = { mode:"practice", topic:"all", pool:[], pos:0, current:null, hist:[], hpos:0, streak:0, _views:null,
   exam:{count:20, minutes:90, answers:{}, endAt:0, timer:null} };
 
 /* ---------- start screen ---------- */
@@ -229,8 +229,8 @@ function startSession(){
     S.exam.endAt = Date.now() + S.exam.minutes*60000;
     startTimer();
   }
-  S.pool = pool; S.pos = 0;
-  $("#prevBtn").classList.toggle("hidden", S.mode!=="exam");
+  S.pool = pool; S.pos = 0; S.hist = []; S.hpos = 0;
+  $("#prevBtn").classList.remove("hidden");
   show("screen-quiz");
   renderQuestion();
 }
@@ -245,13 +245,15 @@ function makeView(q){
 }
 
 function renderQuestion(){
-  const q = S.pool[S.pos];
+  let q = S.pool[S.pos];
   if(S.mode==="exam"){
     S._views = S._views || {};
     S.current = S._views[q.id] || makeView(q);   // stable shuffle on back-navigation
     S._views[q.id] = S.current;
   } else {
-    S.current = makeView(q);
+    // practice: every shown question is kept in S.hist (with its shuffle), so "back" replays it as answered
+    if(!S.hist[S.hpos]) S.hist[S.hpos] = Object.assign(makeView(q), {pos:S.pos});
+    S.current = S.hist[S.hpos]; q = S.current.q;
   }
   const v=S.current;
 
@@ -280,7 +282,8 @@ function renderQuestion(){
     markExamChoice(v.order.indexOf(S.exam.answers[q.id]));
   }
 
-  $("#progressFill").style.width = ((S.pos)/(S.pool.length))*100 + "%";
+  const pos = S.mode==="exam" ? S.pos : v.pos;   // in practice the shown question may sit behind the pool cursor
+  $("#progressFill").style.width = ((pos)/(S.pool.length))*100 + "%";
   if(S.mode==="exam"){
     $("#quizMeta").innerHTML = `שאלה ${S.pos+1}/${S.pool.length} <span id="tmr" class="timer"></span>`;
     renderTimer();
@@ -289,9 +292,11 @@ function renderQuestion(){
     $("#prevBtn").disabled = S.pos===0;
     $("#streakBox").textContent = `נענו ${Object.keys(S.exam.answers).length}/${S.pool.length}`;
   } else {
-    $("#quizMeta").textContent = `שאלה ${S.pos+1} מתוך ${S.pool.length}`;
-    $("#nextBtn").classList.add("hidden");
+    $("#quizMeta").textContent = `שאלה ${pos+1} מתוך ${S.pool.length}`;
+    $("#prevBtn").disabled = S.hpos===0;
+    $("#nextBtn").classList.toggle("hidden", !v.answered);   // appears after answering
     $("#submitExamBtn").classList.add("hidden");
+    if(v.answered) paintAnswered(v);                        // navigated back to an answered question
     const a=P.stats.answered,c=P.stats.correct;
     $("#streakBox").textContent = `רצף נכון: ${S.streak||0} · דיוק כולל ${a?Math.round(c/a*100):0}%`;
   }
@@ -307,12 +312,23 @@ function choose(disp){
     return;
   }
   if(v.answered) return;
-  v.answered=true; v.chosen=disp;
-  const correct = isAccepted(q, v.order[disp]);
+  v.answered=true; v.chosen=disp; v.correct = isAccepted(q, v.order[disp]);
+  paintAnswered(v);
+  recordAnswer(q, v.correct);
+  S.streak = v.correct ? (S.streak||0)+1 : 0;
+  $("#nextBtn").focus();
+  renderTopStats();
+  const a=P.stats.answered,c=P.stats.correct;
+  $("#streakBox").textContent = `רצף נכון: ${S.streak} · דיוק כולל ${a?Math.round(c/a*100):0}%`;
+}
+/* Paint an answered practice question: lock the options, mark right/wrong, show the feedback.
+   Runs when answering and again when navigating back to an already-answered question. */
+function paintAnswered(v){
+  const q=v.q, correct=v.correct;
   document.querySelectorAll("#optionsList .opt").forEach((b,i)=>{
     b.disabled=true;
     if(v.correctSet.has(i)) b.classList.add("correct");
-    else if(i===disp) b.classList.add("wrong");
+    else if(i===v.chosen) b.classList.add("wrong");
   });
   // Explanations cite the ORIGINAL exam letters ("הפרכת א…"), but options were shuffled —
   // once answered, tag every option with its letter in the source exam.
@@ -323,8 +339,6 @@ function choose(disp){
       b.insertAdjacentHTML("beforeend", `<span class="orig-key" title="האות במבחן המקורי">במקור: ${HE_KEYS[src]||src+1}</span>`);
     });
   }
-  recordAnswer(q, correct);
-  S.streak = correct ? (S.streak||0)+1 : 0;
   const fb=$("#feedback");
   fb.className = "feedback " + (correct?"good":"bad");
   const srcNote = SRC_NOTE[q.answerSource] || "";
@@ -338,11 +352,8 @@ function choose(disp){
     (srcNote?`<span class="note">${escapeHtml(srcNote)}</span>`:"")+
     `<span class="note">מקור: ${escapeHtml(examLabelOf(q))}${Number.isInteger(q.num)?` · שאלה ${q.num}`:""}</span>`;
   $("#nextBtn").classList.remove("hidden");
-  $("#nextBtn").focus();
-  renderTopStats();
-  const a=P.stats.answered,c=P.stats.correct;
-  $("#streakBox").textContent = `רצף נכון: ${S.streak} · דיוק כולל ${a?Math.round(c/a*100):0}%`;
 }
+
 function markExamChoice(disp){ document.querySelectorAll("#optionsList .opt").forEach((b,i)=> b.classList.toggle("chosen-exam", i===disp)); }
 function recordAnswer(q, correct){ P.stats.answered++; if(correct) P.stats.correct++; P.perQ[q.id]={correct, t:Date.now()}; saveProgress(); }
 
@@ -350,11 +361,16 @@ function recordAnswer(q, correct){ P.stats.answered++; if(correct) P.stats.corre
 function next(){
   if(S.mode==="practice"){
     if(!S.current || !S.current.answered) return;
+    if(S.hpos<S.hist.length-1){ S.hpos++; renderQuestion(); return; }   // forward through history after going back
     if(S.pos>=S.pool.length-1){ S.pool = shuffle(S.pool); S.pos=0; } else S.pos++;
+    S.hpos++;
     renderQuestion();
   } else if(S.pos<S.pool.length-1){ S.pos++; renderQuestion(); }
 }
-function prev(){ if(S.mode==="exam" && S.pos>0){ S.pos--; renderQuestion(); } }
+function prev(){
+  if(S.mode==="exam"){ if(S.pos>0){ S.pos--; renderQuestion(); } }
+  else if(S.hpos>0){ S.hpos--; renderQuestion(); }   // practice: back to the previous question, shown as answered
+}
 
 /* ---------- timer (exam) ---------- */
 function startTimer(){ clearInterval(S.exam.timer); S.exam.timer=setInterval(renderTimer,1000); }
@@ -413,7 +429,7 @@ function renderResults(correct, byTopic, review){
 }
 
 /* ---------- controls ---------- */
-function quit(){ clearInterval(S.exam.timer); S._views=null; S.streak=0; initStart(); show("screen-start"); }
+function quit(){ clearInterval(S.exam.timer); S._views=null; S.hist=[]; S.hpos=0; S.streak=0; initStart(); show("screen-start"); }
 function openLightbox(src, alt){
   const lb=$("#lightbox"), img=$("#lightboxImg"); if(!lb||!img) return;
   img.src=src; img.alt=alt||""; lb.classList.remove("hidden");
@@ -452,7 +468,7 @@ function bindGlobal(){
     if(/^[1-8]$/.test(e.key)){ const b=document.querySelector(`#optionsList .opt[data-disp="${+e.key-1}"]`); if(b && !b.disabled) b.click(); }
     else if(e.key==="Enter"){ if(!$("#nextBtn").classList.contains("hidden")) next(); else if(!$("#submitExamBtn").classList.contains("hidden")) submitExam(false); }
     else if(e.key==="ArrowLeft" && !$("#nextBtn").classList.contains("hidden")) next();
-    else if(e.key==="ArrowRight" && S.mode==="exam") prev();
+    else if(e.key==="ArrowRight") prev();
   });
 }
 
