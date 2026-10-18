@@ -667,3 +667,9 @@ math .ovl{border-top:.065em solid currentColor;padding-top:.07em;margin-top:.06e
   .qpeek-body{padding:.9rem}
   .learn-qs-exam{min-width:0;flex-basis:100%}
 }
+
+/* bidi isolates (bidi.js): a formula inside Hebrew keeps its left-to-right order */
+bdi.ltr{unicode-bidi:isolate;overflow-wrap:anywhere}
+bdi.ltr.nw{white-space:nowrap}
+/* a formula wider than its line scrolls inside its own box (markWide in app.js) */
+.math-lines.wide,.mwrap.wide,.nobr.wide,.math-inline.wide{display:block;max-width:100%;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}

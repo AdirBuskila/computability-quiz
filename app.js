@@ -60,6 +60,17 @@ const $ = s => document.querySelector(s);
 function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
 function show(id){ document.querySelectorAll(".screen").forEach(s=>s.classList.add("hidden")); $("#"+id).classList.remove("hidden"); window.scrollTo({top:0,behavior:"smooth"}); }
 function escapeHtml(s){ return String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m])); }
+/* bidi isolates (bidi.js) on pre-rendered HTML; MathML stays untouched */
+function bi(h){ return window.bidiHtml ? window.bidiHtml(h) : h; }
+/* a formula wider than its line cannot wrap: make it a scroll box of its own */
+function markWide(root){
+  (root || document).querySelectorAll(".math-lines,.mwrap,.nobr,.math-inline").forEach(el=>{
+    el.classList.remove("wide");
+    const box = el.parentElement;
+    if(box && Math.max(el.getBoundingClientRect().width, el.scrollWidth) > box.clientWidth + 1) el.classList.add("wide");
+  });
+}
+
 function optById(q,id){ return (q.options||[]).find(o=>o.id===id); }
 function hasHebrew(s){ return /[֐-׿]/.test(String(s)); }
 /* accepted answers: usually just [correctId]; some questions accept more than one
@@ -97,7 +108,7 @@ function contextHtml(ctx){
 function extrasHtml(q){
   return q.image ? `<figure class="q-fig"><img class="q-img" src="${escapeHtml(q.image)}" alt="" loading="lazy"></figure>` : "";
 }
-function questionHtml(q){ return q.questionHtml || escapeHtml(q.question||""); }
+function questionHtml(q){ return bi(q.questionHtml || escapeHtml(q.question||"")); }
 function optionHtml(o){
   if(!o) return "";
   const type = o.type || "text";
@@ -276,6 +287,7 @@ function renderQuestion(){
 
   $("#qContext").innerHTML = q.contextId ? contextHtml(CTX[q.contextId]) : "";
   $("#questionText").innerHTML = questionHtml(q);
+  markWide($("#questionText"));
   $("#questionText").dataset.qid = q.id;   // read by tools/verify_dom.js / shoot.js
   $("#qExtras").innerHTML = extrasHtml(q);
   if(window.Feedback) window.Feedback.slot($("#qExtras"), "q", reportData(q));
@@ -356,7 +368,7 @@ function paintAnswered(v){
   const multi = acceptedIdsOf(q).length>1;
   fb.innerHTML = `<div class="verdict">${correct?"✓ נכון":"✗ לא נכון"}</div>`+
     (shuffled && q.explanationHtml ? `<span class="note">האותיות בהסבר מתייחסות לסדר המקורי במבחן (מסומן "במקור" ליד כל תשובה).</span>` : "")+
-    (q.explanationHtml ? `<div class="expl">${q.explanationHtml}</div>` : `<div class="expl expl-none">אין הסבר במקור.</div>`)+
+    (q.explanationHtml ? `<div class="expl">${bi(q.explanationHtml)}</div>` : `<div class="expl expl-none">אין הסבר במקור.</div>`)+
     (multi?`<span class="accept-note">בשאלה זו התקבלה יותר מתשובה אחת כנכונה.</span>`:"")+
     (q.official?"":`<span class="note">⚠ תשובה לא רשמית — מומלץ לאמת מול המקור.</span>`)+
     (q.confidence==="low"?`<span class="note">⚠ רמת ביטחון נמוכה בתשובה המסומנת.</span>`:"")+
@@ -435,7 +447,7 @@ function renderResults(correct, byTopic, review){
       ${extrasHtml(v)}
       <div class="ra"><span class="${r.ok?"good":"miss"}">תשובתך: ${chosenTxt}</span>`+
       (r.ok?"":` · <span class="good">${acc.length>1?"נכונות":"הנכונה"}: ${correctTxt}</span>`)+
-      (v.explanationHtml?`<br>${v.explanationHtml}`:"")+(v.official?"":" (לא רשמי)")+`</div>${reportRowHtml(v)}</div>`;
+      (v.explanationHtml?`<br>${bi(v.explanationHtml)}`:"")+(v.official?"":" (לא רשמי)")+`</div>${reportRowHtml(v)}</div>`;
   }).join("");
 }
 
@@ -541,11 +553,11 @@ let openLearnAt = null;   // set by initLearn; used by the ?learn= deep link
     const n = s.topic ? countFor(s.topic,{officialOnly:false,mistakesOnly:false}) : 0;
     const drill = n ? `<button type="button" class="btn primary learn-drill" data-topic="${escapeHtml(s.topic)}">תרגל נושא זה ▶ <span class="n">${n}</span></button>` : "";
     const kind = s.kind==="cheat" ? `<span class="learn-kind">דף עזר</span>` : "";
-    content.innerHTML = `<div class="learn-head"><h2 class="learn-h">${labelHtml(s.title)}${kind}</h2>${drill}</div>` + (s.html||"");
+    content.innerHTML = `<div class="learn-head"><h2 class="learn-h">${labelHtml(s.title)}${kind}</h2>${drill}</div>` + bi(s.html||"");
     content.dataset.chapter = s.id || "";
     toc.querySelectorAll("button").forEach((b,j)=> b.classList.toggle("active", j===idx));
     const active=toc.querySelector("button.active"); if(active) active.scrollIntoView({block:"nearest"});
-    markScrollable();
+    markWide(content); markScrollable();
     fill.style.width = ((idx+1)/data.length*100)+"%";
     pos.textContent = `${idx+1} / ${data.length}`;
     prevB.disabled=idx===0; nextB.disabled=idx===data.length-1;
@@ -598,7 +610,7 @@ let openLearnAt = null;   // set by initLearn; used by the ?learn= deep link
       `<ol class="qpeek-opts">` + (q.options||[]).map((o,i)=>
         `<li class="${isAccepted(q,o.id)?"right":""}" data-oid="${escapeHtml(o.id)}"><span class="key">${HE_KEYS[i]||i+1}</span>`+
         `<span class="txt">${optionHtml(o)}</span></li>`).join("") + `</ol>` +
-      (q.explanationHtml ? `<div class="qpeek-exp"><strong>הסבר:</strong> ${q.explanationHtml}</div>` : "");
+      (q.explanationHtml ? `<div class="qpeek-exp"><strong>הסבר:</strong> ${bi(q.explanationHtml)}</div>` : "");
     peekTopic=q.topic;
     peekDrill.classList.toggle("hidden", !countFor(q.topic,{officialOnly:false,mistakesOnly:false}));
     peek.classList.remove("hidden");
