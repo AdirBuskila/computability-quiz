@@ -1,0 +1,191 @@
+{
+ "course": "tm",
+ "method": "blind solve; own TM simulator (sim.js), own brute force for reductions (brute.js); closure/Rice/Post checked against standard theorems; bank ids exist with matching topics; teach-before-ask read",
+ "questions": {
+  "T01-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T01-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T01-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T01-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T02-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T02-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T02-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T02-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "explanation said 'the last claim': reworded"
+  },
+  "T02-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T03-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T03-Q2": {
+   "agree": true,
+   "mine": 1,
+   "key": 1,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T03-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T03-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T03-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T03-Q6": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T04-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T04-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T04-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T04-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T04-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "explanation referenced options by Hebrew letter (options are shuffled): reworded"
+  },
+  "T05-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T05-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T05-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T05-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T05-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T06-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T06-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T06-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T06-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "T06-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  }
+ },
+ "bankRefs": "all exist, topic matches level",
+ "fixes": [
+  "T02-Q4: explanation said 'the last claim': reworded",
+  "T04-Q5: explanation referenced options by Hebrew letter (options are shuffled): reworded"
+ ]
+}

@@ -49,7 +49,7 @@ CC_LEVEL("map", {
       chk: { kind: "rules", opts: ["red.coRE_down", "red.coRE_up", "red.coRE_down_to_RE", "red.RE_down_wrong_class"] },
       options: ["$A \\in coRE$", "אם $A \\in coRE$ אז $B \\in coRE$", "$A \\in RE$", "$A \\in R$"], answer: 0,
       recap: "coRE ירדה שמאלה כמו RE",
-      explanation: "אותה הוכחה כמו ב-$RE$: ממפים את $x$ ל-$f(x)$ ומשתמשים במכונה של $\\overline{B}$ (באותה פונקציה, $A \\le_m B$ נותן $\\overline{A} \\le_m \\overline{B}$). האפשרות השנייה הפוכה, ושתי האחרונות מניחות יותר ממה שנתון." },
+      explanation: "אותה הוכחה כמו ב-$RE$: ממפים את $x$ ל-$f(x)$ ומשתמשים במכונה של $\\overline{B}$ (באותה פונקציה, $A \\le_m B$ נותן $\\overline{A} \\le_m \\overline{B}$). הטענה ש-$A \\in coRE$ גוררת $B \\in coRE$ היא הכיוון ההפוך, והטענות על $A \\in RE$ ועל $A \\in R$ מניחות יותר ממה שנתון." },
     { ref: "25S-B-Q1", recap: "A ≤m B ו-B ∈ coRE ⟹ A ∈ coRE, אבל לא להפך" },
   ],
 });

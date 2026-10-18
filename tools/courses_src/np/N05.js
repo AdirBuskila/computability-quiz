@@ -27,7 +27,7 @@ CC_LEVEL("np", {
       chk: { kind: "graph-red", from: "CLIQUE", to: "IS", opts: ["comp(G),k", "G,k", "G,n-k", "comp(G),n-k"] },
       options: ["$\\langle \\overline{G}, k \\rangle$", "$\\langle G, k \\rangle$", "$\\langle G, n-k \\rangle$", "$\\langle \\overline{G}, n-k \\rangle$"], answer: 0,
       recap: "קליקה ב-G = קבוצה בלתי תלויה ב-G המשלים",
-      explanation: "קבוצה שכל הזוגות בה מחוברים ב-$G$ הם זוגות שאינם מחוברים ב-$\\overline{G}$, כלומר קבוצה בלתי תלויה, באותו גודל. לכן $k$ לא משתנה. בלי משלים (ב'), הקליקה אינה בלתי תלויה; ו-$n-k$ שייך ל-$VC$." },
+      explanation: "קבוצה שכל הזוגות בה מחוברים ב-$G$ הם זוגות שאינם מחוברים ב-$\\overline{G}$, כלומר קבוצה בלתי תלויה, באותו גודל. לכן $k$ לא משתנה. בלי משלים (הפונקציה $\\langle G, k \\rangle$), הקליקה אינה בלתי תלויה; ו-$n-k$ שייך ל-$VC$." },
     { id: "N05-Q2", question: "איזו פונקציה היא רדוקציה פולינומית $IS \\le_p VC$?",
       chk: { kind: "graph-red", from: "IS", to: "VC", opts: ["G,n-k", "G,k", "comp(G),k", "comp(G),n-k"] },
       options: ["$\\langle G, n-k \\rangle$", "$\\langle G, k \\rangle$", "$\\langle \\overline{G}, k \\rangle$", "$\\langle \\overline{G}, n-k \\rangle$"], answer: 0,

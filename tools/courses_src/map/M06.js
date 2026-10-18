@@ -39,7 +39,7 @@ CC_LEVEL("map", {
       chk: { kind: "brute-universe", n: 3, opts: ["(not R(A,S)) or A==S", "(not R(A,S)) or A!=S", "R(A,S)", "(A!=S) or R(A,B)"] },
       options: ["$A = \\Sigma^*$", "$A \\ne \\Sigma^*$", "כל שפה $A$ מתרדדת אל $\\Sigma^*$", "$\\Sigma^*$ מתרדדת לכל שפה $B$"], answer: 0,
       recap: "רק Σ* מתרדדת ל-Σ*",
-      explanation: "אם יש $x \\notin A$ אז $f(x) \\notin \\Sigma^*$, בלתי אפשרי. לכן $A = \\Sigma^*$. וגם $\\Sigma^*$ אינה מתרדדת ל-$\\emptyset$, כך שהאפשרות האחרונה שגויה." },
+      explanation: "אם יש $x \\notin A$ אז $f(x) \\notin \\Sigma^*$, בלתי אפשרי. לכן $A = \\Sigma^*$. וגם $\\Sigma^*$ אינה מתרדדת ל-$\\emptyset$, כך שהטענה ש-$\\Sigma^*$ מתרדדת לכל $B$ שגויה." },
     { ref: "23S-A-Q24", recap: "A ≤m ∅ נותן A = ∅; ∅ ≤m B נכון לכל B ≠ Σ*" },
   ],
 });

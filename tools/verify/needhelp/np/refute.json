@@ -1,0 +1,221 @@
+{
+ "course": "np",
+ "method": "blind solve; own TM simulator (sim.js), own brute force for reductions (brute.js); closure/Rice/Post checked against standard theorems; bank ids exist with matching topics; teach-before-ask read",
+ "questions": {
+  "N01-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N01-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N01-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N01-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N01-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N02-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N02-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N02-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N02-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N02-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N03-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N03-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N03-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N03-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N03-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N04-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "explanation said 'the last option': reworded"
+  },
+  "N04-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N04-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N04-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N04-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N05-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "explanation referenced an option by letter: reworded"
+  },
+  "N05-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N05-Q3": {
+   "agree": true,
+   "mine": 2,
+   "key": 2,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N05-Q4": {
+   "agree": true,
+   "mine": 1,
+   "key": 1,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N05-Q5": {
+   "agree": true,
+   "mine": 1,
+   "key": 1,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N06-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N06-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N06-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N06-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N06-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N07-Q1": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N07-Q2": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N07-Q3": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N07-Q4": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  },
+  "N07-Q5": {
+   "agree": true,
+   "mine": 0,
+   "key": 0,
+   "note": "exactly one defensible option; each wrong option's stated flaw confirmed"
+  }
+ },
+ "bankRefs": "all exist, topic matches level",
+ "fixes": [
+  "N04-Q1: explanation said 'the last option': reworded",
+  "N05-Q1: explanation referenced an option by letter: reworded"
+ ]
+}

@@ -22,7 +22,7 @@ CC_LEVEL("map", {
       chk: { kind: "red-impossible", opts: [["H_TM", "E_TM"], ["H_TM", "notE_TM"], ["coH_TM", "E_TM"], ["E_TM", "EQ_TM"]] },
       options: ["$H_{TM} \\le_m E_{TM}$", "$H_{TM} \\le_m \\overline{E_{TM}}$", "$\\overline{H_{TM}} \\le_m E_{TM}$", "$E_{TM} \\le_m EQ_{TM}$"], answer: 0,
       recap: "אין רדוקציה בין RE∖R ל-coRE∖R",
-      explanation: "$E_{TM} \\in coRE$ אבל $H_{TM} \\notin coRE$, ולכן $H_{TM} \\le_m E_{TM}$ בלתי אפשרית. שלוש האחרות קיימות: שתיים בעזרת המכונה $K_{M,w}$ (נראה בהמשך), והרביעית כי לבדוק $L(M) = \\emptyset$ זה בדיוק לבדוק שוויון עם מכונה שדוחה הכול." },
+      explanation: "$E_{TM} \\in coRE$ אבל $H_{TM} \\notin coRE$, ולכן $H_{TM} \\le_m E_{TM}$ בלתי אפשרית. שלוש האחרות קיימות: $H_{TM} \\le_m \\overline{E_{TM}}$ ו-$\\overline{H_{TM}} \\le_m E_{TM}$ בעזרת המכונה $K_{M,w}$ (נראה בהמשך), ו-$E_{TM} \\le_m EQ_{TM}$ כי לבדוק $L(M) = \\emptyset$ זה בדיוק לבדוק שוויון עם מכונה שדוחה הכול." },
     { id: "M03-Q2", question: "איזו מהרדוקציות הבאות **לא יכולה** להתקיים?",
       chk: { kind: "red-impossible", opts: [["EQ_TM", "A_TM"], ["A_TM", "H_TM"], ["H_TM", "ALL_TM"], ["A_TM", "ALL_TM"]] },
       options: ["$EQ_{TM} \\le_m A_{TM}$", "$A_{TM} \\le_m H_{TM}$", "$H_{TM} \\le_m ALL_{TM}$", "$A_{TM} \\le_m ALL_{TM}$"], answer: 0,
