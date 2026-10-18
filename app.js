@@ -244,6 +244,16 @@ function makeView(q){
   return { q, order, correctDisplay: order.indexOf(q.correctId), correctSet, answered:false, chosen:null };
 }
 
+/* feedback.js: "report a mistake" mailto link for a question (renders nothing if the helper is absent) */
+function reportData(q){
+  const c = q.course;
+  return {
+    id: c ? `${c.courseId}-${c.levelId}-Q${S.pool.indexOf(q)+1}` : q.id,
+    exam: c ? c.levelTitle : (q.examLabel || q.sourceLabel || q.examCode || ""),
+    html: q.questionHtml, text: q.question
+  };
+}
+function reportRowHtml(q){ return window.Feedback ? window.Feedback.reportRow(reportData(q)) : ""; }
 function renderQuestion(){
   let q = S.pool[S.pos];
   if(S.mode==="exam"){
@@ -268,6 +278,7 @@ function renderQuestion(){
   $("#questionText").innerHTML = questionHtml(q);
   $("#questionText").dataset.qid = q.id;   // read by tools/verify_dom.js / shoot.js
   $("#qExtras").innerHTML = extrasHtml(q);
+  if(window.Feedback) window.Feedback.slot($("#qExtras"), "q", reportData(q));
 
   $("#optionsList").innerHTML = v.order.map((oid,disp)=>
     `<button class="opt" data-disp="${disp}" data-oid="${escapeHtml(oid)}">
@@ -424,7 +435,7 @@ function renderResults(correct, byTopic, review){
       ${extrasHtml(v)}
       <div class="ra"><span class="${r.ok?"good":"miss"}">תשובתך: ${chosenTxt}</span>`+
       (r.ok?"":` · <span class="good">${acc.length>1?"נכונות":"הנכונה"}: ${correctTxt}</span>`)+
-      (v.explanationHtml?`<br>${v.explanationHtml}`:"")+(v.official?"":" (לא רשמי)")+`</div></div>`;
+      (v.explanationHtml?`<br>${v.explanationHtml}`:"")+(v.official?"":" (לא רשמי)")+`</div>${reportRowHtml(v)}</div>`;
   }).join("");
 }
 
