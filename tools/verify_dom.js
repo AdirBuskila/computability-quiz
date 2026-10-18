@@ -29,10 +29,10 @@ window.addEventListener("error", e => errors.push("window.onerror: " + e.message
 // load scripts in index.html order (only local ones; analytics is skipped)
 const scripts = [...window.document.querySelectorAll("script[src]")]
   .map(s => s.getAttribute("src")).filter(s => !/^(https?:)?\/\//.test(s)).map(s => s.split("?")[0]);
-for (const f of scripts) {
-  try { window.eval(fs.readFileSync(path.join(ROOT, f), "utf8")); }
-  catch (e) { errors.push(`eval ${f}: ${e.message}`); }
-}
+// ONE eval for all scripts: a browser shares top-level const/let (S, QS, show, ...) between classic scripts,
+// but separate window.eval calls would not, and course-ui.js uses app.js globals.
+try { window.eval(scripts.map(f => fs.readFileSync(path.join(ROOT, f), "utf8")).join("\n;\n")); }
+catch (e) { errors.push(`eval scripts: ${e.message}`); }
 
 const doc = window.document, $ = s => doc.querySelector(s), $$ = s => [...doc.querySelectorAll(s)];
 let fail = 0;
@@ -49,7 +49,9 @@ function setMode(mode) {
   r.dispatchEvent(new window.Event("change", { bubbles: true }));
 }
 
-assert(scripts.join() === "questions.js,learn.js,bidi.js,app.js,feedback.js", `scripts loaded: ${scripts.join(", ")}`);
+const levelFiles = ["tm", "dec", "map", "np"].flatMap(c => fs.existsSync(path.join(ROOT, "courses", c)) ? fs.readdirSync(path.join(ROOT, "courses", c)).filter(f => /\.js$/.test(f)).sort().map(f => `courses/${c}/${f}`) : []);
+const expectedScripts = ["questions.js", "learn.js", "bidi.js", "app.js", "feedback.js", "courses.js", ...levelFiles, "course-ui.js"];
+assert(scripts.join() === expectedScripts.join(), `scripts loaded: ${scripts.length} (expected base + courses.js + ${levelFiles.length} level files + course-ui.js)`);
 const D = window.CC_QUIZ;
 assert(D && Array.isArray(D.questions), "window.CC_QUIZ defined");
 const QS = D.questions;

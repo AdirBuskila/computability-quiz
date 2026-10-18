@@ -92,6 +92,26 @@ docs/briefs/*.md --build_learn.py--> learn.js
 - Options are shuffled but explanations cite source letters → after answering, `app.js` tags each
   option "במקור: X" (`.orig-key`).
 
+## Guided courses ("צריך עזרה?")
+
+Four ground-up courses (`tm`, `dec`, `map`, `np`; 29 levels, 171 questions, 48 real bank questions by `ref`),
+ported from `machine-learning-quiz`: `courses.js` registry, `course-ui.js` screens, quiz on the main engine with
+`S.mode = "course"` (course answers never touch `ccq_progress_v1`; per-course progress in `ccq_crs_<id>_v1`, all
+storage in try/catch). Plan and the list of machine checks: `docs/needhelp_plan.md`.
+
+- **Source of truth:** `tools/courses_src/<course>/<ID>.js` (`CC_LEVEL(...)`, math as `$TeX$`, no Hebrew inside math).
+  `node tools/build_courses.js` renders the math to MathML and writes `courses/<course>/<ID>.js` (GENERATED, never
+  hand-edit). Then `node tools/course_check.js --sync` (lint + script tags in `index.html`).
+- Text goes through `rich()` in `course-ui.js` -> `bidi.js`; the per-question report link (`feedback.js`) works on
+  course questions. The last level of each course is a boss of six real bank questions (`ref`), original questions
+  carry no exam ids in the stem.
+- **Checks:** `PYTHONUTF8=1 py tools/verify/needhelp/<course>/check.py` (TM simulator, closure engine, brute-forced
+  reductions). Optional `chk` field on a question feeds them and is stripped from the shipped files; add a
+  `chk` + option annotations whenever a question can be checked by machine.
+- `node tools/course_flow.js all light mobile` drives every level in headless Chrome; `verify_dom.js` expects
+  `courses.js`, every level file and `course-ui.js` in `index.html`; the render audit (`course-factory/scripts/render_audit.js .`)
+  must report 0 findings.
+
 ## Docs
 `docs/build_plan.md` (plan/milestones) · `docs/format_triage.md` (every source file → sitting,
 key, status) · `docs/triage/batch*.md` (per-file detail) · `docs/ASK_ADIR.md` (open questions) ·

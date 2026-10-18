@@ -17,3 +17,7 @@ Thumbs.db
 tools/raw/*/
 tools/raw/*.tsv
 tools/raw/_blind_*.json
+
+# guided-course checker export (generated)
+tools/verify/needhelp/_levels.json
+tools/verify/needhelp/**/__pycache__/
