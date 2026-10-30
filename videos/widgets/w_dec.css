@@ -1,0 +1,41 @@
+/* decidability-course widgets (videos/widgets/w_dec.py) */
+
+/* class map: RE and coRE ellipses, R in the overlap, "none" outside */
+.vennwrap{position:relative;flex:none}
+.vennwrap svg.venn{position:absolute;inset:0}
+.venn .vall{fill:rgba(255,255,255,.025);stroke:var(--line);stroke-width:2}
+.venn .vre{fill:none;stroke:var(--brand2);stroke-width:4}
+.venn .vco{fill:none;stroke:#c084fc;stroke-width:4}
+.venn .vfill{fill:rgba(45,212,191,.2)}
+.vtitle{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-size:36px;font-weight:700;direction:rtl}
+.vtitle.re{color:var(--brand2)}
+.vtitle.co{color:#c084fc}
+.vtitle.r{color:var(--brand)}
+.vtitle.no{color:var(--muted);font-size:26px;font-weight:400}
+.vchip{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-size:30px;padding:4px 16px;border-radius:999px;
+  background:var(--card);border:2px solid var(--line)}
+
+/* a table revealed row by row */
+table.dtab{border-collapse:separate;border-spacing:0;font-size:30px;background:var(--card2);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;direction:rtl}
+table.dtab th,table.dtab td{position:relative;padding:10px 22px;text-align:center;border-bottom:1px solid var(--line)}
+table.dtab thead th{color:var(--muted);font-weight:600;font-size:26px}
+table.dtab tbody tr:last-child>*{border-bottom:none}
+table.dtab td .yes{color:var(--ok);font-weight:700}
+table.dtab td .no{color:var(--bad);font-weight:700}
+table.dtab.wide th,table.dtab.wide td{text-align:right}
+
+/* run lanes: step boxes */
+.lanes{display:flex;flex-direction:column;gap:26px;align-items:flex-start}
+.lane{display:flex;align-items:center;gap:18px}
+.lane .lname{font-size:38px;min-width:90px;text-align:center}
+.lane .lboxes{display:flex;gap:10px}
+.lane .lbox{width:48px;height:48px;border-radius:10px;background:rgba(56,189,248,.25);border:2px solid var(--brand2)}
+.lane .lend{font-size:32px;font-weight:700;padding:4px 18px;border-radius:999px;white-space:nowrap;direction:rtl}
+.lane .lend.ok{color:var(--ok);background:rgba(52,211,153,.13)}
+.lane .lend.bad{color:var(--bad);background:rgba(251,113,133,.13)}
+.lane .lend.loop{color:var(--warn);background:rgba(251,191,36,.12)}
+.lanecap{font-size:30px;color:var(--muted);direction:rtl}
+table.dtab.big{font-size:38px}
+table.dtab.big thead th{font-size:30px}
+table.dtab.big th,table.dtab.big td{padding:12px 30px}

@@ -104,7 +104,8 @@ def source_hash(vid_id):
     Stored next to the MP4; an MP4 whose hash differs is stale (a lexicon change, a widget fix, …)."""
     h = hashlib.sha1()
     files = [script_path(vid_id), VIDEOS / "lexicon.py", VIDEOS / "app_config.py"]
-    files += sorted((VIDEOS / "widgets").glob("*.py")) + sorted(ENGINE.glob("*.py")) + sorted(ENGINE.glob("*.css"))
+    files += sorted(VIDEOS.glob("lex_*.py"))                     # per-course lexicon additions
+    files += sorted((VIDEOS / "widgets").glob("*.py")) + sorted((VIDEOS / "widgets").glob("*.css")) + sorted(ENGINE.glob("*.py")) + sorted(ENGINE.glob("*.css"))
     files += sorted(script_path(vid_id).parent.glob("*.py"))
     for f in dict.fromkeys(files):
         if f.exists():
@@ -302,8 +303,7 @@ def _unescape(tex):
 def compose(V, scenes, phrases, words, total):
     import shosh
     css = (ENGINE / "video.css").read_text(encoding="utf-8")
-    extra = VIDEOS / "widgets" / "widgets.css"
-    if extra.exists():
+    for extra in sorted((VIDEOS / "widgets").glob("*.css")):      # widgets.css + one file per course widget
         css += "\n" + extra.read_text(encoding="utf-8")
     blocks = []
     for sc in scenes:

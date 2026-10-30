@@ -1,0 +1,30 @@
+/* mapping-reduction widgets (w_map.py) */
+svg.mapsvg{overflow:visible}
+svg.mapsvg .univ{fill:rgba(255,255,255,.03);stroke:rgba(255,255,255,.18);stroke-width:2}
+svg.mapsvg .ulabel{font-family:"Cambria Math",serif;font-size:34px;fill:#9aa0cf}
+svg.mapsvg .lang{fill:rgba(45,212,191,.10);stroke:#2dd4bf;stroke-width:3}
+svg.mapsvg .lname{font-family:"Cambria Math",serif;font-style:italic;font-size:44px;fill:#2dd4bf}
+svg.mapsvg .wlabel{font-family:"Cambria Math",serif;font-size:32px;fill:#eaedff}
+svg.mapsvg .cls{fill:none;stroke-width:3}
+svg.mapsvg .cls.re{stroke:#38bdf8;fill:rgba(56,189,248,.06)}
+svg.mapsvg .cls.core{stroke:#fbbf24;fill:rgba(251,191,36,.06)}
+svg.mapsvg .cname{font-family:"Cambria Math",serif;font-size:40px;fill:#c9cdf0}
+svg.mapsvg .cname.r{fill:#2dd4bf}
+svg.mapsvg .vlabel{font-family:"Cambria Math",serif;font-style:italic;font-size:36px;fill:#eaedff}
+svg.mapsvg .xmark{font-size:54px;fill:#fb7185;font-weight:700}
+.codebox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 10px;min-width:560px;
+  font-family:Consolas,monospace;font-size:32px;line-height:1.55;text-align:left}
+.codebox .chead{color:var(--muted);font-size:26px;padding:0 18px 6px}
+.codebox .cline{position:relative;white-space:nowrap}
+.codebox .cline span{position:relative}
+.codebox .chl{position:absolute;inset:0 6px;border-radius:8px;background:rgba(45,212,191,.20);box-shadow:inset 4px 0 0 #2dd4bf}
+.mrows .row .sym{min-width:300px}
+.mrows{font-size:31px}
+.pipe{display:flex;align-items:center;gap:0;direction:ltr}
+.pipe .pstep{display:flex;align-items:center}
+.pipe .parr{font-size:44px;color:var(--muted);margin:0 10px}
+.pipe .pbox{border:2px solid var(--line);border-radius:14px;padding:10px 18px;font-size:32px;background:var(--card);direction:rtl;white-space:nowrap}
+.pipe .pbox.f{border-color:#38bdf8;color:#38bdf8}
+.pipe .pbox.solver{border-color:#2dd4bf;background:rgba(45,212,191,.12)}
+.pipe .pbox.ans{border-color:#34d399;color:#34d399}
+.mrows.steps .row .sym{min-width:44px;color:var(--brand);font-weight:700}

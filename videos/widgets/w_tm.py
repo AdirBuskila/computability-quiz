@@ -129,3 +129,101 @@ def run_phrases(pfx, delta, confs, versions, step_sub=None, lead=None, end=True)
                f"עוברים ל{state_say(p)}, {move}.")
         ph.append(P(sub, say=say, do=do))
     return ph
+
+
+# ---------------------------------------------------------------- added for T02-T07 (T01 does not use these)
+def step_do(pfx, confs, versions, s):
+    """the show/hide list that moves tape `pfx` from configuration s-1 to s (same as one run_phrases step)"""
+    (q, t0, h0), (p, t1, h1) = confs[s - 1], confs[s]
+    do = []
+    k0, k1 = _version(versions, h0, confs, s - 1), _version(versions, h0, confs, s)
+    if k1 != k0:
+        do += hide(f"{pfx}-c{h0}-{k0}") + show(f"{pfx}-c{h0}-{k1}")
+    if h1 != h0:
+        do += hide(f"{pfx}-hd{h0}") + show(f"{pfx}-hd{h1}")
+    if p != q:
+        do += hide(f"{pfx}-st-{q}") + show(f"{pfx}-st-{p}")
+    return do
+
+
+def delta_table(pfx, delta, states, syms):
+    """δ as a table, LTR: a row per state, a column per symbol, '—' where no transition (= reject).
+    Ids: {pfx}-hi-{q}-{a} highlight of a cell (hidden)."""
+    head = "".join(f"<th>${sym_tex(a)}$</th>" for a in syms)
+    rows = []
+    for q in states:
+        cells = []
+        for a in syms:
+            t = delta.get((q, a))
+            txt = f"$({state_tex(t[0])}, {sym_tex(t[1])}, {t[2]})$" if t else "—"
+            cells.append(f'<td><i id="{pfx}-hi-{q}-{a}" class="cell-hi h"></i>{txt}</td>')
+        rows.append(f"<tr><th>${state_tex(q)}$</th>{''.join(cells)}</tr>")
+    return (f'<table class="delta tmdelta" id="{pfx}" dir="ltr"><thead><tr><th>$\\delta$</th>{head}</tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table>')
+
+
+def table_do(phrases, tpfx, confs, delta, first=0):
+    """add to run_phrases' phrases the highlight of the table cell used in each step (phrases[first] = step 1)"""
+    prev = None
+    for s in range(1, len(confs)):
+        q, t, h = confs[s - 1]
+        a = t[h] if h < len(t) else BLANK
+        cur = f"{tpfx}-hi-{q}-{a}" if (q, a) in delta else None
+        do = (hide(prev) if prev else []) + (show(cur) if cur else [])
+        phrases[first + s - 1].do += do
+        prev = cur
+    return prev
+
+
+def conf_tex(conf):
+    """configuration u q v (head on the first symbol of v); trailing blanks dropped, the scanned blank kept"""
+    q, t, h = conf
+    t = list(t)
+    while len(t) > h + 1 and t[-1] == BLANK:
+        t.pop()
+    while len(t) <= h:
+        t.append(BLANK)
+    u = " ".join(sym_tex(c) for c in t[:h])
+    v = " ".join(sym_tex(c) for c in t[h:])
+    return (f"{u} \\; " if u else "") + f"{state_tex(q)} \\; {v}"
+
+
+def conf_lines(pfx, confs):
+    """the run as configurations, one line per step: {pfx}-cf{s} (all hidden)"""
+    rows = "".join(f'<div id="{pfx}-cf{s}" class="cfline h">{"$\\vdash$ " if s else ""}${conf_tex(c)}$</div>'
+                   for s, c in enumerate(confs))
+    return f'<div class="cflines" dir="ltr">{rows}</div>'
+
+
+def ntm_tree(pfx, branches, w=620, h=430):
+    """a computation tree: a root and one branch per entry of `branches` = [(kind, nodes)], kind acc/rej/loop.
+    Ids: {pfx}-b{i} branch i (hidden), {pfx}-l{i}-{kind} its end label (hidden; a swap can show the other)."""
+    n = len(branches)
+    rx, ry, R = w / 2, 40, 18
+    out = [f'<svg class="ntm" id="{pfx}" width="{w}" height="{h}" viewBox="0 0 {w} {h}">']
+    lab = {"acc": ("✓", "acc"), "rej": ("✗", "rej"), "loop": ("∞", "loop")}
+    for i, (kind, k) in enumerate(branches):
+        x = w * (i + 0.5) / n
+        span = h - (190 if kind == "loop" else 110)            # an infinite branch ends in a long dashed tail
+        ys = [ry + span * (j + 1) / k for j in range(k)]
+        pts = [(rx, ry)] + [(x, y) for y in ys]
+        g = [f'<g id="{pfx}-b{i}" class="h">']
+        g.append('<polyline class="ne" points="' + " ".join(f"{a:.0f},{b:.0f}" for a, b in pts) + '"/>')
+        g += [f'<circle cx="{x:.0f}" cy="{y:.0f}" r="{R - 4}" class="nn"/>' for y in ys]
+        if kind == "loop":
+            g.append(f'<line class="ne dash" x1="{x:.0f}" y1="{ys[-1]:.0f}" x2="{x:.0f}" y2="{h - 64:.0f}"/>')
+        g.append("</g>")
+        out += g
+        for kk in ("acc", "rej", "loop"):
+            sym, cls = lab[kk]
+            vis = "" if kk == kind else " alt"
+            out.append(f'<text id="{pfx}-l{i}-{kk}" class="nl {cls} h{vis}" x="{x:.0f}" y="{h - 8}">{sym}</text>')
+    out.append(f'<circle cx="{rx}" cy="{ry}" r="{R}" class="nn"/></svg>')        # the root over the branch lines
+    return "".join(out)
+
+
+def ntm_verdict(kinds):
+    """'accept' if some branch accepts, 'reject' if all reject, else 'none' (no accepting branch, one never halts)"""
+    if "acc" in kinds:
+        return "accept"
+    return "reject" if all(k == "rej" for k in kinds) else "none"

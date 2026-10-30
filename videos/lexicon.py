@@ -43,6 +43,12 @@ TEX_TOKENS = {
     "f": "אֶף", "g": "גִ'י", "w": "דַּאבְּלְיוּ", "x": "אִקְס", "y": "וַואי", "z": "זֶד", "k": "קֵיי", "n": "אֶן",
     "m": "אֶם", "t": "טִי", "u": "יוּ", "v": "וִי", "s": "אֶס", "i": "אַיי", "j": "גֵ'יי",
 }
+import importlib, pathlib
+for _f in sorted(pathlib.Path(__file__).parent.glob("lex_*.py")):   # per-course additions: lex_dec.py, lex_np.py, …
+    _m = importlib.import_module(_f.stem)
+    WORDS.update(getattr(_m, "WORDS", {}))
+    HOMOPHONES.update(getattr(_m, "HOMOPHONES", {}))
+    TEX_TOKENS.update(getattr(_m, "TEX_TOKENS", {}))
 for d, s in DIGIT.items():                       # noqa: F405
     TEX_TOKENS[d] = s
 _TOK = sorted(TEX_TOKENS, key=len, reverse=True)

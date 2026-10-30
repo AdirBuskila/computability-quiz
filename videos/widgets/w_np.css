@@ -1,0 +1,59 @@
+/* P / NP widgets (w_np.py) */
+
+/* small graphs */
+svg.npg .ge{stroke:#c9cdf0;stroke-width:4}
+svg.npg .ge.alt{stroke:var(--warn);stroke-width:4;stroke-dasharray:12 9}
+svg.npg .ge-hi{stroke:var(--brand);stroke-width:9;stroke-linecap:round}
+svg.npg .gv{fill:var(--card);stroke:#c9cdf0;stroke-width:3}
+svg.npg .gv-hi{fill:rgba(45,212,191,.30);stroke:var(--brand);stroke-width:6}
+svg.npg .gl{font-family:"Cambria Math",serif;font-style:italic;font-size:30px;fill:var(--ink);text-anchor:middle}
+
+/* nested complexity classes */
+.nclswrap{display:flex;justify-content:center;width:100%}
+.ncls{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  border:3px solid var(--brand2);border-radius:44px;padding:58px 34px 26px;min-width:150px;min-height:60px;
+  background:rgba(56,189,248,.06)}
+.ncls .ncls{border-color:var(--brand);background:rgba(45,212,191,.07)}
+.ncls .ncls .ncls{border-color:var(--warn);background:rgba(251,191,36,.07)}
+.ncls .ncls .ncls .ncls{border-color:var(--ok);background:rgba(52,211,153,.08)}
+.nlab{position:absolute;top:10px;left:0;right:0;text-align:center;font-size:36px}
+
+/* reduction diagram */
+.redux{display:grid;grid-template-columns:auto auto auto;gap:22px 26px;align-items:center;justify-items:center;font-size:38px}
+.redux .rbox{border:2px solid var(--line);background:var(--card);border-radius:16px;padding:16px 30px}
+.redux .rarr{display:flex;flex-direction:column;align-items:center;color:var(--brand);font-size:34px;line-height:1}
+.redux .rarr span{font-size:56px}
+.redux .rrow{grid-column:1 / span 3;display:flex;gap:26px;align-items:center;font-size:34px;padding:6px 22px;border-radius:999px}
+.redux .rrow.ok{background:rgba(52,211,153,.12)}
+.redux .rrow.bad{background:rgba(251,113,133,.12)}
+
+/* a formula line and a small table of facts */
+.npf{font-size:38px;direction:ltr;text-align:center}
+.npt{border-collapse:separate;border-spacing:0;font-size:30px;background:var(--card2);border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;direction:rtl}
+.npt th,.npt td{padding:10px 22px;border-bottom:1px solid var(--line);text-align:center}
+.npt thead th{color:var(--muted);font-weight:600}
+.npt tr.h td{opacity:inherit}
+.big{font-size:60px;direction:ltr;text-align:center}
+
+/* CNF clauses in boxes with a check mark under each */
+.cnfrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;font-size:36px}
+.cnfrow .cbox{position:relative;border:2px solid var(--line);border-radius:14px;padding:8px 14px;background:var(--card)}
+.cnfrow .cand{color:var(--muted)}
+.cnfrow .cmark{position:absolute;left:0;right:0;top:100%;margin-top:6px;text-align:center;font-size:40px}
+.cnfrow .cmark.ok{color:var(--ok)}
+.cnfrow .cmark.bad{color:var(--bad)}
+
+/* Venn of NP and coNP */
+svg.npg .vn{stroke-width:4;fill-opacity:.10}
+svg.npg .vn.a{stroke:var(--brand2);fill:var(--brand2)}
+svg.npg .vn.b{stroke:var(--warn);fill:var(--warn)}
+svg.npg .vn.p{stroke:var(--ok);fill:var(--ok);fill-opacity:.25}
+svg.npg .vl{font-family:"Cambria Math",serif;font-style:italic;font-size:44px;fill:var(--ink);text-anchor:middle}
+svg.npg .vl.q{font-style:normal;font-size:56px;fill:var(--warn)}
+
+/* long exam options: a smaller option list */
+.optsm .opts{gap:9px}
+.optsm .opt{font-size:27px;padding:7px 18px;line-height:1.35}
+.optsm .onote{font-size:22px}
+.optsm .ook{font-size:38px;left:-44px;margin-top:-24px}

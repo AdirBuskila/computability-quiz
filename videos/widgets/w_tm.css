@@ -1,0 +1,18 @@
+/* tm widgets added for T02-T07 (w_tm.py: delta_table, conf_lines, ntm_tree) */
+table.tmdelta{font-size:30px}
+table.tmdelta th,table.tmdelta td{padding:6px 18px}
+.cflines{display:flex;flex-direction:column;gap:6px;font-size:34px;align-items:flex-start;min-height:60px}
+svg.ntm{overflow:visible}
+svg.ntm .nn{fill:var(--card);stroke:#c9cdf0;stroke-width:3}
+svg.ntm .ne{stroke:#c9cdf0;stroke-width:3;fill:none}
+svg.ntm .ne.dash{stroke-dasharray:8 10}
+svg.ntm .nl{font-size:52px;text-anchor:middle;font-weight:700}
+svg.ntm .nl.acc{fill:var(--ok)}
+svg.ntm .nl.rej{fill:var(--bad)}
+svg.ntm .nl.loop{fill:var(--warn)}
+.tmgrid{display:grid;grid-template-columns:repeat(4,auto);gap:12px 22px;direction:ltr;font-size:34px}
+.tmgrid .wc{display:flex;gap:10px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:6px 16px}
+.tmgrid .wc .v{font-weight:700}
+.tmgrid .wc .v.ok{color:var(--ok)}
+.tmgrid .wc .v.bad{color:var(--bad)}
+.tmgrid .wc .v.lp{color:var(--warn)}
