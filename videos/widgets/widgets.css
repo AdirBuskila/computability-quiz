@@ -1,0 +1,21 @@
+/* computability video widgets (appended to tools/video/video.css by vid.py) */
+
+/* Turing-machine tape: cells hold stacked symbol versions; the head marker sits above the cell */
+.tmwrap{display:flex;flex-direction:column;align-items:center;gap:22px}
+.tmtape{display:flex;gap:10px;padding-top:54px}
+.tmcell{position:relative;width:84px;height:84px;border:2px solid var(--line);border-radius:12px;background:var(--card);
+  display:flex;align-items:center;justify-content:center}
+.tmcell.more{border-style:dashed;background:none}
+.tmcell .tsym{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Cambria Math",serif;
+  font-size:44px;font-weight:400}
+.tmcell .thead{position:absolute;top:-56px;left:0;right:0;text-align:center;font-style:normal;font-size:42px;color:var(--brand)}
+.tmstates{position:relative;height:64px;width:260px}
+.tmstate{position:absolute;inset:0;margin:auto;width:max-content;height:max-content;padding:6px 26px;border-radius:999px;
+  border:2px solid var(--brand);background:rgba(45,212,191,.12);font-size:38px}
+
+/* the 7-tuple, one component per row */
+.tuple{display:flex;flex-direction:column;gap:12px;font-size:32px;direction:rtl;width:100%}
+.tuple .row{display:flex;gap:18px;align-items:baseline}
+.tuple .row .sym{min-width:150px;direction:ltr;text-align:center;font-size:36px}
+.bigmath{font-size:52px;direction:ltr;text-align:center}
+.stack{display:flex;flex-direction:column;align-items:center;gap:26px;width:100%}

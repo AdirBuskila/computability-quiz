@@ -21,3 +21,6 @@ tools/raw/_blind_*.json
 # guided-course checker export (generated)
 tools/verify/needhelp/_levels.json
 tools/verify/needhelp/**/__pycache__/
+
+# rendered videos, review frames, TTS cache (regenerable)
+videos/out/
