@@ -441,6 +441,9 @@ def main():
         shutil.rmtree(proj)
     proj.mkdir(parents=True)
     pcm, scenes, phrases, words, total = build_timeline(V)
+    if "--stt-only" in args:                        # CI job next to the render: narration -> transcript, no HTML
+        stt_check(phrases, out)
+        return
     with wave.open(str(proj / "narration.wav"), "wb") as w:
         w.setnchannels(1)
         w.setsampwidth(2)

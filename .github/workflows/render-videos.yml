@@ -13,6 +13,10 @@ on:
       ids:
         description: "Video ids, space separated (e.g. T01 T02)"
         required: true
+      stt_only:
+        description: "Only the speech-to-text check, no render"
+        type: boolean
+        default: false
   push:
     branches: ["render/**"]
 
@@ -32,6 +36,7 @@ jobs:
 
   render:
     needs: plan
+    if: ${{ github.event.inputs.stt_only != 'true' }}
     runs-on: windows-latest
     timeout-minutes: 90
     strategy:
@@ -62,4 +67,31 @@ jobs:
             videos/out/${{ matrix.id }}/frames/
             videos/out/${{ matrix.id }}/timeline.json
             videos/out/${{ matrix.id }}/source_hash.txt
+          retention-days: 14
+
+  # speech-to-text round trip for each video, in parallel with the renders (the Whisper model needs more memory
+  # than the laptop can spare next to everything else). Report: artifact stt-<ID>/stt_report.md
+  stt:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        id: ${{ fromJson(needs.plan.outputs.ids) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13" }
+      - name: Install tools
+        run: |
+          pip install edge-tts faster-whisper numpy
+          which ffmpeg || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - name: STT ${{ matrix.id }}
+        env: { PYTHONUTF8: "1" }
+        run: python tools/video/vid.py ${{ matrix.id }} --stt-only
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stt-${{ matrix.id }}
+          path: videos/out/${{ matrix.id }}/stt_report.md
           retention-days: 14
