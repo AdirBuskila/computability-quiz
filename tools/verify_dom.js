@@ -50,8 +50,8 @@ function setMode(mode) {
 }
 
 const levelFiles = ["tm", "dec", "map", "np"].flatMap(c => fs.existsSync(path.join(ROOT, "courses", c)) ? fs.readdirSync(path.join(ROOT, "courses", c)).filter(f => /\.js$/.test(f)).sort().map(f => `courses/${c}/${f}`) : []);
-const expectedScripts = ["questions.js", "learn.js", "bidi.js", "app.js", "feedback.js", "courses.js", ...levelFiles, "course-ui.js"];
-assert(scripts.join() === expectedScripts.join(), `scripts loaded: ${scripts.length} (expected base + courses.js + ${levelFiles.length} level files + course-ui.js)`);
+const expectedScripts = ["questions.js", "learn.js", "bidi.js", "app.js", "feedback.js", "courses.js", ...levelFiles, "videos.js", "video-ui.js", "course-ui.js"];
+assert(scripts.join() === expectedScripts.join(), `scripts loaded: ${scripts.length} (expected base + courses.js + ${levelFiles.length} level files + videos.js + video-ui.js + course-ui.js)`);
 const D = window.CC_QUIZ;
 assert(D && Array.isArray(D.questions), "window.CC_QUIZ defined");
 const QS = D.questions;
@@ -247,6 +247,50 @@ if (learnCh.length) {
     $("#quitBtn").click();
   }
   assert(errors.length === 0, `learn: no JS errors so far${errors.length ? ": " + errors.join(" | ") : ""}`);
+}
+
+// ---- video course ("🎬 קורס וידאו": videos.js from tools/video/build_manifest.py + video-ui.js) ----
+{
+  const VC = window.VIDEO_COURSE, all = (window.VIDEO_UI && window.VIDEO_UI.all) || [];
+  assert(scripts.includes("videos.js") && scripts.includes("video-ui.js"), "index.html loads videos.js and video-ui.js");
+  if (!all.length) {
+    assert($$(".vid-entry").every(el => el.style.display === "none"), "no videos: the video entries are hidden");
+  } else {
+    const lv = c => (((window.COURSES || {})[c] || {}).levels || []);
+    assert(VC.courses.every(c => c.videos.every(v => lv(c.id).some(L => L.id === v.level))), `video: every one of ${all.length} videos maps to a guided level of its course`);
+    $("#vidEntry").click();
+    assert(visible($("#screen-video")) && visible($("#vidListView")), "video: header entry opens the list");
+    assert($$("#vidCourses .vid-row").length === all.length, `video: list shows ${all.length} videos`);
+    const noYt = all.find(v => !v.youtube);
+    if (noYt) {
+      $(`.vid-row[data-vid="${noYt.id}"]`).click();
+      const vel = $("#vidFrame video");
+      assert(visible($("#vidPlayView")) && !!vel && vel.getAttribute("src") === `videos/out/${noYt.id}/${noYt.id}.mp4`, `video: ${noYt.id} without a youtube id -> local <video>`);
+      vel.dispatchEvent(new window.Event("error"));
+      assert(!!$("#vidFrame .vid-missing"), "video: load error -> 'not uploaded yet' note");
+    }
+    const first = all[0], had = first.youtube; first.youtube = "AbCdEfGhIjK";
+    window.VIDEO_UI.openVideo(first.id);
+    const ifr = $("#vidFrame iframe");
+    assert(!!ifr && ifr.getAttribute("src").startsWith("https://www.youtube-nocookie.com/embed/AbCdEfGhIjK"), "video: youtube id -> youtube-nocookie embed");
+    if (had) first.youtube = had; else delete first.youtube;
+    assert($("#vidPrev").disabled && !$("#vidNext").disabled, "video: first video has prev disabled, next enabled");
+    $("#vidNext").click();
+    assert($("#vidHead").textContent.includes(all[1].id), "video: next -> second video");
+    $("#vidWatchBtn").click();
+    const st = JSON.parse(window.localStorage.getItem("ccq_video_v1") || "{}");
+    assert(st.watched && st.watched[all[1].id], "video: watched mark saved in ccq_video_v1");
+    $("#vidLevel").click();
+    assert(visible($("#screen-course")) && visible($("#crsLessonView")), `video: ${all[1].id} -> practice opens its guided lesson`);
+    const lb = $$("#crsLesson .vid-open").map(b => b.dataset.vid);
+    assert(lb.includes(all[1].id), `video: lesson shows its video button (${lb.join()})`);
+    $(`#crsLesson .vid-open[data-vid="${all[1].id}"]`).click();
+    assert(visible($("#vidPlayView")) && $("#vidBack").textContent.includes("לשיעור"), "video: lesson button opens the player");
+    $("#vidBack").click();
+    assert(visible($("#crsLessonView")), "video: back from the player returns to the lesson");
+    window.VIDEO_UI.openVideo(first.id); $("#brandHome").click();
+    assert(!visible($("#screen-video")) && visible($("#screen-start")), "video: brand click from the player goes home");
+  }
 }
 
 // images referenced anywhere must exist
