@@ -50,7 +50,7 @@ function setMode(mode) {
 }
 
 const levelFiles = ["tm", "dec", "map", "np"].flatMap(c => fs.existsSync(path.join(ROOT, "courses", c)) ? fs.readdirSync(path.join(ROOT, "courses", c)).filter(f => /\.js$/.test(f)).sort().map(f => `courses/${c}/${f}`) : []);
-const expectedScripts = ["questions.js", "learn.js", "bidi.js", "app.js", "feedback.js", "courses.js", ...levelFiles, "videos.js", "video-ui.js", "course-ui.js"];
+const expectedScripts = ["questions.js", "learn.js", "bidi.js", "navurl.js", "app.js", "feedback.js", "courses.js", ...levelFiles, "videos.js", "video-ui.js", "course-ui.js"];
 assert(scripts.join() === expectedScripts.join(), `scripts loaded: ${scripts.length} (expected base + courses.js + ${levelFiles.length} level files + videos.js + video-ui.js + course-ui.js)`);
 const D = window.CC_QUIZ;
 assert(D && Array.isArray(D.questions), "window.CC_QUIZ defined");
